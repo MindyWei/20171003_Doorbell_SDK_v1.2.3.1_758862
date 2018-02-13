@@ -1,0 +1,256 @@
+﻿生成启动时间为 2018/1/31 14:03:32。
+     1>项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\itu\itu.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\it9070 /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavformat /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavdevice /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavutil /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libswresample /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libswscale /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itv /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D FT2_BUILD_LIBRARY /D CFG_ITU_ERR /D CFG_ITU_WARN /D CFG_ITU_INFO /D CFG_ITU_FT_CACHE_SIZE=0x7D000 /D CFG_ITU_UCL_ENABLE /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"itu.dir\Debug\\" /Fd"itu.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_freetype_cache.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_action.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_analogclock.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_animation.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_audio.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_background.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_backgroundbutton.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_base.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_blur.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_borderwindow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_button.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_calendar.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_checkbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_circleprogressbar.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_clipper.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_colorpicker.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_container.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_coverflow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_curve.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_effect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_digitalclock.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_dragicon.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_drawpen.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_fadeeffect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_filelistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_flowwindow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_icon.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_iconlistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_imagecoverflow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_jpeg.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_keyboard.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_languagesprite.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_layer.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_listbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_mediafilelistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_meter.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_pageflow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_png.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_popupbutton.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_popupradiobox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_progressbar.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_radiobox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_ripplebackground.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scaleeffect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalefadeeffect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scene.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrollbar.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolleffect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrollfadeeffect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolliconlistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolllistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrollmediafilelistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolltext.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_shadow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_simpleanimation.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_slideshow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_sprite.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_spritebutton.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stringset.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_surface.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_tablelistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_tableiconlistbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_text.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_textbox.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_trackbar.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_utility.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_video.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wavebackground.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheelbackground.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_widget.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wipeeffect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\ArabicConverter.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\it9070\itu_framefunc.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\it9070\itu_lcd.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_sw.c
+         itu_freetype_cache.c
+         itu_action.c
+         itu_analogclock.c
+         itu_animation.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include\freetype/freetype.h(2675): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_freetype_cache.c)
+         itu_audio.c
+         itu_background.c
+         itu_backgroundbutton.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.h(172): warning C4005: “MMP_WCHAR”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_audio.c)
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\sxa_dmx/sxa_dmx.h(45) : 参见“MMP_WCHAR”的前一个定义
+         itu_base.c
+         itu_blur.c
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\itu\itu_cfg.h(27): warning C4005: “LOG_INFO”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_audio.c)
+                 D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.h(99) : 参见“LOG_INFO”的前一个定义
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\itu\itu_cfg.h(56): warning C4005: “LOG_END”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_audio.c)
+                 D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.h(105) : 参见“LOG_END”的前一个定义
+         itu_borderwindow.c
+         itu_button.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_base.c(155): warning C4113: “void (__cdecl *)(ITUSurface *,int,int,ITUSurface *,int,int,int,int,int,int,int,int,int,int,int,int,bool,ITUPageFlowType)”和“void (__cdecl *)(ITUSurface *,int,int,ITUSurface *,int,int,int,int,int,int,int,int,int,int,int,int,bool,ITUPageFlowType,ITUTransformType)”的参数列表不同
+         itu_calendar.c
+         itu_checkbox.c
+         itu_circleprogressbar.c
+         itu_clipper.c
+         itu_colorpicker.c
+         itu_container.c
+         itu_coverflow.c
+         itu_curve.c
+         itu_effect.c
+         itu_digitalclock.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_curve.c(214): warning C4244: “函数”: 从“long”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_curve.c(222): warning C4244: “函数”: 从“long”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_coverflow.c(3772): warning C4305: “初始化”: 从“double”到“float”截断
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_coverflow.c(3898): warning C4305: “初始化”: 从“double”到“float”截断
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_coverflow.c(4344): warning C4305: “初始化”: 从“double”到“float”截断
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_coverflow.c(4471): warning C4305: “初始化”: 从“double”到“float”截断
+         itu_dragicon.c
+         itu_drawpen.c
+         itu_fadeeffect.c
+         itu_filelistbox.c
+         itu_flowwindow.c
+         itu_icon.c
+         itu_iconlistbox.c
+         itu_imagecoverflow.c
+         itu_jpeg.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_icon.c(116): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_icon.c(125): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_icon.c(529): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_icon.c(666): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+         itu_keyboard.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_imagecoverflow.c(69): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_imagecoverflow.c(90): warning C4996: 'fileno': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _fileno. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/stdio.h(718) : 参见“fileno”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_imagecoverflow.c(204): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_imagecoverflow.c(209): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+         itu_languagesprite.c
+         itu_layer.c
+         itu_listbox.c
+         itu_mediafilelistbox.c
+         itu_meter.c
+         itu_pageflow.c
+         itu_png.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_mediafilelistbox.c(108): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_mediafilelistbox.c(129): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_mediafilelistbox.c(239): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_mediafilelistbox.c(260): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+         itu_popupbutton.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_meter.c(49): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
+         itu_popupradiobox.c
+         itu_progressbar.c
+         itu_radiobox.c
+         itu_ripplebackground.c
+         itu_scalecoverflow.c
+         itu_scaleeffect.c
+         itu_scalefadeeffect.c
+         itu_scene.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(226): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(227): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(231): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(232): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(273): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(279): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(151): warning C4101: “factor”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(151): warning C4101: “height”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(151): warning C4101: “width”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(1205): warning C4133: “初始化”: 从“ITUCoverFlow *”到“ITUScaleCoverFlow *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(1228): warning C4133: “函数”: 从“ITUScaleCoverFlow *”到“ITUCoverFlow *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c(1233): warning C4133: “函数”: 从“ITUScaleCoverFlow *”到“ITUCoverFlow *”的类型不兼容
+         itu_scrollbar.c
+         itu_scrolleffect.c
+         itu_scrollfadeeffect.c
+         itu_scrolliconlistbox.c
+         itu_scrolllistbox.c
+         itu_scrollmediafilelistbox.c
+         itu_scrolltext.c
+         itu_shadow.c
+         itu_simpleanimation.c
+         itu_slideshow.c
+         itu_sprite.c
+         itu_spritebutton.c
+         itu_stepwheel.c
+         itu_stringset.c
+         itu_surface.c
+         itu_tablelistbox.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(372): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(373): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(374): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(421): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(422): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(423): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(324): warning C4101: “textn”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(322): warning C4101: “textp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(2972): warning C4028: 形参 1 与声明不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(2986): warning C4028: 形参 1 与声明不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(3371): warning C4133: “函数”: 从“ITUStepWheel *”到“ITUWidget *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(3388): warning C4133: “函数”: 从“ITUStepWheel *”到“ITUWheel *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(3408): warning C4133: “函数”: 从“ITUText *”到“ITUWidget *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c(3408): warning C4133: “函数”: 从“ITUText **”到“ITUWidget **”的类型不兼容
+         itu_tableiconlistbox.c
+         itu_text.c
+         itu_textbox.c
+         itu_trackbar.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_text.c(45): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_text.c(392): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+         itu_utility.c
+         itu_video.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_textbox.c(82): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(245) : 参见“strdup”的声明
+         itu_wavebackground.c
+         itu_wheel.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_utility.c(127): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_utility.c(131): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_utility.c(246): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_utility.c(250): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/string.h(253) : 参见“stricmp”的声明
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_video.c(82): warning C4013: “usleep”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_video.c(336): warning C4013: “smtkAudioMgrQuickStop”未定义；假设外部返回 int
+         itu_wheelbackground.c
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\itu\itu_video.c(85): warning C4716: “polling_video_widget_status”: 必须返回一个值
+         itu_widget.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wavebackground.c(125): warning C4101: “surf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c(314): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c(351): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c(3253): warning C4133: “函数”: 从“ITUWheel *”到“ITUWidget *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c(3290): warning C4133: “函数”: 从“ITUText *”到“ITUWidget *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c(3290): warning C4133: “函数”: 从“ITUText **”到“ITUWidget **”的类型不兼容
+         itu_wipeeffect.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheelbackground.c(39): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
+         ArabicConverter.c
+         itu_framefunc.c
+         itu_lcd.c
+         itu_sw.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\itu.lib" /NOLOGO itu.dir\Debug\itu_freetype_cache.obj
+         itu.dir\Debug\itu_action.obj
+         itu.dir\Debug\itu_analogclock.obj
+         itu.dir\Debug\itu_animation.obj
+         itu.dir\Debug\itu_audio.obj
+         itu.dir\Debug\itu_background.obj
+         itu.dir\Debug\itu_backgroundbutton.obj
+         itu.dir\Debug\itu_base.obj
+         itu.dir\Debug\itu_blur.obj
+         itu.dir\Debug\itu_borderwindow.obj
+         itu.dir\Debug\itu_button.obj
+         itu.dir\Debug\itu_calendar.obj
+         itu.dir\Debug\itu_checkbox.obj
+         itu.dir\Debug\itu_circleprogressbar.obj
+         itu.dir\Debug\itu_clipper.obj
+         itu.dir\Debug\itu_colorpicker.obj
+         itu.dir\Debug\itu_container.obj
+         itu.dir\Debug\itu_coverflow.obj
+         itu.dir\Debug\itu_curve.obj
+         itu.dir\Debug\itu_effect.obj
+         itu.dir\Debug\itu_digitalclock.obj
+         itu.dir\Debug\itu_dragicon.obj
+         itu.dir\Debug\itu_drawpen.obj
+         itu.dir\Debug\itu_fadeeffect.obj
+         itu.dir\Debug\itu_filelistbox.obj
+         itu.dir\Debug\itu_flowwindow.obj
+         itu.dir\Debug\itu_icon.obj
+         itu.dir\Debug\itu_iconlistbox.obj
+         itu.dir\Debug\itu_imagecoverflow.obj
+         itu.dir\Debug\itu_jpeg.obj
+         itu.dir\Debug\itu_keyboard.obj
+         itu.dir\Debug\itu_languagesprite.obj
+         itu.dir\Debug\itu_layer.obj
+         itu.dir\Debug\itu_listbox.obj
+         itu.dir\Debug\itu_mediafilelistbox.obj
+         itu.dir\Debug\itu_meter.obj
+         itu.dir\Debug\itu_pageflow.obj
+         itu.dir\Debug\itu_png.obj
+         itu.dir\Debug\itu_popupbutton.obj
+         itu.dir\Debug\itu_popupradiobox.obj
+         itu.dir\Debug\itu_progressbar.obj
+         itu.dir\Debug\itu_radiobox.obj
+         itu.dir\Debug\itu_ripplebackground.obj
+         itu.dir\Debug\itu_scalecoverflow.obj
+         itu.dir\Debug\itu_scaleeffect.obj
+         itu.dir\Debug\itu_scalefadeeffect.obj
+         itu.dir\Debug\itu_scene.obj
+         itu.dir\Debug\itu_scrollbar.obj
+         itu.dir\Debug\itu_scrolleffect.obj
+         itu.dir\Debug\itu_scrollfadeeffect.obj
+         itu.dir\Debug\itu_scrolliconlistbox.obj
+         itu.dir\Debug\itu_scrolllistbox.obj
+         itu.dir\Debug\itu_scrollmediafilelistbox.obj
+         itu.dir\Debug\itu_scrolltext.obj
+         itu.dir\Debug\itu_shadow.obj
+         itu.dir\Debug\itu_simpleanimation.obj
+         itu.dir\Debug\itu_slideshow.obj
+         itu.dir\Debug\itu_sprite.obj
+         itu.dir\Debug\itu_spritebutton.obj
+         itu.dir\Debug\itu_stepwheel.obj
+         itu.dir\Debug\itu_stringset.obj
+         itu.dir\Debug\itu_surface.obj
+         itu.dir\Debug\itu_tablelistbox.obj
+         itu.dir\Debug\itu_tableiconlistbox.obj
+         itu.dir\Debug\itu_text.obj
+         itu.dir\Debug\itu_textbox.obj
+         itu.dir\Debug\itu_trackbar.obj
+         itu.dir\Debug\itu_utility.obj
+         itu.dir\Debug\itu_video.obj
+         itu.dir\Debug\itu_wavebackground.obj
+         itu.dir\Debug\itu_wheel.obj
+         itu.dir\Debug\itu_wheelbackground.obj
+         itu.dir\Debug\itu_widget.obj
+         itu.dir\Debug\itu_wipeeffect.obj
+         itu.dir\Debug\ArabicConverter.obj
+         itu.dir\Debug\itu_framefunc.obj
+         itu.dir\Debug\itu_lcd.obj
+         itu.dir\Debug\itu_sw.obj
+         itu.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\itu.lib
+     1>已完成生成项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\itu\itu.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.30

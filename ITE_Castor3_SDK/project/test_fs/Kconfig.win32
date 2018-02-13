@@ -1,0 +1,51 @@
+#
+# For a description of the syntax of this configuration file,
+# see Documentation/kbuild/kconfig-language.txt.
+#
+
+mainmenu "Project Configuration"
+
+config TEST_FS
+    bool
+    default y
+    select HAVE_LCD
+    select HAVE_GRAPHICS
+    select HAVE_AUDIO
+    select HAVE_VIDEO
+
+config CMAKE_SOURCE_DIR
+	string
+	option env="CMAKE_SOURCE_DIR"
+
+config SD0_ENABLE
+	def_bool y
+
+config SD0_STATIC
+	def_bool y
+
+config FS_FAT
+	def_bool y
+
+source "$CMAKE_SOURCE_DIR/sdk/Kconfig"
+
+menu "File System Test"
+
+choice
+	prompt "Test App"
+	default TEST_FILESYSTEM
+
+config TEST_FAT
+	bool "FAT"
+
+config TEST_DRIVE
+	bool "Drive"
+
+config TEST_FILESYSTEM
+	bool "FileSystem"
+
+config TEST_NTFS
+	bool "NTFS"
+
+endchoice
+
+endmenu

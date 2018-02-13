@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="Windows-1252"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_backtrace.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_defer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_vmem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_printbuf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_lcdconsole.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_screen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_file.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_posix_win32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include\ite\itp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\itp_cfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itp\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{55C96721-1744-4F6E-A568-AED454B6644A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{25550261-1772-4B27-87F4-FF1133F4E511}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

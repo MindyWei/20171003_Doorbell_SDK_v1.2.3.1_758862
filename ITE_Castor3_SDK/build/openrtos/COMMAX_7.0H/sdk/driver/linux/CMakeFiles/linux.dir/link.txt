@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/liblinux.a  CMakeFiles/linux.dir/nls.c.obj CMakeFiles/linux.dir/completion.c.obj CMakeFiles/linux.dir/tasklet.c.obj CMakeFiles/linux.dir/timer.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/liblinux.a

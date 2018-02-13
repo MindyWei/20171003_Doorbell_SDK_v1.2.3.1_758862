@@ -1,0 +1,5 @@
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/codec_ex/sdk/codec_ex/wiegand/CMakeFiles/wiegand.plugin.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/codec_ex/project/codec_ex/CMakeFiles/ticktimer.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/codec_ex/project/codec_ex/CMakeFiles/or32_crt0.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/codec_ex/project/codec_ex/CMakeFiles/default.ld.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/codec_ex/project/codec_ex/CMakeFiles/codec_crt0.dir

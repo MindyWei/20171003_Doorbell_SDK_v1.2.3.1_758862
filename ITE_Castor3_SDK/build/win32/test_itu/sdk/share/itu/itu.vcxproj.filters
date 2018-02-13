@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="Windows-1252"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_freetype_cache.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_action.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_analogclock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_animation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_audio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_background.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_backgroundbutton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_blur.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_borderwindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_button.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_calendar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_checkbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_circleprogressbar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_clipper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_colorpicker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_container.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_coverflow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_curve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_effect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_digitalclock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_dragicon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_drawpen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_fadeeffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_filelistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_flowwindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_icon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_iconlistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_imagecoverflow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_jpeg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_keyboard.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_languagesprite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_layer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_listbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_mediafilelistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_meter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_pageflow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_png.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_popupbutton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_popupradiobox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_progressbar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_radiobox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_ripplebackground.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalecoverflow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scaleeffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scalefadeeffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scene.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrollbar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolleffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrollfadeeffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolliconlistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolllistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrollmediafilelistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_scrolltext.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_shadow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_simpleanimation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_slideshow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_sprite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_spritebutton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stepwheel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_stringset.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_surface.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_tablelistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_tableiconlistbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_text.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_textbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_trackbar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_utility.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_video.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wavebackground.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wheelbackground.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_widget.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_wipeeffect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\ArabicConverter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\it9070\itu_framefunc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\it9070\itu_lcd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_sw.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include\ite\itu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\itu_cfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\itu\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{55C96721-1744-4F6E-A568-AED454B6644A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{25550261-1772-4B27-87F4-FF1133F4E511}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

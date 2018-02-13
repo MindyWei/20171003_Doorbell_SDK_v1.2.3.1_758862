@@ -1,0 +1,245 @@
+The system is: Windows - 6.1 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler:  
+Build flags: 
+Id flags: 
+
+The output was:
+0
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.36415]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 2018/1/29 10:21:38.
+Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\3.1.0\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "Debug\".
+  Creating directory "Debug\CompilerIdC.tlog\".
+InitializeBuildStatus:
+  Creating "Debug\CompilerIdC.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _USING_V110_SDK71_ /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
+  CMakeCCompilerId.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
+  CompilerIdC.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\3.1.0\CompilerIdC\.\CompilerIdC.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\cl.exe
+FinalizeBuildStatus:
+  Deleting file "Debug\CompilerIdC.tlog\unsuccessfulbuild".
+  Touching "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
+Done Building Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\3.1.0\CompilerIdC\CompilerIdC.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.69
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+
+The C compiler identification is MSVC, found in "D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/3.1.0/CompilerIdC/CompilerIdC.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler:  
+Build flags: 
+Id flags: 
+
+The output was:
+0
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.36415]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 2018/1/29 10:21:41.
+Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\3.1.0\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "Debug\".
+  Creating directory "Debug\CompilerIdCXX.tlog\".
+InitializeBuildStatus:
+  Creating "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _USING_V110_SDK71_ /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
+  CMakeCXXCompilerId.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
+  CompilerIdCXX.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\3.1.0\CompilerIdCXX\.\CompilerIdCXX.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\cl.exe
+FinalizeBuildStatus:
+  Deleting file "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
+  Touching "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
+Done Building Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\3.1.0\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.00
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+
+The CXX compiler identification is MSVC, found in "D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/3.1.0/CompilerIdCXX/CompilerIdCXX.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTryCompileExec3564049981.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=12.0"
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.36415]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 2018/1/29 10:21:43.
+Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec3564049981.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec3564049981.dir\Debug\".
+  Creating directory "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec3564049981.dir\Debug\cmTryCom.7244EAB8.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec3564049981.dir\Debug\cmTryCom.7244EAB8.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3564049981.dir\Debug\\" /Fd"cmTryCompileExec3564049981.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\testCCompiler.c
+  ?? x86 ? Microsoft (R) C/C++ ????? 18.00.40629 ?????(C) Microsoft Corporation?  ???????
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3564049981.dir\Debug\\" /Fd"cmTryCompileExec3564049981.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\testCCompiler.c
+  
+  testCCompiler.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3564049981.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3564049981.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3564049981.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec3564049981.dir\Debug\testCCompiler.obj
+  cmTryCompileExec3564049981.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3564049981.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec3564049981.dir\Debug\cmTryCom.7244EAB8.tlog\unsuccessfulbuild".
+  Touching "cmTryCompileExec3564049981.dir\Debug\cmTryCom.7244EAB8.tlog\cmTryCompileExec3564049981.lastbuildstate".
+Done Building Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec3564049981.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.22
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTryCompileExec2351404569.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=12.0"
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.36415]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 2018/1/29 10:21:44.
+Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec2351404569.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec2351404569.dir\Debug\".
+  Creating directory "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec2351404569.dir\Debug\cmTryCom.63E9EC78.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec2351404569.dir\Debug\cmTryCom.63E9EC78.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec2351404569.dir\Debug\\" /Fd"cmTryCompileExec2351404569.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\tool\share\cmake-3.1\Modules\CMakeCCompilerABI.c"
+  ?? x86 ? Microsoft (R) C/C++ ????? 18.00.40629 ?????(C) Microsoft Corporation?  ???????
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec2351404569.dir\Debug\\" /Fd"cmTryCompileExec2351404569.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\tool\share\cmake-3.1\Modules\CMakeCCompilerABI.c"
+  
+  CMakeCCompilerABI.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec2351404569.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2351404569.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2351404569.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec2351404569.dir\Debug\CMakeCCompilerABI.obj
+  cmTryCompileExec2351404569.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec2351404569.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec2351404569.dir\Debug\cmTryCom.63E9EC78.tlog\unsuccessfulbuild".
+  Touching "cmTryCompileExec2351404569.dir\Debug\cmTryCom.63E9EC78.tlog\cmTryCompileExec2351404569.lastbuildstate".
+Done Building Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec2351404569.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.61
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTryCompileExec3813003177.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=12.0"
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.36415]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 2018/1/29 10:21:47.
+Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec3813003177.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec3813003177.dir\Debug\".
+  Creating directory "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec3813003177.dir\Debug\cmTryCom.09AA08A4.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec3813003177.dir\Debug\cmTryCom.09AA08A4.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec3813003177.dir\Debug\\" /Fd"cmTryCompileExec3813003177.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  ?? x86 ? Microsoft (R) C/C++ ????? 18.00.40629 ?????(C) Microsoft Corporation?  ???????
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec3813003177.dir\Debug\\" /Fd"cmTryCompileExec3813003177.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  
+  testCXXCompiler.cxx
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3813003177.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3813003177.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3813003177.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec3813003177.dir\Debug\testCXXCompiler.obj
+  cmTryCompileExec3813003177.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3813003177.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec3813003177.dir\Debug\cmTryCom.09AA08A4.tlog\unsuccessfulbuild".
+  Touching "cmTryCompileExec3813003177.dir\Debug\cmTryCom.09AA08A4.tlog\cmTryCompileExec3813003177.lastbuildstate".
+Done Building Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec3813003177.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.64
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTryCompileExec1944316322.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=12.0"
+Microsoft (R) Build Engine version 12.0.40629.0
+[Microsoft .NET Framework, version 4.0.30319.36415]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 2018/1/29 10:21:49.
+Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec1944316322.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec1944316322.dir\Debug\".
+  Creating directory "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec1944316322.dir\Debug\cmTryCom.C9803B2F.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec1944316322.dir\Debug\cmTryCom.C9803B2F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec1944316322.dir\Debug\\" /Fd"cmTryCompileExec1944316322.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\tool\share\cmake-3.1\Modules\CMakeCXXCompilerABI.cpp"
+  ?? x86 ? Microsoft (R) C/C++ ????? 18.00.40629 ?????(C) Microsoft Corporation?  ???????
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec1944316322.dir\Debug\\" /Fd"cmTryCompileExec1944316322.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\tool\share\cmake-3.1\Modules\CMakeCXXCompilerABI.cpp"
+  
+  CMakeCXXCompilerABI.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1944316322.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1944316322.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1944316322.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec1944316322.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTryCompileExec1944316322.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1944316322.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec1944316322.dir\Debug\cmTryCom.C9803B2F.tlog\unsuccessfulbuild".
+  Touching "cmTryCompileExec1944316322.dir\Debug\cmTryCom.C9803B2F.tlog\cmTryCompileExec1944316322.lastbuildstate".
+Done Building Project "D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\CMakeFiles\CMakeTmp\cmTryCompileExec1944316322.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.03
+
+

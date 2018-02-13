@@ -1,0 +1,171 @@
+﻿生成启动时间为 2018/1/29 10:35:03。
+     1>项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\sdl\sdl.vcxproj”在节点 2 上(Build 个目标)。
+     1>CustomBuild:
+         Building Custom Rule D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/sdk/share/sdl/CMakeLists.txt
+         CMake does not need to re-run because D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\sdl\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\sdl /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include\SDL /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"sdl.dir\Debug\\" /Fd"sdl.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\SDL.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\SDL_assert.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\SDL_error.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\SDL_fatal.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\SDL_hints.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\SDL_log.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\atomic\SDL_atomic.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\atomic\SDL_spinlock.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\cpuinfo\SDL_cpuinfo.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_clipboardevents.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_events.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_gesture.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_keyboard.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_mouse.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_quit.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_touch.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\events\SDL_windowevents.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\file\SDL_rwops.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\render\SDL_render.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\render\SDL_yuv_sw.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\stdlib\SDL_string.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\thread\SDL_thread.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\timer\SDL_timer.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_0.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_1.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_A.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_auto.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_copy.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_N.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_blit_slow.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_fillrect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_pixels.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_rect.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_RLEaccel.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_stretch.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_surface.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_video.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\power\windows\SDL_syspower.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\winmm\SDL_winmm.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\core\windows\SDL_windows.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\loadso\windows\SDL_sysloadso.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\render\SDL_yuv_mmx.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\stdlib\SDL_getenv.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\stdlib\SDL_iconv.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\thread\windows\SDL_sysmutex.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\thread\windows\SDL_syssem.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\thread\windows\SDL_systhread.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\timer\windows\SDL_systimer.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\SDL_shape.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsclipboard.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsevents.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsframebuffer.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowskeyboard.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsmodes.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsmouse.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsopenvg.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsshape.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowsvideo.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\video\windows\SDL_windowswindow.c
+         SDL.c
+         SDL_assert.c
+         SDL_error.c
+         SDL_fatal.c
+         SDL_hints.c
+         SDL_log.c
+         SDL_atomic.c
+         SDL_spinlock.c
+         SDL_cpuinfo.c
+         SDL_clipboardevents.c
+         SDL_events.c
+         SDL_gesture.c
+         SDL_keyboard.c
+         SDL_mouse.c
+         SDL_quit.c
+         SDL_touch.c
+         SDL_windowevents.c
+         SDL_rwops.c
+         SDL_render.c
+         SDL_yuv_sw.c
+         SDL_string.c
+         SDL_thread.c
+         SDL_timer.c
+         SDL_blit.c
+         SDL_blit_0.c
+         SDL_blit_1.c
+         SDL_blit_A.c
+         SDL_blit_auto.c
+         SDL_blit_copy.c
+         SDL_blit_N.c
+         SDL_blit_slow.c
+         SDL_fillrect.c
+         SDL_pixels.c
+         SDL_rect.c
+         SDL_RLEaccel.c
+         SDL_stretch.c
+         SDL_surface.c
+         SDL_video.c
+         main_processor_message_queue.c
+         SDL_syspower.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(128): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(126): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(127): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(166): warning C4101: “pt”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(168): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(165): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(167): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(225): warning C4101: “nChannels”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(227): warning C4101: “nBufferLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(224): warning C4101: “I2SBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(231): warning C4101: “spec”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(230): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(226): warning C4101: “nSampeRate”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(229): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(294): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(293): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(316): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(315): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(357): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(356): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(355): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(375): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(374): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(373): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(391): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(390): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(389): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(537): warning C4013: “pthread_self”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(537): warning C4047: “!=”:“int”与“int *”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(538): warning C4047: “=”:“int *”与“int”的间接级别不同
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(327): warning C4700: 使用了未初始化的局部变量“nTemp”
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(308): warning C4700: 使用了未初始化的局部变量“nBufferLength”
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(308): warning C4700: 使用了未初始化的局部变量“nSampeRate”
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(308): warning C4700: 使用了未初始化的局部变量“nChannels”
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\sdl\audio\castor3\main_processor_message_queue.c(308): warning C4700: 使用了未初始化的局部变量“I2SBuf”
+         SDL_winmm.c
+         SDL_windows.c
+         SDL_sysloadso.c
+         SDL_yuv_mmx.c
+         SDL_getenv.c
+         SDL_iconv.c
+         SDL_sysmutex.c
+         SDL_syssem.c
+         SDL_systhread.c
+         SDL_systimer.c
+         SDL_shape.c
+         SDL_windowsclipboard.c
+         SDL_windowsevents.c
+         SDL_windowsframebuffer.c
+         SDL_windowskeyboard.c
+         SDL_windowsmodes.c
+         SDL_windowsmouse.c
+         SDL_windowsopenvg.c
+         SDL_windowsshape.c
+         SDL_windowsvideo.c
+         SDL_windowswindow.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\sdl.lib" /NOLOGO sdl.dir\Debug\SDL.obj
+         sdl.dir\Debug\SDL_assert.obj
+         sdl.dir\Debug\SDL_error.obj
+         sdl.dir\Debug\SDL_fatal.obj
+         sdl.dir\Debug\SDL_hints.obj
+         sdl.dir\Debug\SDL_log.obj
+         sdl.dir\Debug\SDL_atomic.obj
+         sdl.dir\Debug\SDL_spinlock.obj
+         sdl.dir\Debug\SDL_cpuinfo.obj
+         sdl.dir\Debug\SDL_clipboardevents.obj
+         sdl.dir\Debug\SDL_events.obj
+         sdl.dir\Debug\SDL_gesture.obj
+         sdl.dir\Debug\SDL_keyboard.obj
+         sdl.dir\Debug\SDL_mouse.obj
+         sdl.dir\Debug\SDL_quit.obj
+         sdl.dir\Debug\SDL_touch.obj
+         sdl.dir\Debug\SDL_windowevents.obj
+         sdl.dir\Debug\SDL_rwops.obj
+         sdl.dir\Debug\SDL_render.obj
+         sdl.dir\Debug\SDL_yuv_sw.obj
+         sdl.dir\Debug\SDL_string.obj
+         sdl.dir\Debug\SDL_thread.obj
+         sdl.dir\Debug\SDL_timer.obj
+         sdl.dir\Debug\SDL_blit.obj
+         sdl.dir\Debug\SDL_blit_0.obj
+         sdl.dir\Debug\SDL_blit_1.obj
+         sdl.dir\Debug\SDL_blit_A.obj
+         sdl.dir\Debug\SDL_blit_auto.obj
+         sdl.dir\Debug\SDL_blit_copy.obj
+         sdl.dir\Debug\SDL_blit_N.obj
+         sdl.dir\Debug\SDL_blit_slow.obj
+         sdl.dir\Debug\SDL_fillrect.obj
+         sdl.dir\Debug\SDL_pixels.obj
+         sdl.dir\Debug\SDL_rect.obj
+         sdl.dir\Debug\SDL_RLEaccel.obj
+         sdl.dir\Debug\SDL_stretch.obj
+         sdl.dir\Debug\SDL_surface.obj
+         sdl.dir\Debug\SDL_video.obj
+         sdl.dir\Debug\main_processor_message_queue.obj
+         sdl.dir\Debug\SDL_syspower.obj
+         sdl.dir\Debug\SDL_winmm.obj
+         sdl.dir\Debug\SDL_windows.obj
+         sdl.dir\Debug\SDL_sysloadso.obj
+         sdl.dir\Debug\SDL_yuv_mmx.obj
+         sdl.dir\Debug\SDL_getenv.obj
+         sdl.dir\Debug\SDL_iconv.obj
+         sdl.dir\Debug\SDL_sysmutex.obj
+         sdl.dir\Debug\SDL_syssem.obj
+         sdl.dir\Debug\SDL_systhread.obj
+         sdl.dir\Debug\SDL_systimer.obj
+         sdl.dir\Debug\SDL_shape.obj
+         sdl.dir\Debug\SDL_windowsclipboard.obj
+         sdl.dir\Debug\SDL_windowsevents.obj
+         sdl.dir\Debug\SDL_windowsframebuffer.obj
+         sdl.dir\Debug\SDL_windowskeyboard.obj
+         sdl.dir\Debug\SDL_windowsmodes.obj
+         sdl.dir\Debug\SDL_windowsmouse.obj
+         sdl.dir\Debug\SDL_windowsopenvg.obj
+         sdl.dir\Debug\SDL_windowsshape.obj
+         sdl.dir\Debug\SDL_windowsvideo.obj
+         sdl.dir\Debug\SDL_windowswindow.obj
+         sdl.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\sdl.lib
+     1>已完成生成项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\sdl\sdl.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:11.27

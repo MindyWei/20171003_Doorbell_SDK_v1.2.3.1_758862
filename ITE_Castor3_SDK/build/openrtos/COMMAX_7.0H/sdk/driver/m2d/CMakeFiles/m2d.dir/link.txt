@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libm2d.a  CMakeFiles/m2d.dir/it9850/driver.c.obj CMakeFiles/m2d.dir/it9850/surface.c.obj CMakeFiles/m2d.dir/it9850/hw.c.obj CMakeFiles/m2d.dir/it9850/gfx_mem.c.obj CMakeFiles/m2d.dir/it9850/gfx_math.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libm2d.a

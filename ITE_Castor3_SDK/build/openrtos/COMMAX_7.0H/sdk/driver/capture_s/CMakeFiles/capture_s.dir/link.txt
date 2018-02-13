@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libcapture_s.a  CMakeFiles/capture_s.dir/it9850/capture_hw.c.obj CMakeFiles/capture_s.dir/it9850/ite_capture.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libcapture_s.a

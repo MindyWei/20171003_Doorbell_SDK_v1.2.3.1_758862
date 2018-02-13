@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libusb.a  CMakeFiles/usb.dir/mmp_usbex.c.obj CMakeFiles/usb.dir/usb_port.c.obj CMakeFiles/usb.dir/usb/hcd.c.obj CMakeFiles/usb.dir/usb/usb.c.obj CMakeFiles/usb.dir/usb/urb.c.obj CMakeFiles/usb.dir/usb/message.c.obj CMakeFiles/usb.dir/usb/config.c.obj CMakeFiles/usb.dir/usb/quirks.c.obj CMakeFiles/usb.dir/usb/hub.c.obj CMakeFiles/usb.dir/usb/driver.c.obj CMakeFiles/usb.dir/usb/hcd/ehci_hcd.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libusb.a

@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libcapture_module.a  CMakeFiles/capture_module.dir/adv7180.c.obj CMakeFiles/capture_module.dir/gc0308.c.obj CMakeFiles/capture_module.dir/gc0328.c.obj CMakeFiles/capture_module.dir/gt5110e1.c.obj CMakeFiles/capture_module.dir/hm1375.c.obj CMakeFiles/capture_module.dir/pr2000.c.obj CMakeFiles/capture_module.dir/TVP5155.c.obj CMakeFiles/capture_module.dir/capture_module.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libcapture_module.a

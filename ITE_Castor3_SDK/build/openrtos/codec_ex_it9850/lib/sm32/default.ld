@@ -1,0 +1,81 @@
+OUTPUT_FORMAT("elf32-sm32", "elf32-sm32", "elf32-sm32")
+OUTPUT_ARCH(sm32)
+_start = 0x100;
+ENTRY(_start)
+GROUP(-lc -lm -lgcc)
+MEMORY
+{
+  except : ORIGIN = 0x00000000, LENGTH = 0x1000
+  ram : ORIGIN = 0xC0000000, LENGTH = (64 * 1024)
+}
+SECTIONS
+{
+  .reset :
+  {
+    *(.reset)
+  } > except
+  .codec_ex_header :
+  {
+    _risc2_start_addr = .;
+    risc2_start_addr = .;
+    KEEP(*(.codec_ex_header))
+  } > ram
+  .text :
+  {
+    __text_start = .;
+    *(.text .stub .text.* .gnu.linkonce.t.*)
+    KEEP (*(.text.*personality*))
+    *(.gnu.warning)
+    __text_end = .;
+  } > ram
+  .data ALIGN(0x4) :
+  {
+    __CTOR_LIST__ = .;
+    ___CTOR_LIST__ = .;
+    LONG(-1)
+    *(.ctors)
+    LONG(0)
+    __CTOR_END__ = .;
+    __DTOR_LIST__ = .;
+    ___DTOR_LIST__ = .;
+    LONG(-1)
+    *(.dtors)
+    LONG(0)
+    __DTOR_END__ = .;
+    KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
+    *(.sdata .sdata.* .gnu.linkonce.s.*)
+    *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+    *(.rodata .rodata.* .gnu.linkonce.r.*)
+    *(.rodata1)
+    *(.data .data.* .gnu.linkonce.d.*)
+    KEEP (*(.gnu.linkonce.d.*personality*))
+    . = ALIGN(32 / 8);
+  } > ram
+  . = ALIGN(32 / 8);
+  __bss_start = .;
+  _bss_start = .;
+  risc2_bss_start = .;
+  .bss ALIGN(0x4) :
+  {
+   *(.dynbss)
+   *(.sbss .sbss.* .gnu.linkonce.b.*)
+   *(.bss .bss.* .gnu.linkonce.b.*)
+   *(COMMON)
+   . = ALIGN(32 / 8);
+  } > ram
+  _end = .;
+  _bss_end = .;
+  risc2_bss_end = .;
+  PROVIDE (end = .);
+  .stack ALIGN(4) (NOLOAD) :
+    {
+    __stack_start = .;
+    . += 8K;
+    __stack_end = .;
+    _stack = .;
+    __end = .;
+    _risc2_end_addr = .;
+    risc2_end_addr = .;
+  } > ram
+  /DISCARD/ : { *(.note.GNU-stack) }
+}

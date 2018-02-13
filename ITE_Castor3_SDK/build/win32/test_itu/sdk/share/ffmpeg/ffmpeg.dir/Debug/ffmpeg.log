@@ -1,0 +1,255 @@
+﻿生成启动时间为 2018/1/31 14:03:39。
+     1>项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\ffmpeg\ffmpeg.vcxproj”在节点 3 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\. /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itv /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D AV_SYNC_STC /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"ffmpeg.dir\Debug\\" /Fd"ffmpeg.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\castor3player.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c
+         castor3player.c
+         file_player.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1076): warning C4013: “WavHeaderReload”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1275): warning C4101: “audio_threshold”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1459): warning C4018: “>=”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1483): warning C4047: “函数”:“void *(__cdecl *)(void *)”与“int (__cdecl *)(void *)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1483): warning C4022: “pthread_create”: 指针与实参 3 不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1498): warning C4047: “函数”:“void *(__cdecl *)(void *)”与“int (__cdecl *)(void *)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1498): warning C4022: “pthread_create”: 指针与实参 3 不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1519): warning C4018: “>=”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1543): warning C4047: “函数”:“void *(__cdecl *)(void *)”与“int (__cdecl *)(void *)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1543): warning C4022: “pthread_create”: 指针与实参 3 不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1566): warning C4047: “函数”:“void *(__cdecl *)(void *)”与“int (__cdecl *)(void *)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1566): warning C4022: “pthread_create”: 指针与实参 3 不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1585): warning C4018: “>=”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1722): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1835): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1657): warning C4101: “pts”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2004): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2165): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(1939): warning C4101: “pts”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2379): warning C4101: “stc_time”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2378): warning C4101: “ref_clock”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2378): warning C4101: “diff”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2477): warning C4098: “ithMediaPlayer_InitAVDecodeEnv”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2499): warning C4047: “函数”:“void *(__cdecl *)(void *)”与“int (__cdecl *)(void *)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2499): warning C4022: “pthread_create”: 指针与实参 3 不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2500): warning C4047: “函数”:“void *(__cdecl *)(void *)”与“int (__cdecl *)(void *)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2500): warning C4022: “pthread_create”: 指针与实参 3 不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2518): warning C4098: “ithMediaPlayer_InitH264DecodeEnv”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2526): warning C4098: “ithMediaPlayer_InitH264DecodeEnv”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2563): warning C4098: “ithMediaPlayer_InitAudioDecodeEnv”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2571): warning C4098: “ithMediaPlayer_InitAudioDecodeEnv”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(2698): warning C4098: “ithMediaPlayer_DeinitAVDecodeEnv”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3225): warning C4101: “ctime”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3369): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “int (__cdecl *)()”和“int (__cdecl *)(int64_t *)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4028: 形参 1 与声明不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4133: “初始化”: 从“void (__cdecl *)(int)”到“int (__cdecl *)(float)”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4133: “初始化”: 从“void (__cdecl *)(float)”到“int (__cdecl *)(double *)”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “int (__cdecl *)(double *)”和“int (__cdecl *)(int *,char *)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “int (__cdecl *)(int *,char *)”和“bool (__cdecl *)(void)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4133: “初始化”: 从“int (__cdecl *)(int *,char *)”到“bool (__cdecl *)(void)”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “bool (__cdecl *)()”和“int (__cdecl *)(void)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4133: “初始化”: 从“bool (__cdecl *)()”到“int (__cdecl *)(void)”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “void (__cdecl *)()”和“void (__cdecl *)(void)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “void (__cdecl *)()”和“void (__cdecl *)(int,int,RTSPCLIENT_AUDIO_CODEC)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4028: 形参 3 与声明不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4133: “初始化”: 从“void (__cdecl *)(int,int,RTSPCLIENT_AUDIO_CODEC)”到“int (__cdecl *)(unsigned char *,int,double)”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “int (__cdecl *)(unsigned char *,int,double)”和“void (__cdecl *)(void)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4113: “void (__cdecl *)()”和“int (__cdecl *)(void)”的参数列表不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\file_player.c(3469): warning C4133: “初始化”: 从“void (__cdecl *)()”到“int (__cdecl *)(void)”的类型不兼容
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\. /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itv /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D AV_SYNC_STC /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"ffmpeg.dir\Debug\/libavcodec/options.c.obj" /Fd"ffmpeg.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\options.c
+         options.c
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\ffmpeg\libavutil\common.h(171): warning C4244: “return”: 从“int64_t”转换到“int32_t”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\options.c(535): warning C4305: “初始化”: 从“__int64”到“double”截断
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\options.c(1180): warning C4090: “函数”: 不同的“const”限定符
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\options.c(1200): warning C4305: “初始化”: 从“__int64”到“double”截断
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\. /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver\itv /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D AV_SYNC_STC /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"ffmpeg.dir\Debug\/libavcodec/utils.c.obj" /Fd"ffmpeg.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c
+         utils.c
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\ffmpeg\libavutil\common.h(171): warning C4244: “return”: 从“int64_t”转换到“int32_t”，可能丢失数据
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include\ite/mmp_types.h(337): warning C4013: “please_use_av_log_instead_of_printf”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(102): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(183): warning C4013: “usleep”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(185): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(306): warning C4013: “smtkMainProcessorExecuteAudioPluginCmd”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1072): warning C4090: “=”: 不同的“const”限定符
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1500): warning C4090: “函数”: 不同的“const”限定符
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1520): warning C4090: “函数”: 不同的“const”限定符
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1540): warning C4090: “函数”: 不同的“const”限定符
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1909): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1923): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1935): warning C4554: “&”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1969): warning C4013: “I2S_DA32_GET_RP”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(1783): warning C4101: “nDataE”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(2003): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg\libavcodec\utils.c(2266): warning C4018: “>”: 有符号/无符号不匹配
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\ffmpeg\libavcodec\utils.c(1969): warning C4700: 使用了未初始化的局部变量“time_is_forbidden_due_to_security_issues”
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\ffmpeg.lib" /NOLOGO ffmpeg.dir\Debug\aacdec.obj
+         ffmpeg.dir\Debug\aacsbr.obj
+         ffmpeg.dir\Debug\aacps.obj
+         ffmpeg.dir\Debug\kbdwin.obj
+         ffmpeg.dir\Debug\aacadtsdec.obj
+         ffmpeg.dir\Debug\ac3.obj
+         ffmpeg.dir\Debug\ac3dec.obj
+         ffmpeg.dir\Debug\ac3dec_data.obj
+         ffmpeg.dir\Debug\ac3dsp.obj
+         ffmpeg.dir\Debug\ac3tab.obj
+         ffmpeg.dir\Debug\eac3_data.obj
+         ffmpeg.dir\Debug\eac3dec.obj
+         ffmpeg.dir\Debug\flac.obj
+         ffmpeg.dir\Debug\flacdata.obj
+         ffmpeg.dir\Debug\flacdec.obj
+         ffmpeg.dir\Debug\dct.obj
+         ffmpeg.dir\Debug\dct32.obj
+         ffmpeg.dir\Debug\dct32_fixed.obj
+         ffmpeg.dir\Debug\dct32_float.obj
+         ffmpeg.dir\Debug\fft.obj
+         ffmpeg.dir\Debug\mdct.obj
+         ffmpeg.dir\Debug\mdct_fixed.obj
+         ffmpeg.dir\Debug\mdct_float.obj
+         ffmpeg.dir\Debug\mpegaudio.obj
+         ffmpeg.dir\Debug\mpegaudiodata.obj
+         ffmpeg.dir\Debug\mpegaudiodec.obj
+         ffmpeg.dir\Debug\mpegaudiodecheader.obj
+         ffmpeg.dir\Debug\mpegaudiodsp.obj
+         ffmpeg.dir\Debug\mpegaudiodsp_fixed.obj
+         ffmpeg.dir\Debug\mpegaudiodsp_float.obj
+         ffmpeg.dir\Debug\mpegaudiodsp_template.obj
+         ffmpeg.dir\Debug\rdft.obj
+         ffmpeg.dir\Debug\wma.obj
+         ffmpeg.dir\Debug\wmadec.obj
+         ffmpeg.dir\Debug\wmaenc.obj
+         ffmpeg.dir\Debug\aactab.obj
+         ffmpeg.dir\Debug\riff.obj
+         ffmpeg.dir\Debug\h264.obj
+         ffmpeg.dir\Debug\h264_cabac.obj
+         ffmpeg.dir\Debug\h264_cavlc.obj
+         ffmpeg.dir\Debug\h264_direct.obj
+         ffmpeg.dir\Debug\h264_ps.obj
+         ffmpeg.dir\Debug\h264_refs.obj
+         ffmpeg.dir\Debug\h264_sei.obj
+         ffmpeg.dir\Debug\h264dsp.obj
+         ffmpeg.dir\Debug\h264idct.obj
+         ffmpeg.dir\Debug\h264pred.obj
+         ffmpeg.dir\Debug\h264_parser.obj
+         ffmpeg.dir\Debug\mpegvideo.obj
+         ffmpeg.dir\Debug\error_resilience.obj
+         ffmpeg.dir\Debug\mjpeg.obj
+         ffmpeg.dir\Debug\mjpegdec.obj
+         ffmpeg.dir\Debug\jpeglsdec.obj
+         ffmpeg.dir\Debug\jpegls.obj
+         ffmpeg.dir\Debug\allcodecs.obj
+         ffmpeg.dir\Debug\avpacket.obj
+         ffmpeg.dir\Debug\bitstream.obj
+         ffmpeg.dir\Debug\bitstream_filter.obj
+         ffmpeg.dir\Debug\dsputil.obj
+         ffmpeg.dir\Debug\faanidct.obj
+         ffmpeg.dir\Debug\fmtconvert.obj
+         ffmpeg.dir\Debug\imgconvert.obj
+         ffmpeg.dir\Debug\jrevdct.obj
+         ffmpeg.dir\Debug\parser.obj
+         ffmpeg.dir\Debug\raw.obj
+         ffmpeg.dir\Debug\resample.obj
+         ffmpeg.dir\Debug\resample2.obj
+         ffmpeg.dir\Debug\simple_idct.obj
+         ffmpeg.dir\Debug\pthread.obj
+         ffmpeg.dir\Debug\faandct.obj
+         ffmpeg.dir\Debug\jfdctfst.obj
+         ffmpeg.dir\Debug\jfdctint.obj
+         ffmpeg.dir\Debug\audiosync.obj
+         ffmpeg.dir\Debug\mpegvideo_parser.obj
+         ffmpeg.dir\Debug\cabac.obj
+         ffmpeg.dir\Debug\golomb.obj
+         ffmpeg.dir\Debug\mpeg4audio.obj
+         ffmpeg.dir\Debug\mpegaudio_parser.obj
+         ffmpeg.dir\Debug\pcm.obj
+         ffmpeg.dir\Debug\mjpeg_ite_enc.obj
+         ffmpeg.dir\Debug\mpeg.obj
+         ffmpeg.dir\Debug\allformats.obj
+         ffmpeg.dir\Debug\cutils.obj
+         ffmpeg.dir\Debug\id3v1.obj
+         ffmpeg.dir\Debug\id3v2.obj
+         ffmpeg.dir\Debug\metadata.obj
+         ffmpeg.dir\Debug\os_support.obj
+         ffmpeg.dir\Debug\sdp.obj
+         ffmpeg.dir\Debug\seek.obj
+         ffmpeg.dir\Debug\avio.obj
+         ffmpeg.dir\Debug\aviobuf.obj
+         ffmpeg.dir\Debug\avidec.obj
+         ffmpeg.dir\Debug\mov.obj
+         ffmpeg.dir\Debug\mov_chan.obj
+         ffmpeg.dir\Debug\isom.obj
+         ffmpeg.dir\Debug\matroskadec.obj
+         ffmpeg.dir\Debug\matroska.obj
+         ffmpeg.dir\Debug\rmdec.obj
+         ffmpeg.dir\Debug\rm.obj
+         ffmpeg.dir\Debug\mpegvideodec.obj
+         ffmpeg.dir\Debug\mp3dec.obj
+         ffmpeg.dir\Debug\mpegts.obj
+         ffmpeg.dir\Debug\adler32.obj
+         ffmpeg.dir\Debug\aes.obj
+         ffmpeg.dir\Debug\avstring.obj
+         ffmpeg.dir\Debug\base64.obj
+         ffmpeg.dir\Debug\cpu.obj
+         ffmpeg.dir\Debug\crc.obj
+         ffmpeg.dir\Debug\des.obj
+         ffmpeg.dir\Debug\error.obj
+         ffmpeg.dir\Debug\eval.obj
+         ffmpeg.dir\Debug\fifo.obj
+         ffmpeg.dir\Debug\imgutils.obj
+         ffmpeg.dir\Debug\intfloat_readwrite.obj
+         ffmpeg.dir\Debug\inverse.obj
+         ffmpeg.dir\Debug\lfg.obj
+         ffmpeg.dir\Debug\lls.obj
+         ffmpeg.dir\Debug\log.obj
+         ffmpeg.dir\Debug\lzo.obj
+         ffmpeg.dir\Debug\mathematics.obj
+         ffmpeg.dir\Debug\md5.obj
+         ffmpeg.dir\Debug\mem.obj
+         ffmpeg.dir\Debug\dict.obj
+         ffmpeg.dir\Debug\opt.obj
+         ffmpeg.dir\Debug\parseutils.obj
+         ffmpeg.dir\Debug\pixdesc.obj
+         ffmpeg.dir\Debug\random_seed.obj
+         ffmpeg.dir\Debug\rational.obj
+         ffmpeg.dir\Debug\rc4.obj
+         ffmpeg.dir\Debug\samplefmt.obj
+         ffmpeg.dir\Debug\sha.obj
+         ffmpeg.dir\Debug\tree.obj
+         ffmpeg.dir\Debug\rgb2rgb.obj
+         ffmpeg.dir\Debug\swscale.obj
+         ffmpeg.dir\Debug\yuv2rgb.obj
+         ffmpeg.dir\Debug\swscale_unscaled.obj
+         ffmpeg.dir\Debug\castor3player.obj
+         ffmpeg.dir\Debug\file_player.obj
+         ffmpeg.dir\Debug\main_processor_message_queue.obj
+         ffmpeg.dir\Debug\/libavcodec/audioconvert.c.obj
+         ffmpeg.dir\Debug\/libavcodec/options.c.obj
+         ffmpeg.dir\Debug\/libavcodec/rawdec.c.obj
+         ffmpeg.dir\Debug\/libavcodec/utils.c.obj
+         ffmpeg.dir\Debug\/libavformat/options.c.obj
+         ffmpeg.dir\Debug\/libavformat/utils.c.obj
+         ffmpeg.dir\Debug\/libavformat/rawdec.c.obj
+         ffmpeg.dir\Debug\/libavformat/win32/file.c.obj
+         ffmpeg.dir\Debug\/libavutil/audioconvert.c.obj
+         ffmpeg.dir\Debug\/libavutil/file.c.obj
+         ffmpeg.dir\Debug\/libavutil/utils.c.obj
+         ffmpeg.dir\Debug\/libswscale/options.c.obj
+         ffmpeg.dir\Debug\/libswscale/utils.c.obj
+     1>mpegaudiodsp_fixed.obj : warning LNK4006: _ff_mpa_synth_window_fixed 已在 mpegaudiodsp_template.obj 中定义；已忽略第二个定义
+     1>mpegaudiodsp_fixed.obj : warning LNK4006: _ff_mpa_synth_filter_fixed 已在 mpegaudiodsp_template.obj 中定义；已忽略第二个定义
+     1>mpegaudiodsp_fixed.obj : warning LNK4006: _ff_mpa_synth_init_fixed 已在 mpegaudiodsp_template.obj 中定义；已忽略第二个定义
+     1>mpegaudiodsp_fixed.obj : warning LNK4006: _ff_mpadsp_apply_window_fixed 已在 mpegaudiodsp_template.obj 中定义；已忽略第二个定义
+     1>mpegaudiodsp_fixed.obj : warning LNK4006: _ff_imdct36_fixed 已在 mpegaudiodsp_template.obj 中定义；已忽略第二个定义
+     1>mpegaudiodsp_fixed.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+     1>mdct.obj : warning LNK4006: _ff_mdct_init 已在 mdct_float.obj 中定义；已忽略第二个定义
+     1>mdct.obj : warning LNK4006: _ff_mdct_end 已在 mdct_float.obj 中定义；已忽略第二个定义
+     1>mdct.obj : warning LNK4006: _ff_imdct_calc_c 已在 mdct_float.obj 中定义；已忽略第二个定义
+     1>mdct.obj : warning LNK4006: _ff_imdct_half_c 已在 mdct_float.obj 中定义；已忽略第二个定义
+     1>mdct.obj : warning LNK4006: _ff_mdct_calc_c 已在 mdct_float.obj 中定义；已忽略第二个定义
+     1>mdct.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+     1>dct32.obj : warning LNK4006: _ff_dct32_fixed 已在 dct32_fixed.obj 中定义；已忽略第二个定义
+     1>dct32.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+         ffmpeg.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\ffmpeg.lib
+     1>已完成生成项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\ffmpeg\ffmpeg.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.45

@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libasync_file.a  CMakeFiles/async_file.dir/file.c.obj CMakeFiles/async_file.dir/init.c.obj CMakeFiles/async_file.dir/mutex.c.obj CMakeFiles/async_file.dir/msgq.c.obj CMakeFiles/async_file.dir/string.c.obj CMakeFiles/async_file.dir/thread.c.obj CMakeFiles/async_file.dir/error.c.obj CMakeFiles/async_file.dir/heap.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libasync_file.a

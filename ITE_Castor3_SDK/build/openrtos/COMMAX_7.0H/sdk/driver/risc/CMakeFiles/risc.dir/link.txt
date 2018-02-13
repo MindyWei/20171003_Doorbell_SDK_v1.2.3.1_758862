@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/librisc.a  CMakeFiles/risc.dir/it9850/ite_risc.c.obj CMakeFiles/risc.dir/it9850/risc2_ctrl.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/librisc.a

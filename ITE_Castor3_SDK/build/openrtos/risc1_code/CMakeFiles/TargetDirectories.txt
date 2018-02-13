@@ -1,0 +1,4 @@
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/risc1_code/project/risc1_code/CMakeFiles/risc1_testcode.plugin.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/risc1_code/project/risc1_code/CMakeFiles/or32_crt0.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/risc1_code/project/risc1_code/CMakeFiles/default.ld.dir
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/openrtos/risc1_code/project/risc1_code/CMakeFiles/risc1_crt0.dir

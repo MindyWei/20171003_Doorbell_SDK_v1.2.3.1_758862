@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libfat_sd.a  CMakeFiles/fat_sd.dir/mmcsd/ite_mmcsd.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libfat_sd.a

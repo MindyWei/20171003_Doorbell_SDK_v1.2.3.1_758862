@@ -1,0 +1,850 @@
+#include <unistd.h>
+#include "iic/mmp_iic.h"
+#include "capture_module/pr2000.h"
+#include "capture_module.h" //Benson add
+
+//=============================================================================
+//                Constant Definition
+//=============================================================================
+static uint8_t PR2000_IICADDR = 0x5C;
+
+#define POWER_MANAGEMENT 0x0F
+#define REG_STATUS1      0x10
+#define REG_IDENT        0x11
+#define REG_STATUS2      0x12
+#define REG_STATUS3      0x13
+
+#define RESET_MASK       (1 << 7)
+#define TRI_STATE_ENABLE (1 << 7)
+
+//#define AUTO_DETECT_INPUT
+
+//=============================================================================
+//                Macro Definition
+//=============================================================================
+
+//=============================================================================
+//                Structure Definition
+//=============================================================================
+typedef struct _REGPAIR
+{
+	uint8_t  addr;
+	uint16_t value;
+} REGPAIR;
+
+typedef enum _INPUT_TYPE
+{
+    _NTSM_M_J = 0,
+    _NTSC_4_43,
+    _PAL_M,
+    _PAL_60,
+    _PAL_B_G_H_I_D,
+    _SECAM,
+    _PAL_COMBINATION_N,
+    _SECAM_525
+} INPUT_TYPE;
+
+typedef struct PR2000CaptureModuleDriverStruct
+{
+	CaptureModuleDriverStruct base;
+} PR2000CaptureModuleDriverStruct;
+
+//=============================================================================
+//                Global Data Definition
+//=============================================================================
+static uint16_t gtPR2000CurMode  = 0xFF;
+static uint16_t gtPR2000PreMode  = 0xFF;
+static uint16_t gtPR2000CurDev   = 0xFF;
+static MMP_BOOL gtPR2000InitDone = MMP_FALSE;
+static PR2000_INPUT_MODE input_mode = PR2000_INPUT_CVBS;
+
+#if 0
+void PAL_register_write()
+{
+	pr2000_i2c_write( 0xb8, 0xff, 0x00);
+	pr2000_i2c_write( 0xb8, 0x10, 0x21);
+	pr2000_i2c_write( 0xb8, 0x11, 0x07);
+	pr2000_i2c_write( 0xb8, 0x12, 0x00);
+	pr2000_i2c_write( 0xb8, 0x13, 0x00);
+	pr2000_i2c_write( 0xb8, 0x14, 0x21);    //b[1:0); => Select Camera Input. VinP(1), VinN(3), Differ(0).
+	pr2000_i2c_write( 0xb8, 0x15, 0x44);
+	pr2000_i2c_write( 0xb8, 0x16, 0x0d);
+	pr2000_i2c_write( 0xb8, 0x40, 0x00);
+	pr2000_i2c_write( 0xb8, 0x47, 0x36);
+	pr2000_i2c_write( 0xb8, 0x4e, 0x3f);
+	pr2000_i2c_write( 0xb8, 0x80, 0x56);
+	pr2000_i2c_write( 0xb8, 0x81, 0x0e);
+	pr2000_i2c_write( 0xb8, 0x82, 0x0d);
+	pr2000_i2c_write( 0xb8, 0x84, 0x30);
+	pr2000_i2c_write( 0xb8, 0x86, 0x20);
+	pr2000_i2c_write( 0xb8, 0x87, 0x00);
+	pr2000_i2c_write( 0xb8, 0x8a, 0x00);
+	pr2000_i2c_write( 0xb8, 0x90, 0x00);
+	pr2000_i2c_write( 0xb8, 0x91, 0x00);
+	pr2000_i2c_write( 0xb8, 0x92, 0x00);
+	pr2000_i2c_write( 0xb8, 0x94, 0xff);
+	pr2000_i2c_write( 0xb8, 0x95, 0xff);
+	pr2000_i2c_write( 0xb8, 0x96, 0xff);
+	pr2000_i2c_write( 0xb8, 0xa0, 0x00);
+	pr2000_i2c_write( 0xb8, 0xa1, 0x20);
+	pr2000_i2c_write( 0xb8, 0xa4, 0x01);
+	pr2000_i2c_write( 0xb8, 0xa5, 0xe3);
+	pr2000_i2c_write( 0xb8, 0xa6, 0x00);
+	pr2000_i2c_write( 0xb8, 0xa7, 0x12);
+	pr2000_i2c_write( 0xb8, 0xa8, 0x00);
+	pr2000_i2c_write( 0xb8, 0xd0, 0x30);
+	pr2000_i2c_write( 0xb8, 0xd1, 0x08);
+	pr2000_i2c_write( 0xb8, 0xd2, 0x21);
+	pr2000_i2c_write( 0xb8, 0xd3, 0x00);
+	pr2000_i2c_write( 0xb8, 0xd8, 0x37);
+	pr2000_i2c_write( 0xb8, 0xd9, 0x08);
+	pr2000_i2c_write( 0xb8, 0xda, 0x18);
+	pr2000_i2c_write( 0xb8, 0xe0, 0x3e);
+	pr2000_i2c_write( 0xb8, 0xe1, 0xb0);
+	pr2000_i2c_write( 0xb8, 0xe2, 0x18);
+	pr2000_i2c_write( 0xb8, 0xe3, 0x34);
+	pr2000_i2c_write( 0xb8, 0xe4, 0x34);
+	pr2000_i2c_write( 0xb8, 0xea, 0x01);
+	pr2000_i2c_write( 0xb8, 0xeb, 0xff);
+	pr2000_i2c_write( 0xb8, 0xf1, 0x44);
+	pr2000_i2c_write( 0xb8, 0xf2, 0x01);
+
+//                      Page1 vdec
+	pr2000_i2c_write( 0xb8, 0xff, 0x01);
+	pr2000_i2c_write( 0xb8, 0x00, 0xe4);
+	pr2000_i2c_write( 0xb8, 0x01, 0x61);
+	pr2000_i2c_write( 0xb8, 0x02, 0x00);
+	pr2000_i2c_write( 0xb8, 0x03, 0x57);
+	pr2000_i2c_write( 0xb8, 0x04, 0x0c);
+	pr2000_i2c_write( 0xb8, 0x05, 0x88);
+	pr2000_i2c_write( 0xb8, 0x06, 0x04);
+	pr2000_i2c_write( 0xb8, 0x07, 0xb2);
+	pr2000_i2c_write( 0xb8, 0x08, 0x44);
+	pr2000_i2c_write( 0xb8, 0x09, 0x34);
+	pr2000_i2c_write( 0xb8, 0x0a, 0x02);
+	pr2000_i2c_write( 0xb8, 0x0b, 0x14);
+	pr2000_i2c_write( 0xb8, 0x0c, 0x04);
+	pr2000_i2c_write( 0xb8, 0x0d, 0x08);
+	pr2000_i2c_write( 0xb8, 0x0e, 0x5e);
+	pr2000_i2c_write( 0xb8, 0x0f, 0x5e);
+	pr2000_i2c_write( 0xb8, 0x10, 0x26);
+	pr2000_i2c_write( 0xb8, 0x11, 0x00);
+	pr2000_i2c_write( 0xb8, 0x12, 0x22);
+	pr2000_i2c_write( 0xb8, 0x13, 0xe0);
+	pr2000_i2c_write( 0xb8, 0x14, 0xd0);
+	pr2000_i2c_write( 0xb8, 0x15, 0x16);
+	pr2000_i2c_write( 0xb8, 0x16, 0x20);
+	pr2000_i2c_write( 0xb8, 0x17, 0x00);
+	pr2000_i2c_write( 0xb8, 0x18, 0x21);
+	pr2000_i2c_write( 0xb8, 0x19, 0x4a);
+	pr2000_i2c_write( 0xb8, 0x1a, 0x20);
+	pr2000_i2c_write( 0xb8, 0x1b, 0x06);
+	pr2000_i2c_write( 0xb8, 0x1c, 0x31);
+	pr2000_i2c_write( 0xb8, 0x1d, 0x42);
+	pr2000_i2c_write( 0xb8, 0x1e, 0x50);
+	pr2000_i2c_write( 0xb8, 0x1f, 0xd0);
+	pr2000_i2c_write( 0xb8, 0x20, 0x80);
+	pr2000_i2c_write( 0xb8, 0x21, 0x88);
+	pr2000_i2c_write( 0xb8, 0x22, 0x80);
+	pr2000_i2c_write( 0xb8, 0x23, 0x80);
+	pr2000_i2c_write( 0xb8, 0x24, 0x80);
+	pr2000_i2c_write( 0xb8, 0x25, 0x80);
+	pr2000_i2c_write( 0xb8, 0x26, 0x84);
+	pr2000_i2c_write( 0xb8, 0x27, 0x80);
+	pr2000_i2c_write( 0xb8, 0x28, 0x00);
+	pr2000_i2c_write( 0xb8, 0x29, 0x5f);
+	pr2000_i2c_write( 0xb8, 0x2a, 0x20);
+	pr2000_i2c_write( 0xb8, 0x2b, 0x00);
+	pr2000_i2c_write( 0xb8, 0x2c, 0x00);
+	pr2000_i2c_write( 0xb8, 0x2d, 0x00);
+	pr2000_i2c_write( 0xb8, 0x2e, 0x00);
+	pr2000_i2c_write( 0xb8, 0x2f, 0x00);
+	pr2000_i2c_write( 0xb8, 0x30, 0x00);
+	pr2000_i2c_write( 0xb8, 0x31, 0x00);
+	pr2000_i2c_write( 0xb8, 0x32, 0xc0);
+	pr2000_i2c_write( 0xb8, 0x33, 0x20);
+	pr2000_i2c_write( 0xb8, 0x34, 0x20);
+	pr2000_i2c_write( 0xb8, 0x35, 0x10);
+	pr2000_i2c_write( 0xb8, 0x36, 0x10);
+	pr2000_i2c_write( 0xb8, 0x37, 0xc4);
+	pr2000_i2c_write( 0xb8, 0x38, 0x42);
+	pr2000_i2c_write( 0xb8, 0x39, 0x00);
+	pr2000_i2c_write( 0xb8, 0x3a, 0xac);
+	pr2000_i2c_write( 0xb8, 0x3b, 0x04);
+	pr2000_i2c_write( 0xb8, 0x3c, 0x01);
+	pr2000_i2c_write( 0xb8, 0x3d, 0x21);
+	pr2000_i2c_write( 0xb8, 0x3e, 0x06);
+	pr2000_i2c_write( 0xb8, 0x3f, 0xd5);
+	pr2000_i2c_write( 0xb8, 0x40, 0x85);
+	pr2000_i2c_write( 0xb8, 0x41, 0x55);
+	pr2000_i2c_write( 0xb8, 0x42, 0x01);
+	pr2000_i2c_write( 0xb8, 0x43, 0x31);
+	pr2000_i2c_write( 0xb8, 0x44, 0x6a);
+	pr2000_i2c_write( 0xb8, 0x45, 0x00);
+	pr2000_i2c_write( 0xb8, 0x46, 0x07);
+	pr2000_i2c_write( 0xb8, 0x47, 0xa4);
+	pr2000_i2c_write( 0xb8, 0x48, 0xa5);
+	pr2000_i2c_write( 0xb8, 0x49, 0x00);
+	pr2000_i2c_write( 0xb8, 0x4a, 0x7b);
+	pr2000_i2c_write( 0xb8, 0x4b, 0x60);
+	pr2000_i2c_write( 0xb8, 0x4c, 0x00);
+	pr2000_i2c_write( 0xb8, 0x4d, 0x47);
+	pr2000_i2c_write( 0xb8, 0x4e, 0x02);
+	pr2000_i2c_write( 0xb8, 0x4f, 0x24);
+	pr2000_i2c_write( 0xb8, 0x50, 0x01);
+	pr2000_i2c_write( 0xb8, 0x51, 0x28);
+	pr2000_i2c_write( 0xb8, 0x52, 0x40);
+	pr2000_i2c_write( 0xb8, 0x53, 0x0c);
+	pr2000_i2c_write( 0xb8, 0x54, 0x0f);
+	pr2000_i2c_write( 0xb8, 0x55, 0x8d);
+	pr2000_i2c_write( 0xb8, 0x70, 0x06);
+	pr2000_i2c_write( 0xb8, 0x71, 0x08);
+	pr2000_i2c_write( 0xb8, 0x72, 0x0a);
+	pr2000_i2c_write( 0xb8, 0x73, 0x0c);
+	pr2000_i2c_write( 0xb8, 0x74, 0x0e);
+	pr2000_i2c_write( 0xb8, 0x75, 0x10);
+	pr2000_i2c_write( 0xb8, 0x76, 0x12);
+	pr2000_i2c_write( 0xb8, 0x77, 0x14);
+	pr2000_i2c_write( 0xb8, 0x78, 0x06);
+	pr2000_i2c_write( 0xb8, 0x79, 0x08);
+	pr2000_i2c_write( 0xb8, 0x7a, 0x0a);
+	pr2000_i2c_write( 0xb8, 0x7b, 0x0c);
+	pr2000_i2c_write( 0xb8, 0x7c, 0x0e);
+	pr2000_i2c_write( 0xb8, 0x7d, 0x10);
+	pr2000_i2c_write( 0xb8, 0x7e, 0x12);
+	pr2000_i2c_write( 0xb8, 0x7f, 0x14);
+	pr2000_i2c_write( 0xb8, 0x80, 0x00);
+	pr2000_i2c_write( 0xb8, 0x81, 0x09);
+	pr2000_i2c_write( 0xb8, 0x82, 0x00);
+	pr2000_i2c_write( 0xb8, 0x83, 0x07);
+	pr2000_i2c_write( 0xb8, 0x84, 0x00);
+	pr2000_i2c_write( 0xb8, 0x85, 0x14);
+	pr2000_i2c_write( 0xb8, 0x86, 0x03);
+	pr2000_i2c_write( 0xb8, 0x87, 0x36);
+	pr2000_i2c_write( 0xb8, 0x88, 0x06);
+	pr2000_i2c_write( 0xb8, 0x89, 0x3b);
+	pr2000_i2c_write( 0xb8, 0x8a, 0x06);
+	pr2000_i2c_write( 0xb8, 0x8b, 0x3b);
+	pr2000_i2c_write( 0xb8, 0x8c, 0x05);
+	pr2000_i2c_write( 0xb8, 0x8d, 0xf0);
+	pr2000_i2c_write( 0xb8, 0x8e, 0x06);
+	pr2000_i2c_write( 0xb8, 0x8f, 0x66);
+	pr2000_i2c_write( 0xb8, 0x90, 0x03);
+	pr2000_i2c_write( 0xb8, 0x91, 0x47);
+	pr2000_i2c_write( 0xb8, 0x92, 0x73);
+	pr2000_i2c_write( 0xb8, 0x93, 0x39);
+	pr2000_i2c_write( 0xb8, 0x94, 0x0f);
+	pr2000_i2c_write( 0xb8, 0x95, 0x5e);
+	pr2000_i2c_write( 0xb8, 0x96, 0x04);
+	pr2000_i2c_write( 0xb8, 0x97, 0x9c);
+	pr2000_i2c_write( 0xb8, 0x98, 0x1c);
+	pr2000_i2c_write( 0xb8, 0x99, 0x20);
+	pr2000_i2c_write( 0xb8, 0x9a, 0x17);
+	pr2000_i2c_write( 0xb8, 0x9b, 0x70);
+	pr2000_i2c_write( 0xb8, 0x9c, 0x0e);
+	pr2000_i2c_write( 0xb8, 0x9d, 0x10);
+	pr2000_i2c_write( 0xb8, 0x9e, 0x0b);
+	pr2000_i2c_write( 0xb8, 0x9f, 0xb8);
+	pr2000_i2c_write( 0xb8, 0xa0, 0x01);
+	pr2000_i2c_write( 0xb8, 0xa1, 0xc2);
+	pr2000_i2c_write( 0xb8, 0xa2, 0x01);
+	pr2000_i2c_write( 0xb8, 0xa3, 0xb8);
+	pr2000_i2c_write( 0xb8, 0xa4, 0x00);
+	pr2000_i2c_write( 0xb8, 0xa5, 0xe1);
+	pr2000_i2c_write( 0xb8, 0xa6, 0x00);
+	pr2000_i2c_write( 0xb8, 0xa7, 0xc6);
+	pr2000_i2c_write( 0xb8, 0xa8, 0x01);
+	pr2000_i2c_write( 0xb8, 0xa9, 0x7c);
+	pr2000_i2c_write( 0xb8, 0xaa, 0x01);
+	pr2000_i2c_write( 0xb8, 0xab, 0x7c);
+	pr2000_i2c_write( 0xb8, 0xac, 0x00);
+	pr2000_i2c_write( 0xb8, 0xad, 0xea);
+	pr2000_i2c_write( 0xb8, 0xae, 0x00);
+	pr2000_i2c_write( 0xb8, 0xaf, 0xea);
+	pr2000_i2c_write( 0xb8, 0xb0, 0x05);
+	pr2000_i2c_write( 0xb8, 0xb1, 0xcc);
+	pr2000_i2c_write( 0xb8, 0xb2, 0x09);
+	pr2000_i2c_write( 0xb8, 0xb3, 0x6d);
+	pr2000_i2c_write( 0xb8, 0xb4, 0x00);
+	pr2000_i2c_write( 0xb8, 0xb5, 0x17);
+	pr2000_i2c_write( 0xb8, 0xb6, 0x08);
+	pr2000_i2c_write( 0xb8, 0xb7, 0xe8);
+	pr2000_i2c_write( 0xb8, 0xb8, 0xb0);
+	pr2000_i2c_write( 0xb8, 0xb9, 0xce);
+	pr2000_i2c_write( 0xb8, 0xba, 0x90);
+	pr2000_i2c_write( 0xb8, 0xbb, 0x10);
+	pr2000_i2c_write( 0xb8, 0xbc, 0x00);
+	pr2000_i2c_write( 0xb8, 0xbd, 0x04);
+	pr2000_i2c_write( 0xb8, 0xbe, 0x02);
+	pr2000_i2c_write( 0xb8, 0xbf, 0xd0);
+	pr2000_i2c_write( 0xb8, 0xc0, 0x00);
+	pr2000_i2c_write( 0xb8, 0xc1, 0x16);
+	pr2000_i2c_write( 0xb8, 0xc2, 0x01);
+	pr2000_i2c_write( 0xb8, 0xc3, 0x20);
+
+	pr2000_i2c_write( 0xb8, 0xff, 0x01);
+	pr2000_i2c_write( 0xb8, 0x54, 0x0e);
+	pr2000_i2c_write( 0xb8, 0xff, 0x01);
+	pr2000_i2c_write( 0xb8, 0x54, 0x0f);
+
+
+}
+#endif
+/* 32-Lead LFCSP , page 108*/
+static REGPAIR  CVBS_INPUT[]      =
+{
+	{0x00, 0x04}, //AIN3
+	{0x04, 0x54},
+	{0x17, 0x41},
+	{0x31, 0x02},
+	{0x3D, 0xA2},
+	{0x3E, 0x6A},
+	{0x3F, 0xA0},
+	{0x58, 0x01},
+	{0x0E, 0x80},
+	{0x55, 0x81},
+	{0x0E, 0x00},
+
+	//Autodetect enable PAL_B/NTSC/N443
+	{0x07, 0x23},  // Benson
+
+#if 0
+	//    // Figure35 and Figure 40 for BT601 NTSC and PAL
+	{0x31, 0x1A},
+	{0x32, 0x81},
+	{0x33, 0x84},
+	{0x34, 0x00},
+	{0x35, 0x00},
+	{0x36, 0x7D},
+	{0x37, 0xA1},
+	//NTSC
+	{0xE5, 0x41},
+	{0xE6, 0x84},
+	{0xE7, 0x06},
+	//PAL
+	{0xE8, 0x41},
+	{0xE9, 0x84},
+	{0xEA, 0x06},
+#endif
+};
+
+static REGPAIR  SVIDEO_INPUT [] =
+{
+	{0x00, 0x06}, //AIN1 AIN2
+	{0x04, 0x54},
+	{0x31, 0x02},
+	{0x3D, 0xA2},
+	{0x3E, 0x6A},
+	{0x3F, 0xA0},
+	{0x58, 0x05},
+	{0x0E, 0x80},
+	{0x55, 0x81},
+	{0x0E, 0x00},
+
+	//Autodetect enable PAL_B/NTSC/N443
+	{0x07, 0x23},
+
+	// Figure35 and Figure 40 for BT601 NTSC and PAL
+	{0x31, 0x1A},
+	{0x32, 0x81},
+	{0x33, 0x84},
+	{0x34, 0x00},
+	{0x35, 0x00},
+	{0x36, 0x7D},
+	{0x37, 0xA1},
+	//NTSC
+	{0xE5, 0x41},
+	{0xE6, 0x84},
+	{0xE7, 0x06},
+	//PAL
+	{0xE8, 0x41},
+	{0xE9, 0x84},
+	{0xEA, 0x06},
+};
+
+static REGPAIR  YPrPb_INPUT [] =
+{
+	{0x00, 0x09},
+	{0x31, 0x02},
+	{0x3D, 0xA2},
+	{0x3E, 0x6A},
+	{0x3F, 0xA0},
+	{0x58, 0x01},
+	{0x0E, 0x80},
+	{0x55, 0x81},
+	{0x0E, 0x00},
+
+	//Autodetect enable PAL_B/NTSC/N443
+	{0x07, 0x23},
+
+	// Figure35 and Figure 40 for BT601 NTSC and PAL
+	{0x31, 0x1A},
+	{0x32, 0x81},
+	{0x33, 0x84},
+	{0x34, 0x00},
+	{0x35, 0x00},
+	{0x36, 0x7D},
+	{0x37, 0xA1},
+	//NTSC
+	{0xE5, 0x41},
+	{0xE6, 0x84},
+	{0xE7, 0x06},
+	//PAL
+	{0xE8, 0x41},
+	{0xE9, 0x84},
+	{0xEA, 0x06},
+};
+
+//PR2000 Table
+static CAP_TIMINFO_TABLE PR2000_TABLE [] =
+{
+    //Index, HActive, VActive,  Rate,            FrameRate,                 Hpor,   Vpor,  HStar,     HEnd,   VStar1,   VEnd1,  VStar2,   VEnd2,
+    {0,     720,    487,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22 - 7,   261 - 7,   285 - 7,   524 - 7   }, //480i60     // Benson
+    {1,     720,    576,        2500,   CAP_FRAMERATE_25HZ,               0,      0, 264 + 18,   1703 + 18,     23 - 4,   310 - 4,   336 - 4,   623 - 4   }, //576i50
+    {2,     1280,   720,        2500,   CAP_FRAMERATE_25HZ,               0,      0, 264 + 18,   1703 + 18,     23 - 4,   310 - 4,   336 - 4,   623 - 4   }, //720p50
+};      
+
+//=============================================================================
+//                Private Function Definition
+//=============================================================================
+
+static uint8_t _PR2000_ReadI2c_Byte(uint8_t slaveAddr,uint8_t regAddr)
+{
+	uint8_t val;
+	if(!mmpIicReceiveData(IIC_PORT_1, IIC_MASTER_MODE, slaveAddr>>1, &regAddr, 1,&val, 1))
+		printf("PR2000 I2C Read error, reg = %02x\n", regAddr);
+	return val;
+}
+static void _PR2000_WriteI2c_Byte(uint8_t slaveAddr,uint8_t regAddr,uint8_t val)
+{
+	if(!mmpIicSendData(IIC_PORT_1, IIC_MASTER_MODE, slaveAddr>>1, regAddr, &val,1))
+		printf("PR2000 I2c write error, reg = %02x val =%02x\n", regAddr, val);
+	return;
+}
+static MMP_RESULT _PR2000_WriteI2c_ByteMask(uint8_t RegAddr, uint8_t data, uint8_t mask)
+{
+	uint8_t    value;
+	MMP_RESULT flag;
+
+	//mmpIicLockModule(IIC_PORT_0);
+
+	if (0 != (flag = mmpIicReceiveData(IIC_PORT_0, IIC_MASTER_MODE, PR2000_IICADDR, &RegAddr, 1, &value, 1)))
+	{
+		printf("PR2000 I2C Read error, reg = %02x\n", RegAddr);
+		mmpIicGenStop(IIC_PORT_0);
+	}
+
+	value = ((value & ~mask) | (data & mask));
+
+	if (0 != (flag = mmpIicSendData(IIC_PORT_0, IIC_MASTER_MODE, PR2000_IICADDR, RegAddr, &value, 1)))
+	{
+		if(RegAddr!= 0x0F)
+			printf("PR2000 I2c write error, reg = %02x val =%02x\n", RegAddr, value);
+		mmpIicGenStop(IIC_PORT_0);
+	}
+	//mmpIicReleaseModule(IIC_PORT_0);
+	return flag;
+}
+
+static void _PR2000_SWReset()
+{
+	_PR2000_WriteI2c_Byte(0xb8,0xff,0x00);
+	_PR2000_WriteI2c_Byte(0xb8,0xf8,0xff);
+	usleep(100*1000);
+	_PR2000_WriteI2c_Byte(0xb8,0xf8,0x00);
+}
+
+static void _Set_PR2000_Input_CVBS(void)
+{
+	//PAL_register_write();
+}
+
+static void _Set_PR2000_Input_SVIDEO(void)
+{
+	uint16_t i;
+
+	//for (i = 0; i < (sizeof(SVIDEO_INPUT) / sizeof(REGPAIR)); i++)
+		//_PR2000_WriteI2c_Byte(SVIDEO_INPUT[i].addr, SVIDEO_INPUT[i].value);
+}
+
+static void _Set_PR2000_Input_YPrPb(void)
+{
+	uint16_t i;
+
+	//for (i = 0; i < (sizeof(YPrPb_INPUT) / sizeof(REGPAIR)); i++)
+		//_PR2000_WriteI2c_Byte(YPrPb_INPUT[i].addr, YPrPb_INPUT[i].value);
+}
+
+//=============================================================================
+//                Public Function Definition
+//=============================================================================
+void Set_PR2000_Tri_State_Enable()
+{
+/*
+	//LLC pin Tri-State
+	_PR2000_WriteI2c_ByteMask(0x1D, 0x80, 0x80);
+
+	//TIM_OE pin Tri-State
+	_PR2000_WriteI2c_ByteMask(0x04, 0x00, 0x08);
+
+	//SFL Pin Disable (DE)
+	_PR2000_WriteI2c_ByteMask(0x04, 0x00, 0x02);
+
+	//HS, VS, FIELD Data pin Tri-State
+	_PR2000_WriteI2c_ByteMask(0x03, 0x40, 0x40);
+*/
+}
+
+void Set_PR2000_Tri_State_Disable()
+{
+/*
+	//LLC pin Tri-State
+	_PR2000_WriteI2c_ByteMask(0x1D, 0x00, 0x80);
+
+	//TIM_OE pin Tri-State
+	_PR2000_WriteI2c_ByteMask(0x04, 0x08, 0x08);
+
+	//SFL Pin Disable (DE)
+	_PR2000_WriteI2c_ByteMask(0x04, 0x00, 0x02);
+
+	//HS, VS, FIELD Data pin Tri-State
+	_PR2000_WriteI2c_ByteMask(0x03, 0x00, 0x40);
+*/
+}
+
+PR2000_INPUT_STANDARD Get_Auto_Detection_Result_1()
+{
+	uint8_t result;
+/*
+
+	result = _PR2000_ReadI2c_Byte(REG_STATUS1);
+	result = (result & 0x70) >> 4;
+
+	switch (result)
+	{
+	case PR2000_NTSM_M_J:
+		PR2000_InWidth     = 720;
+		PR2000_InHeight    = 487; //480;
+		PR2000_InFrameRate = 2997;
+		gtPR2000CurMode    = PR2000_NTSM_M_J;
+		printf("NTSM M/J\n");
+		break;
+
+	case PR2000_NTSC_4_43:
+		PR2000_InWidth     = 720;
+		PR2000_InHeight    = 480;
+		PR2000_InFrameRate = 2997;
+		gtPR2000CurMode    = PR2000_NTSC_4_43;
+		printf("NTSC 4.43\n");
+		break;
+
+		//case PR2000_PAL_M:
+		//  PR2000_InWidth = 720;
+		//  PR2000_InHeight = 480;
+		//  PR2000_InFrameRate = 2997;
+		//  gtPR2000CurMode = PR2000_PAL_M;
+		//  printf("PAL_M\n");
+		//  break;
+		//case PR2000_PAL_60:
+		//  PR2000_InWidth = 720;
+		//  PR2000_InHeight = 480;
+		//  PR2000_InFrameRate = 3000;
+		//  gtPR2000CurMode = PR2000_PAL_60;
+		//  printf("PAL_60\n");
+		//  break;
+	case PR2000_PAL_B_G_H_I_D:
+		PR2000_InWidth     = 720;
+		PR2000_InHeight    = 576;
+		PR2000_InFrameRate = 2500;
+		gtPR2000CurMode    = PR2000_PAL_B_G_H_I_D;
+		printf("0 PAL B/G/H/I/D\n");
+		break;
+
+		//case PR2000_SECAM:
+		//  PR2000_InWidth = 720;
+		//  PR2000_InHeight = 576;
+		//  PR2000_InFrameRate = 2500;
+		//  gtPR2000CurMode = PR2000_SECAM;
+		//  printf("SECAM\n");
+		//  break;
+		//case PR2000_PAL_COMBINATION_N:
+		//  PR2000_InWidth = 720;
+		//  PR2000_InHeight = 576;
+		//  PR2000_InFrameRate = 2500;
+		//  gtPR2000CurMode = PR2000_PAL_COMBINATION_N;
+		//  printf("PAL Combination N\n");
+		//  break;
+		//case PR2000_SECAM_525:
+		//  PR2000_InWidth = 720;
+		//  PR2000_InHeight = 480;
+		//  PR2000_InFrameRate = 2997;
+		//  gtPR2000CurMode = PR2000_SECAM_525;
+		//  printf("SECAM 525\n");
+		//  break;
+	default:
+		printf("Can not recognize\n");
+		break;
+	}
+	*/
+	return result;
+}
+
+uint16_t _PR2000_InputSelection()
+{
+	return PR2000_INPUT_CVBS;
+#if 0//def AUTO_DETECT_INPUT
+	uint16_t Value;
+
+	Value = _PR2000_ReadI2c_Byte(REG_STATUS1);
+	if ((Value & 0x05) != 0x05)
+	{
+		Value = _PR2000_ReadI2c_Byte(0x00);
+		if ((Value & 0x0F) == 0x06)
+		{
+			PR2000_Input_Mode(PR2000_INPUT_CVBS);
+			return PR2000_INPUT_CVBS;
+		}
+		else
+		{
+			PR2000_Input_Mode(PR2000_INPUT_SVIDEO);
+			return PR2000_INPUT_SVIDEO;
+		}
+	}
+	else
+	{
+		Value = _PR2000_ReadI2c_Byte(0x00);
+		if ((Value & 0x0F) == 0x06)
+			return PR2000_INPUT_SVIDEO;
+		else
+			return PR2000_INPUT_CVBS;
+	}
+//#else
+	uint16_t Value;
+	Value = _PR2000_ReadI2c_Byte(0x00);
+	if ((Value & 0x0F) == 0x06)
+		return PR2000_INPUT_SVIDEO;
+	else
+		return PR2000_INPUT_CVBS;
+#endif
+}
+
+void PR2000Initial(PR2000_INPUT_MODE mode)
+{
+	//PR2000 INIT
+
+}
+
+void PR2000_Input_Mode(PR2000_INPUT_MODE mode)
+{
+    input_mode = mode;
+		//_Set_PR2000_Input_CVBS();
+	/*
+	//if (mode == PR2000_INPUT_CVBS)
+		_Set_PR2000_Input_CVBS();
+	else if (mode == PR2000_INPUT_SVIDEO)
+		_Set_PR2000_Input_SVIDEO();
+	else if (mode == PR2000_INPUT_YPBPR)
+		_Set_PR2000_Input_YPrPb();
+
+	//Y Range 16 - 235, UV Range 16 - 240
+	_PR2000_WriteI2c_ByteMask(0x04, 0x00, 0x01);
+
+	//_PR2000_WriteI2c_ByteMask(0x04, 0x01, 0x02);  // Benson test
+	//Lock status set by horizontal lock and subcarrier lock
+	//_PR2000_WriteI2c_ByteMask(0x51, 0x80, 0x80);
+
+	//drive strength
+	_PR2000_WriteI2c_Byte(0xF4, 0x04);
+	*/
+}
+
+MMP_BOOL PR2000_IsStable()
+{
+/*
+	uint16_t Value;
+	uint16_t IsStable;
+
+	if (!gtPR2000InitDone)
+		return MMP_FALSE;
+
+	Value = _PR2000_ReadI2c_Byte(REG_STATUS1);
+	if (((Value & 0x85) == 0x05) || ((Value & 0x85) == 0x81)) //Color Burst or No Color Burst
+	{
+		Get_Auto_Detection_Result();
+
+		if (gtPR2000CurMode != gtPR2000PreMode)
+		{
+			printf("--------PR2000 Resolution = \n");
+			if (gtPR2000CurMode == PR2000_NTSM_M_J)
+				printf("NTSM_M_J\n");
+			else if (gtPR2000CurMode == PR2000_NTSC_4_43)
+				printf( "NTSC_4_43\n");
+			else if (gtPR2000CurMode == PR2000_PAL_M)
+				printf("PAL_M\n");
+			else if (gtPR2000CurMode == PR2000_PAL_60)
+				printf("PAL_60\n");
+			else if (gtPR2000CurMode == PR2000_PAL_B_G_H_I_D)
+				printf("PAL_B_G_H_I_D\n");
+			else if (gtPR2000CurMode == PR2000_SECAM)
+				printf("SECAM\n");
+			else if (gtPR2000CurMode == PR2000_PAL_COMBINATION_N)
+				printf("PAL_COMBINATION_N\n");
+			else if (gtPR2000CurMode == PR2000_SECAM_525)
+				printf("SECAM_525\n");
+			else
+				printf("Unknow Format\n");
+
+			if (gtPR2000CurDev == PR2000_INPUT_CVBS)
+				printf("----CVBS ---------\n");
+			else if (gtPR2000CurDev == PR2000_INPUT_SVIDEO)
+				printf("----S-Video ------\n");
+
+			gtPR2000PreMode = gtPR2000CurMode;
+		}
+		IsStable = MMP_TRUE;
+	}
+	else
+	{
+		gtPR2000CurDev = _PR2000_InputSelection();
+		IsStable        = MMP_FALSE;
+	}
+
+	return IsStable;
+	*/
+	return MMP_TRUE;
+}
+
+void PR2000_PowerDown(
+    MMP_BOOL enable)
+{
+/*
+	//When PDBP is set to 1, setting the PWRDWN bit switches the PR2000 to a chip-wide power-down mode.
+	_PR2000_WriteI2c_ByteMask(POWER_MANAGEMENT, 0x04, 0x04);
+
+	if (enable)
+	{
+		gtPR2000InitDone = MMP_FALSE;
+		_PR2000_WriteI2c_ByteMask(POWER_MANAGEMENT, 0x20, 0x20);
+	}
+	else
+		_PR2000_WriteI2c_ByteMask(POWER_MANAGEMENT, 0x00, 0x20);
+*/
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//X10LightDriver_t1.c
+void PR2000Initialize(void)
+{
+	printf("PR2000Initialize here\n");
+	PR2000Initial(PR2000_INPUT_CVBS);
+}
+
+void PR2000Terminate(void)
+{
+	printf("PR2000Terminate\n");
+}
+
+void PR2000OutputPinTriState(unsigned char flag)
+{
+/*
+	if (flag == MMP_TRUE)
+		Set_PR2000_Tri_State_Enable();
+	else
+		Set_PR2000_Tri_State_Disable();
+		*/
+}
+
+unsigned char PR2000IsSignalStable(void)
+{
+	MMP_BOOL isStable;
+	isStable = PR2000_IsStable();
+	return isStable;
+}
+
+void PR2000GetProperty(CAP_GET_PROPERTY * pGetProperty)
+{
+	uint16_t i;
+
+	//Get_Auto_Detection_Result();
+	pGetProperty->GetTopFieldPolarity = MMP_TRUE;
+    if(input_mode == PR2000_INPUT_YPBPR)
+    {
+	    pGetProperty->GetHeight = 720;//PR2000_InHeight;
+	    pGetProperty->GetWidth  = 1280;//PR2000_InWidth;
+	    pGetProperty->Rate = 2500;//PR2000_InFrameRate;
+	    pGetProperty->GetModuleIsInterlace = 0;
+    }
+    else
+    {   
+        pGetProperty->GetHeight = 576;//PR2000_InHeight;
+	    pGetProperty->GetWidth  = 720;//PR2000_InWidth;
+	    pGetProperty->Rate = 2500;//PR2000_InFrameRate;
+	    pGetProperty->GetModuleIsInterlace = 1;
+    }
+    for (i = 0; i < (sizeof(PR2000_TABLE) / sizeof(CAP_TIMINFO_TABLE)); ++i)
+    {
+       if ((pGetProperty->GetWidth == PR2000_TABLE[i].HActive) && (pGetProperty->GetHeight == PR2000_TABLE[i].VActive) && pGetProperty->Rate == PR2000_TABLE[i].Rate)
+        {
+            pGetProperty->HPolarity       = PR2000_TABLE[i].HPolarity; 
+            pGetProperty->VPolarity       = PR2000_TABLE[i].VPolarity;
+            pGetProperty->FrameRate       = PR2000_TABLE[i].FrameRate; 
+            pGetProperty->matchResolution = MMP_TRUE;
+
+			pGetProperty->HStar  = PR2000_TABLE[i].HStar;
+			pGetProperty->HEnd   = PR2000_TABLE[i].HEnd;
+			pGetProperty->VStar1 = PR2000_TABLE[i].VStar1;
+			pGetProperty->VEnd1  = PR2000_TABLE[i].VEnd1;
+			pGetProperty->VStar2 = PR2000_TABLE[i].VStar2;
+			pGetProperty->VEnd2  = PR2000_TABLE[i].VEnd2;
+		}
+	}
+}
+
+void PR2000PowerDown(unsigned char enable)
+{
+	PR2000_PowerDown(enable);
+}
+
+void PR2000ForCaptureDriverSetting(CAP_CONTEXT *Capctxt )
+{
+    /* Input Format default Setting */
+    if(input_mode == PR2000_INPUT_YPBPR)
+        Capctxt->Interleave   = Progressive;
+    else
+	    Capctxt->Interleave   = Interleaving;
+
+	/* Input Data Format Setting */
+	// 8bit bus
+	Capctxt->YUV422Format  = CAP_IN_YUV422_UYVY;
+	Capctxt->EnDEMode             = MMP_FALSE;
+	Capctxt->input_protocol       = BT_656;
+}
+
+static void PR2000CaptureModuleDriver_Destory(CaptureModuleDriver base)
+{
+	PR2000CaptureModuleDriver self = (PR2000CaptureModuleDriver)base;
+	if(self)
+		free(self);
+}
+
+static CaptureModuleDriverInterfaceStruct interface =
+{
+	PR2000Initialize,
+	PR2000Terminate,
+	PR2000OutputPinTriState,
+	PR2000IsSignalStable,
+	PR2000GetProperty,
+	PR2000PowerDown,
+	PR2000ForCaptureDriverSetting,
+	PR2000CaptureModuleDriver_Destory
+};
+
+CaptureModuleDriver PR2000CaptureModuleDriver_Create()
+{
+	PR2000CaptureModuleDriver self = calloc(1, sizeof(PR2000CaptureModuleDriverStruct));
+	self->base.vtable = &interface;
+	self->base.type = "PR2000";
+	return (PR2000CaptureModuleDriver)self;
+}
+//end of X10LightDriver_t1.c

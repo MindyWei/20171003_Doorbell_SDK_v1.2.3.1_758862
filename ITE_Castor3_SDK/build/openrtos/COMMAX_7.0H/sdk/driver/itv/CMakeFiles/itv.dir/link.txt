@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libitv.a  CMakeFiles/itv.dir/it9850/itv.c.obj CMakeFiles/itv.dir/fc_sync.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libitv.a

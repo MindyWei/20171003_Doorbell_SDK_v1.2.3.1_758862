@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libfat_nor.a  CMakeFiles/fat_nor.dir/nor/cache2.c.obj CMakeFiles/fat_nor.dir/nor/nordrv_f.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libfat_nor.a

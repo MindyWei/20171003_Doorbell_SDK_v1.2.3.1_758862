@@ -1,0 +1,150 @@
+﻿生成启动时间为 2018/1/29 10:34:28。
+     1>项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\audio_mgr\audio_mgr.vcxproj”在节点 4 上(Build 个目标)。
+     1>CustomBuild:
+         Building Custom Rule D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/sdk/share/audio_mgr/CMakeLists.txt
+         CMake does not need to re-run because D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\audio_mgr\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\driver /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\ffmpeg /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"audio_mgr.dir\Debug\\" /Fd"audio_mgr.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\lrc.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\resample_main.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\resample2.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\wavfilefmt.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\autoCheckEncode.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\Parsing.c
+         audio_mgr.c
+         metadata.c
+         lrc.c
+         resample_main.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\resample_main.c(1080): warning C4098: “smtkAudioMgrInterruptSoundSetRemoveCard”:“void”函数返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\resample_main.c(1087): warning C4098: “smtkAudioMgrSetInterruptOverwriteStatus”:“void”函数返回值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.h(172): warning C4005: “MMP_WCHAR”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c)
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\sxa_dmx/sxa_dmx.h(45) : 参见“MMP_WCHAR”的前一个定义
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(395): warning C4101: “result”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(402): warning C4101: “result”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(427): warning C4013: “usleep”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(504): warning C4101: “result”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(595): warning C4101: “nResult”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(719): warning C4101: “tv”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(720): warning C4101: “stv”: 未引用的局部变量
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.h(172): warning C4005: “MMP_WCHAR”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c)
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\sxa_dmx/sxa_dmx.h(45) : 参见“MMP_WCHAR”的前一个定义
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1202): warning C4102: “GetBuffer”: 未引用的标签
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1189): warning C4102: “AudioPause”: 未引用的标签
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1095): warning C4102: “ReadData”: 未引用的标签
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1017): warning C4101: “space”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1018): warning C4101: “tv”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1019): warning C4101: “stv”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(98): warning C4013: “memcmp”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1644): warning C4013: “ioctl”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(122): warning C4101: “c”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(232): warning C4013: “strcpy”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1674): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1680): warning C4101: “attr2”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1679): warning C4101: “task2”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1864): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(431): warning C4013: “memset”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(438): warning C4013: “strlen”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2010): warning C4550: 表达式计算为缺少参数列表的函数
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2055): warning C4013: “iteAudioSetMusicWithoutASFHeader”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1908): warning C4101: “attr”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1912): warning C4101: “attr2”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1907): warning C4101: “task”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1905): warning C4101: “tWavInfo”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(1911): warning C4101: “task2”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1077): warning C4013: “AudioPrintf”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2395): warning C4033: “smtkAudioMgrStop”必须返回值
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1079): warning C4013: “smtkFontMgrEncodingConverter”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1017): warning C4101: “nTemp1”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1014): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1017): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1016): warning C4101: “nResult”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2550): warning C4101: “nRange”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2549): warning C4101: “cNormal”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2549): warning C4101: “cMin”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2549): warning C4101: “cMax”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2549): warning C4101: “cVolume”: 未引用的局部变量
+         resample2.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2774): warning C4101: “nResult”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(2898): warning C4101: “length”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(3027): warning C4133: “函数”: 从“wchar_t *”到“ucs4_t *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(3063): warning C4047: “return”:“int *”与“int (__cdecl *)(int)”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(3069): warning C4047: “=”:“int (__cdecl *)(int)”与“int *”的间接级别不同
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(3186): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4096): warning C4013: “findFLACFrame”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4149): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4450): warning C4133: “函数”: 从“char *”到“short *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4475): warning C4101: “res”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4472): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4470): warning C4101: “tmp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4471): warning C4101: “nTemp”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4474): warning C4101: “ptBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4472): warning C4101: “j”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1817): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4646): warning C4101: “nChannels”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4648): warning C4101: “nBufferLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4645): warning C4101: “I2SBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4652): warning C4101: “spec”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1980): warning C4013: “strcmp”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4651): warning C4101: “nLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4647): warning C4101: “nSampeRate”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audio_mgr.c(4650): warning C4101: “pBuf”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2022): warning C4013: “AnalyzeGB2312”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2046): warning C4133: “函数”: 从“unsigned char [512]”到“unsigned short *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2093): warning C4133: “函数”: 从“unsigned char [512]”到“unsigned short *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(1795): warning C4101: “nSize”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2322): warning C4133: “函数”: 从“wchar_t *”到“unsigned int *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2328): warning C4133: “函数”: 从“wchar_t *”到“unsigned int *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2334): warning C4133: “函数”: 从“wchar_t *”到“unsigned int *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\metadata.c(2239): warning C4101: “nFileSize”: 未引用的局部变量
+         wavfilefmt.c
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.c(2373): warning C4715: “smtkAudioMgrQuickStop”: 不是所有的控件路径都返回值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.c(2502): warning C4715: “smtkAudioMgrStop”: 不是所有的控件路径都返回值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.c(2752): warning C4716: “smtkAudioMgrPauseSpectrum”: 必须返回一个值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.c(2947): warning C4716: “smtkAudioMgrSetI2sPostpone”: 必须返回一个值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.c(3070): warning C4716: “smtkAudioMgrSetCallbackFunction”: 必须返回一个值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.c(3085): warning C4716: “smtkAudioMgrGetStop”: 必须返回一个值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.h(172): warning C4005: “MMP_WCHAR”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\lrc.c)
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\sxa_dmx/sxa_dmx.h(45) : 参见“MMP_WCHAR”的前一个定义
+         autoCheckEncode.c
+         flacparsing.c
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\autoCheckEncode.c(23): warning C4101: “total”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\autoCheckEncode.c(49): warning C4013: “memset”未定义；假设外部返回 int
+         audioRecord.c
+         Parsing.c
+     1>C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/include/limits.h(40): warning C4005: “INT_MAX”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c)
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\flac\config.h(31) : 参见“INT_MAX”的前一个定义
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\flac\get_bits.h(365): warning C4018: “<=”: 有符号/无符号不匹配 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c)
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c(29): warning C4005: “AV_RB32”: 宏重定义
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\flac\get_bits.h(111) : 参见“AV_RB32”的前一个定义
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c(53): warning C4013: “flac_decode_frame_header”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c(62): warning C4101: “frame_or_sample_num”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c(174): warning C4018: “<”: 有符号/无符号不匹配
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c(157): warning C4101: “frameLength”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\flac\flacparsing.c(158): warning C4101: “keep”: 未引用的局部变量
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audio_mgr.h(172): warning C4005: “MMP_WCHAR”: 宏重定义 (D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c)
+                 d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\sxa_dmx/sxa_dmx.h(45) : 参见“MMP_WCHAR”的前一个定义
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(104): warning C4013: “memset”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(361): warning C4090: “初始化”: 不同的“const”限定符
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(588): warning C4013: “usleep”未定义；假设外部返回 int
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(674): warning C4102: “end”: 未引用的标签
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(695): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(913): warning C4133: “函数”: 从“char *”到“wchar_t *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(913): warning C4133: “函数”: 从“char *”到“const wchar_t *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(915): warning C4133: “函数”: 从“char *”到“const wchar_t *”的类型不兼容
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(961): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(1014): warning C4101: “i”: 未引用的局部变量
+     1>D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\audio_mgr\audioRecord.c(1036): warning C4101: “i”: 未引用的局部变量
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audiorecord.c(929): warning C4700: 使用了未初始化的局部变量“nSampleRate”
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audiorecord.c(125): warning C4716: “AudioRecordInitAdc”: 必须返回一个值
+     1>d:\project\doorbell\20171003_doorbell_sdk_v1.2.3.1_758862\ite_castor3_sdk\sdk\share\audio_mgr\audiorecord.c(151): warning C4716: “AudioRecordGetI2sData”: 必须返回一个值
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\audio_mgr.lib" /NOLOGO audio_mgr.dir\Debug\audio_mgr.obj
+         audio_mgr.dir\Debug\metadata.obj
+         audio_mgr.dir\Debug\lrc.obj
+         audio_mgr.dir\Debug\resample_main.obj
+         audio_mgr.dir\Debug\resample2.obj
+         audio_mgr.dir\Debug\wavfilefmt.obj
+         audio_mgr.dir\Debug\autoCheckEncode.obj
+         audio_mgr.dir\Debug\flacparsing.obj
+         audio_mgr.dir\Debug\audioRecord.obj
+         audio_mgr.dir\Debug\Parsing.obj
+         audio_mgr.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\audio_mgr.lib
+     1>已完成生成项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\audio_mgr\audio_mgr.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.36

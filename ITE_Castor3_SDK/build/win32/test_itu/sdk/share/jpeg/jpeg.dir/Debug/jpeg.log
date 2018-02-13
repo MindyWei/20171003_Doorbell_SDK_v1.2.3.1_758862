@@ -1,0 +1,106 @@
+﻿生成启动时间为 2018/1/29 10:34:50。
+     1>项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\jpeg\jpeg.vcxproj”在节点 2 上(Build 个目标)。
+     1>CustomBuild:
+         Building Custom Rule D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/sdk/share/jpeg/CMakeLists.txt
+         CMake does not need to re-run because D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\jpeg\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\win32\include /ID:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\. /Zi /nologo /W3 /WX- /MP4 /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D CFG_CHIP_PKG_IT9079 /D CFG_OSC_CLK=30000000 /D CFG_RTC_EXTCLK=30000000 /D CFG_CHIP_FAMILY=9070 /D CFG_RAM_SIZE=0x4000000 /D CFG_MEMDBG_ENABLE /D CFG_WT_SIZE=0 /D CFG_LCD_ENABLE /D CFG_LCD_WIDTH=800 /D CFG_LCD_HEIGHT=600 /D CFG_LCD_PITCH=1600 /D CFG_LCD_BPP=2 /D CFG_LCD_TRIPLE_BUFFER /D CFG_CMDQ_SIZE=0 /D "CFG_FONT_FILENAME=\"WenQuanYiMicroHeiMono.ttf\"" /D CFG_AUDIO_ENABLE /D AUDIO_PLUGIN_MESSAGE_QUEUE /D ENABLE_CODECS_PLUGIN /D CONFIG_ITADRIVER /D CFG_AUDIO_SAMPLING_RATE=8000 /D CFG_AEC_DELAY_MS=60 /D CFG_SPEAKER_GAIN=0 /D CFG_MIC_GAIN=0 /D CFG_NOISE_GATE_THRESHOLD=0.3 /D CFG_EQUALIZER_SPKGAIN_SET=NULL /D CFG_EQUALIZER_MICGAIN_SET=NULL /D CFG_STC_ENABLE /D CFG_VIDEO_ENABLE /D CFG_VIDEO_MAX_WIDTH=1920 /D CFG_VIDEO_MAX_HEIGHT=1088 /D CFG_VIDEO_BUFFER_PITCH=2048 /D CFG_VIDEO_DECODE_MODE=1 /D TWO_WAY_AUDIORECORD /D CFG_BUILD_ITV /D CFG_BUILD_ITU /D "CFG_PRIVATE_DRIVE=\"A\"" /D "CFG_PUBLIC_DRIVE=\"B\"" /D "CFG_TEMP_DRIVE=\"T\"" /D CFG_RTC_DEFAULT_TIMESTAMP=1325376000 /D CFG_SPI0_ENABLE /D CFG_SPI0_MOSI_GPIO= /D CFG_SPI0_MISO_GPIO= /D CFG_SPI0_CLOCK_GPIO= /D CFG_SPI0_CHIP_SEL_GPIO= /D CFG_I2S_ENABLE /D CFG_I2S_OUTPUT_PIN_ENABLE /D CFG_SPI_ENABLE /D CFG_FFMPEG_H264_SW /D "CFG_GPIO_ETHERNET_LINK=-1" /D "CFG_NET_ETHERNET_PHY_ADDR=-1" /D CFG_NET_ETHERNET_COUNT=1 /D CFG_DBG_PRINTBUF_SIZE=0x10000 /D CFG_DBG_PRINTBUF /D "CFG_UPGRADE_FILENAME=\"ITEPKG03.PKG\"" /D "CFG_UPGRADE_FILENAME_LIST=\"ITEPKG03.PKG\"" /D CFG_UPGRADE_ENC_KEY=0 /D CFG_BUILD_AUDIO_MGR /D CFG_NORMAL_BUFFER_MODE /D CFG_BUILD_RELEASE /D CFG_VERSION_MAJOR=1 /D CFG_VERSION_MINOR=2 /D CFG_VERSION_PATCH=3 /D CFG_VERSION_CUSTOM=1 /D CFG_VERSION_TWEAK= /D "CFG_VERSION_MAJOR_STR=\"1\"" /D "CFG_VERSION_MINOR_STR=\"2\"" /D "CFG_VERSION_PATCH_STR=\"3\"" /D "CFG_VERSION_CUSTOM_STR=\"1\"" /D "CFG_VERSION_TWEAK_STR=\"\"" /D "CFG_SYSTEM_NAME=\"ITE Castor3\"" /D "CFG_MANUFACTURER=\"www.ite.com.tw\"" /D "CFG_PROJECT_NAME=\"test_itu\"" /D _ALLOW_KEYWORD_MACROS /D _CRT_SECURE_NO_WARNINGS /D _POSIX_PRIORITY_SCHEDULING=1 /D _SCL_SECURE_NO_WARNINGS /D _USE_MATH_DEFINES /D CURL_STATICLIB /D EGLAPI= /D EGLAPIENTRY= /D LIBXML_STATIC /D NOMINMAX /D OPENVG_STATIC_LIBRARY /D ORTP_STATIC /D OSIP_MT /D PTW32_STATIC_LIB /D UPNP_STATIC_LIB /D CFG_WIN32_SIMULATOR /D "CMAKE_INTDIR=\"Debug\"" /D _USING_V110_SDK71_ /D _MBCS /Gm- /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"jpeg.dir\Debug\\" /Fd"jpeg.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jaricom.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcapimin.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcapistd.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcarith.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jccoefct.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jccolor.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcdctmgr.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jchuff.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcinit.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcmainct.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcmarker.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcmaster.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcomapi.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcparam.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcprepct.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jcsample.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jctrans.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdapimin.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdapistd.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdarith.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdatadst.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdatasrc.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdcoefct.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdcolor.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jddctmgr.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdhuff.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdinput.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdmainct.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdmarker.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdmaster.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdmerge.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdpostct.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdsample.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jdtrans.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jerror.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jfdctflt.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jfdctfst.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jfdctint.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jidctflt.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jidctfst.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jidctint.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jquant1.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jquant2.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jutils.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jmemmgr.c D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\sdk\share\jpeg\jmemansi.c
+         jaricom.c
+         jcapimin.c
+         jcapistd.c
+         jcarith.c
+         jccoefct.c
+         jccolor.c
+         jcdctmgr.c
+         jchuff.c
+         jcinit.c
+         jcmainct.c
+         jcmarker.c
+         jcmaster.c
+         jcomapi.c
+         jcparam.c
+         jcprepct.c
+         jcsample.c
+         jctrans.c
+         jdapimin.c
+         jdapistd.c
+         jdarith.c
+         jdatadst.c
+         jdatasrc.c
+         jdcoefct.c
+         jdcolor.c
+         jddctmgr.c
+         jdhuff.c
+         jdinput.c
+         jdmainct.c
+         jdmarker.c
+         jdmaster.c
+         jdmerge.c
+         jdpostct.c
+         jdsample.c
+         jdtrans.c
+         jerror.c
+         jfdctflt.c
+         jfdctfst.c
+         jfdctint.c
+         jidctflt.c
+         jidctfst.c
+         jidctint.c
+         jquant1.c
+         jquant2.c
+         jutils.c
+         jmemmgr.c
+         jmemansi.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\jpeg.lib" /NOLOGO jpeg.dir\Debug\jaricom.obj
+         jpeg.dir\Debug\jcapimin.obj
+         jpeg.dir\Debug\jcapistd.obj
+         jpeg.dir\Debug\jcarith.obj
+         jpeg.dir\Debug\jccoefct.obj
+         jpeg.dir\Debug\jccolor.obj
+         jpeg.dir\Debug\jcdctmgr.obj
+         jpeg.dir\Debug\jchuff.obj
+         jpeg.dir\Debug\jcinit.obj
+         jpeg.dir\Debug\jcmainct.obj
+         jpeg.dir\Debug\jcmarker.obj
+         jpeg.dir\Debug\jcmaster.obj
+         jpeg.dir\Debug\jcomapi.obj
+         jpeg.dir\Debug\jcparam.obj
+         jpeg.dir\Debug\jcprepct.obj
+         jpeg.dir\Debug\jcsample.obj
+         jpeg.dir\Debug\jctrans.obj
+         jpeg.dir\Debug\jdapimin.obj
+         jpeg.dir\Debug\jdapistd.obj
+         jpeg.dir\Debug\jdarith.obj
+         jpeg.dir\Debug\jdatadst.obj
+         jpeg.dir\Debug\jdatasrc.obj
+         jpeg.dir\Debug\jdcoefct.obj
+         jpeg.dir\Debug\jdcolor.obj
+         jpeg.dir\Debug\jddctmgr.obj
+         jpeg.dir\Debug\jdhuff.obj
+         jpeg.dir\Debug\jdinput.obj
+         jpeg.dir\Debug\jdmainct.obj
+         jpeg.dir\Debug\jdmarker.obj
+         jpeg.dir\Debug\jdmaster.obj
+         jpeg.dir\Debug\jdmerge.obj
+         jpeg.dir\Debug\jdpostct.obj
+         jpeg.dir\Debug\jdsample.obj
+         jpeg.dir\Debug\jdtrans.obj
+         jpeg.dir\Debug\jerror.obj
+         jpeg.dir\Debug\jfdctflt.obj
+         jpeg.dir\Debug\jfdctfst.obj
+         jpeg.dir\Debug\jfdctint.obj
+         jpeg.dir\Debug\jidctflt.obj
+         jpeg.dir\Debug\jidctfst.obj
+         jpeg.dir\Debug\jidctint.obj
+         jpeg.dir\Debug\jquant1.obj
+         jpeg.dir\Debug\jquant2.obj
+         jpeg.dir\Debug\jutils.obj
+         jpeg.dir\Debug\jmemmgr.obj
+         jpeg.dir\Debug\jmemansi.obj
+         jpeg.vcxproj -> D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\lib\Debug\jpeg.lib
+     1>已完成生成项目“D:\Project\Doorbell\20171003_Doorbell_SDK_v1.2.3.1_758862\ITE_Castor3_SDK\build\win32\test_itu\sdk\share\jpeg\jpeg.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:08.84

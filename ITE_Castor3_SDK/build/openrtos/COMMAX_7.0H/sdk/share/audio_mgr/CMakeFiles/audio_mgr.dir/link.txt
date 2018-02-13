@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libaudio_mgr.a  CMakeFiles/audio_mgr.dir/audio_mgr.c.obj CMakeFiles/audio_mgr.dir/metadata.c.obj CMakeFiles/audio_mgr.dir/lrc.c.obj CMakeFiles/audio_mgr.dir/resample_main.c.obj CMakeFiles/audio_mgr.dir/resample2.c.obj CMakeFiles/audio_mgr.dir/wavfilefmt.c.obj CMakeFiles/audio_mgr.dir/autoCheckEncode.c.obj CMakeFiles/audio_mgr.dir/flac/flacparsing.c.obj CMakeFiles/audio_mgr.dir/audioRecord.c.obj CMakeFiles/audio_mgr.dir/Parsing.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libaudio_mgr.a

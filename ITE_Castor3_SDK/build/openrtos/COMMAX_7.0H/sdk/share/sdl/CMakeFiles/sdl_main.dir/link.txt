@@ -1,0 +1,2 @@
+C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libsdl_main.a  CMakeFiles/sdl_main.dir/main/openrtos/SDL_openrtos_main.c.obj
+C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libsdl_main.a

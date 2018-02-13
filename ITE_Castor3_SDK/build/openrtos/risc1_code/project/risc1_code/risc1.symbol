@@ -1,0 +1,154 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 02 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, big endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           SMARISC
+  Version:                           0x1
+  Entry point address:               0x100
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          57444 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         2
+  Size of section headers:           40 (bytes)
+  Number of section headers:         14
+  Section header string table index: 11
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .reset            PROGBITS        00000000 002000 000e60 00  AX  0   0  1
+  [ 2] .risc1_header     PROGBITS        00001000 003000 000018 00  WA  0   0  4
+  [ 3] .text             PROGBITS        00001100 003100 000350 00  AX  0   0 256
+  [ 4] .eh_frame         PROGBITS        00001450 003450 0000a0 00   A  0   0  4
+  [ 5] .data             PROGBITS        000014f0 0034f0 000040 00  WA  0   0  4
+  [ 6] .bss              NOBITS          00001530 003530 000000 00  WA  0   0  1
+  [ 7] .stack            NOBITS          00001530 003530 014000 00  WA  0   0  1
+  [ 8] .comment          PROGBITS        00000000 003530 00002c 01  MS  0   0  1
+  [ 9] .stab             PROGBITS        00000000 00355c 0015e4 0c     10   0  4
+  [10] .stabstr          STRTAB          00000000 004b40 008b7c 00      0   0  1
+  [11] .shstrtab         STRTAB          00000000 00dff7 00006a 00      0   0  1
+  [12] .symtab           SYMTAB          00000000 00d6bc 000590 10     13  15  4
+  [13] .strtab           STRTAB          00000000 00dc4c 0003ab 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x002000 0x00000000 0x00000000 0x00e60 0x00e60 R E 0x2000
+  LOAD           0x003000 0x00001000 0x00001000 0x00530 0x14530 RWE 0x2000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .reset 
+   01     .risc1_header .text .eh_frame .data .bss .stack 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type SMARISC is not currently supported.
+
+Symbol table '.symtab' contains 89 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 00001000     0 SECTION LOCAL  DEFAULT    2 
+     3: 00001100     0 SECTION LOCAL  DEFAULT    3 
+     4: 00001450     0 SECTION LOCAL  DEFAULT    4 
+     5: 000014f0     0 SECTION LOCAL  DEFAULT    5 
+     6: 00001530     0 SECTION LOCAL  DEFAULT    6 
+     7: 00001530     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 FILE    LOCAL  DEFAULT  ABS D:/Project/Doorbell/20171
+    12: 00000e44     0 NOTYPE  LOCAL  DEFAULT    1 .proc0
+    13: 00000000     0 FILE    LOCAL  DEFAULT  ABS risc1_crt0.c
+    14: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+    15: 000013e4    28 FUNC    GLOBAL DEFAULT    3 __main
+    16: 00000198     0 NOTYPE  GLOBAL DEFAULT    1 __exit_halt
+    17: 000014f8     0 NOTYPE  GLOBAL DEFAULT    5 ___DTOR_LIST__
+    18: 0000152c     4 OBJECT  GLOBAL DEFAULT    5 ci
+    19: 00001300    68 FUNC    GLOBAL DEFAULT    3 MMIO_Write
+    20: 00000e08     8 FUNC    GLOBAL DEFAULT    1 _trap
+    21: 00000a08     8 FUNC    GLOBAL DEFAULT    1 _itlb_miss
+    22: 00000c08     8 FUNC    GLOBAL DEFAULT    1 _sys_call
+    23: 00000808     0 NOTYPE  GLOBAL DEFAULT    1 __int_halt
+    24: 00000308     8 FUNC    GLOBAL DEFAULT    1 _data_page_fault
+    25: 00000708     8 FUNC    GLOBAL DEFAULT    1 _illegal_inst
+    26: 00000b08     8 FUNC    GLOBAL DEFAULT    1 _range
+    27: 00000408     0 NOTYPE  GLOBAL DEFAULT    1 __inst_page_fault_halt
+    28: 00001100     0 NOTYPE  GLOBAL DEFAULT    3 __text_start
+    29: 00000e10     0 NOTYPE  GLOBAL DEFAULT    1 _start_proc
+    30: 00000a08     0 NOTYPE  GLOBAL DEFAULT    1 __itlb_miss_halt
+    31: 0000137c   104 FUNC    GLOBAL DEFAULT    3 risc1_start
+    32: 00001018     0 NOTYPE  GLOBAL DEFAULT    2 _risc1_stack
+    33: 00001500     0 NOTYPE  GLOBAL DEFAULT    5 __DTOR_END__
+    34: 000011e4   148 FUNC    GLOBAL DEFAULT    3 dc_enable
+    35: 00000508     8 FUNC    GLOBAL DEFAULT    1 _tick_timer
+    36: 00001530     0 NOTYPE  GLOBAL DEFAULT    6 _bss_start
+    37: 00001100   184 FUNC    GLOBAL DEFAULT    3 ic_enable
+    38: 00000908     8 FUNC    GLOBAL DEFAULT    1 _dtlb_miss
+    39: 00000608     0 NOTYPE  GLOBAL DEFAULT    1 __alignment_halt
+    40: 00000808     8 FUNC    GLOBAL DEFAULT    1 _int
+    41: 00001344    56 FUNC    GLOBAL DEFAULT    3 MMIO_Read
+    42: 00000c08     0 NOTYPE  GLOBAL DEFAULT    1 __sys_call_halt
+    43: 00015530     0 NOTYPE  GLOBAL DEFAULT    7 risc1_end_addr
+    44: 00001530     0 NOTYPE  GLOBAL DEFAULT    6 _bss_end
+    45: 000000d0     0 NOTYPE  GLOBAL DEFAULT    1 __dbgmsg_buf_len
+    46: 000011e4   148 FUNC    GLOBAL DEFAULT    3 dc_invalidate
+    47: 00015530     0 NOTYPE  GLOBAL DEFAULT    7 _risc1_end_addr
+    48: 00001530     0 NOTYPE  GLOBAL DEFAULT    7 __stack_start
+    49: 00000308     0 NOTYPE  GLOBAL DEFAULT    1 __data_page_fault_halt
+    50: 000000d4     0 NOTYPE  GLOBAL DEFAULT    1 __dbgmsg_idx_ptr
+    51: 000014f0     0 NOTYPE  GLOBAL DEFAULT    5 __CTOR_LIST__
+    52: 00000100     0 NOTYPE  GLOBAL DEFAULT  ABS _start
+    53: 00015530     0 NOTYPE  GLOBAL DEFAULT    7 __end
+    54: 00001000     0 NOTYPE  GLOBAL DEFAULT    2 _risc1_start_addr
+    55: 00000408     8 FUNC    GLOBAL DEFAULT    1 _inst_page_fault
+    56: 000014f0     0 NOTYPE  GLOBAL DEFAULT    5 ___CTOR_LIST__
+    57: 00000708     0 NOTYPE  GLOBAL DEFAULT    1 __illegal_inst_halt
+    58: 00015530     0 NOTYPE  GLOBAL DEFAULT    7 __stack_end
+    59: 000011b8    44 FUNC    GLOBAL DEFAULT    3 ic_disable
+    60: 00001450     0 NOTYPE  GLOBAL DEFAULT    3 __text_end
+    61: 000000cc     0 NOTYPE  GLOBAL DEFAULT    1 __dbgmsg_buf_ptr
+    62: 00001500    43 OBJECT  GLOBAL DEFAULT    5 __tm_info
+    63: 00001530     0 NOTYPE  GLOBAL DEFAULT    6 __bss_start
+    64: 0000141c    52 FUNC    GLOBAL DEFAULT    3 main
+    65: 00000e08     0 NOTYPE  GLOBAL DEFAULT    1 __trap_halt
+    66: 000014f8     0 NOTYPE  GLOBAL DEFAULT    5 __CTOR_END__
+    67: 000014f8     0 NOTYPE  GLOBAL DEFAULT    5 __DTOR_LIST__
+    68: 000fa000     0 NOTYPE  GLOBAL DEFAULT    8 risc2_start_addr
+    69: 00001000    24 OBJECT  GLOBAL DEFAULT    2 __header
+    70: 00001000     0 NOTYPE  GLOBAL DEFAULT    2 risc1_start_addr
+    71: 00000908     0 NOTYPE  GLOBAL DEFAULT    1 __dtlb_miss_halt
+    72: 00000208     8 FUNC    GLOBAL DEFAULT    1 _bus_error
+    73: 00000100     0 NOTYPE  GLOBAL DEFAULT    1 _reset
+    74: 00000608     8 FUNC    GLOBAL DEFAULT    1 _alignment
+    75: 00001278    44 FUNC    GLOBAL DEFAULT    3 dc_disable
+    76: 00001530     0 NOTYPE  GLOBAL DEFAULT    6 _end
+    77: 00001530     0 NOTYPE  GLOBAL DEFAULT    6 risc1_bss_start
+    78: 000fa000     0 NOTYPE  GLOBAL DEFAULT    8 _risc2_start_addr
+    79: 00000208     0 NOTYPE  GLOBAL DEFAULT    1 __bus_error_halt
+    80: 00000b08     0 NOTYPE  GLOBAL DEFAULT    1 __range_halt
+    81: 00000508     0 NOTYPE  GLOBAL DEFAULT    1 __tick_halt
+    82: 00001530     0 NOTYPE  GLOBAL DEFAULT    6 risc1_bss_end
+    83: 00001100     0 FUNC    GLOBAL DEFAULT    3 ic_invalidate
+    84: 00000194    12 FUNC    GLOBAL DEFAULT    1 _exit
+    85: 00015530     0 NOTYPE  GLOBAL DEFAULT    7 _stack
+    86: 000fa000     0 NOTYPE  GLOBAL DEFAULT    8 _risc2_end_addr
+    87: 000fa000     0 NOTYPE  GLOBAL DEFAULT    8 risc2_end_addr
+    88: 00001400    28 FUNC    GLOBAL DEFAULT    3 free
+
+No version information found in this file.

@@ -1,0 +1,23 @@
+# CMake generation dependency list for this directory.
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/CMakeLists.txt
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/3.1.0/CMakeSystem.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeSystemSpecificInitialize.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/3.1.0/CMakeCCompiler.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/3.1.0/CMakeCXXCompiler.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeSystemSpecificInformation.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeGenericSystem.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/Platform/Windows.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/Platform/WindowsPaths.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeCInformation.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/Platform/Windows-MSVC-C.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/Platform/Windows-MSVC.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/CMakeFiles/3.1.0/CMakeRCCompiler.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeRCInformation.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeCommonLanguageInclude.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeCXXInformation.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/Platform/Windows-MSVC.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/tool/share/cmake-3.1/Modules/CMakeCommonLanguageInclude.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/build/win32/test_itu/config.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/sdk/def.cmake
+D:/Project/Doorbell/20171003_Doorbell_SDK_v1.2.3.1_758862/ITE_Castor3_SDK/win32/def.cmake
