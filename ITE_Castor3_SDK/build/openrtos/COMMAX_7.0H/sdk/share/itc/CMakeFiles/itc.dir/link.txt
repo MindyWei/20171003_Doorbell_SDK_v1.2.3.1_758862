@@ -1,2 +1,0 @@
-C:/ITEGCC/bin/arm-none-eabi-ar.exe cq ../../../lib/fa626/libitc.a  CMakeFiles/itc.dir/itc_arraystream.c.obj CMakeFiles/itc.dir/itc_bufferstream.c.obj CMakeFiles/itc.dir/itc_filestream.c.obj CMakeFiles/itc.dir/itc_stream.c.obj CMakeFiles/itc.dir/itc_tree.c.obj CMakeFiles/itc.dir/itc_url.c.obj
-C:/ITEGCC/bin/arm-none-eabi-ranlib.exe ../../../lib/fa626/libitc.a
