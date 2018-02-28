@@ -211,7 +211,7 @@ typedef wchar_t wchar;
 #endif
 
 #ifdef FATCACHE_ENABLE
-#define FATCACHE_BLOCKS 16//2
+#define FATCACHE_BLOCKS 4//2
 #define FATCACHE_READAHEAD 32//4	/* max. 256 depending on F_MAX_SECTOR_SIZE */
 #endif
 
