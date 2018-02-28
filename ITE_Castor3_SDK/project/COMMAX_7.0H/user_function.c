@@ -740,6 +740,17 @@ void play_inter_ring()					//播放铃声
 	AudioPlay(ring_str[theConfig.interphone], play_inter_ring_back);
 }
 
+static int play_open_back(int state)
+{
+	switch (state)
+	{
+		case 0:
+			if(!cur_talk_ing)
+				user_amp_off();
+			break;
+	}
+	return 0;
+}
 void user_open_door(int num)					//开锁
 {
 	if(num == 1)
@@ -764,7 +775,7 @@ void user_open_door(int num)					//开锁
 		AudioSetVolume(ALC5616_VOL);		//声音初始化
 		ring_volume_set(theConfig.ringvol);
 		user_amp_on();
-		AudioPlay("A:/sounds/open.mp3", NULL);
+		AudioPlay("A:/sounds/open.mp3", play_open_back);
 	}
 }
 
@@ -1839,7 +1850,6 @@ void user_vdp_power_on()
 bool sd_card_check = false;
 void _user_sd_card_check()
 {
-	return; //my.wei add for debug
 	sd_card_check = true;
 	printf("_user_sd_card_check..................................\n");
 	struct statvfs info;

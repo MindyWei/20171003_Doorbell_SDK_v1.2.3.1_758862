@@ -372,6 +372,7 @@ extern bool pr2000_is_ok;
 extern bool pr2000_start;
 extern bool set_to_time_set_flag;	
 extern bool auto_snap_filename;	
+extern bool sd_card_check;
 
 extern int uart_mode;
 extern StorageType storageCurrType;

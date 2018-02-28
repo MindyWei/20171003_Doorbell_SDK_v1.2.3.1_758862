@@ -142,8 +142,8 @@ void door_open_end(timer_t timerid, int arg)
 	ithGpioSet(DOOR_1_OPEN);	
 	ithGpioSet(DOOR_2_OPEN);	
 	cur_open = false;
-	if(!cur_talk_ing)
-		user_amp_off();
+	//if(!cur_talk_ing)
+	//	user_amp_off();
 }
 
 void black_wind_start()
@@ -306,7 +306,7 @@ void standby_mode_start()
 	#if 1
 		value.it_value.tv_sec   = 60*(theConfig.lcdouttime+1);
 	#else
-		value.it_value.tv_sec   = 5*(theConfig.lcdouttime+1);
+		value.it_value.tv_sec   = 5;
 	#endif
 		value.it_value.tv_nsec  = 0;
 		value.it_interval.tv_sec = value.it_interval.tv_nsec = 0;
@@ -349,7 +349,16 @@ void no_touch_end(timer_t timerid, int arg)
 {
 	printf("---------->no_touch_end<--------------\n");
 	if(!avi_is_playing)
+	{
+		if(theConfig.lcdout)
 		event_go_home = true;
+		else 
+		{
+			ITULayer* PAGE_STANDBY = ituSceneFindWidget(&theScene, "PAGE_STANDBY");
+			assert(PAGE_STANDBY);
+			ituLayerGoto(PAGE_STANDBY);
+		}
+	}
 }
 
 void no_touch_reinit()
@@ -636,6 +645,13 @@ void key_sound_end(timer_t timerid, int arg)
 	printf("---------->key_sound_end<--------------\n");
 	if(!cur_talk_ing && !get_interphone_talk_start())
 		user_amp_off();
+}
+void key_sound_reinit()
+{
+	printf("---------->key_sound_reinit<--------------\n");
+	timer_delete(key_sound_TimerId);
+	timer_create(CLOCK_REALTIME, NULL, &key_sound_TimerId);
+	timer_connect(key_sound_TimerId, key_sound_end, 0);
 }
 void user_timer_init()
 {

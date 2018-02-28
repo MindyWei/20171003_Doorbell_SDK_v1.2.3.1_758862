@@ -14,6 +14,7 @@ uint8_t INT_LINK[4] = {0};
 uint8_t anser_id = 0;
 uint8_t inter_number = 0;
 uint8_t inter_id = 0;
+bool inter_ing = false;
 uint8_t receive_receive = 0;
 
 
@@ -54,6 +55,10 @@ char cmd_str[50][20] =
 	"CMD_ERROR",
 	"CMD_RETURN",
 } ;
+bool uart_get_inter_ing()
+{
+	return inter_ing;
+}
 
 char user_uart_read()
 {
@@ -343,6 +348,7 @@ bool uart_cmd_process(char uart_cmd[CMD_MAX])					//事件处理
 		}
 		else										//INTERPHONE 未被呼叫
 		{
+			inter_ing = true;
 			if(cur_page  == page_inter)
 				event_go_home = true;
 		}
@@ -361,8 +367,11 @@ bool uart_cmd_process(char uart_cmd[CMD_MAX])					//事件处理
 	case CMD_INTER_ING:
 		uart_set_busy();
 		inter_call_start();
+		if(0)
+		{
 		if(montion_enable)      //退出移动侦测
 			montion_end();
+		}
 		break;
 	case CMD_INTER_QUIT:
 		INT_LINK[uart_cmd[1]-1]--;

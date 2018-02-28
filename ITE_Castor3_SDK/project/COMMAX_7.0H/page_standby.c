@@ -40,6 +40,7 @@ bool standby_init(ITUWidget* widget, char* param)
 #else
 	backlight_off();
 #endif
+	ithGpioClear(AUDIO_OUT);	
 	return true;
 }
 void _md_start()
@@ -129,6 +130,7 @@ bool standby_leave(ITUWidget* widget, char* param)
 	}
 	montion_snap_reinit();
 	standby_state = false;
+	ithGpioSet(AUDIO_OUT);	
 	return true;
 }
 

@@ -235,7 +235,7 @@ void user_itu_init()
 	{
 		ituWidgetSetVisible(MON_ICON_STATE_CARD_1,false);
 		ituWidgetSetVisible(MON_ICON_STATE_CARD_2,false);
-		ituWidgetSetVisible(MON_ICON_STATE_CARD_3,true);
+		ituWidgetSetVisible(MON_ICON_STATE_CARD_3,false);
 	}
 	else if(storageCurrType == STORAGE_SD)
 	{
@@ -524,6 +524,7 @@ bool monitor_timer(ITUWidget* widget, char* param)
 		monitor_time --;
 		if(monitor_time == 0)
 		{
+			door_call_num = 0;
 			ITULayer* PAGE_HOME = ituSceneFindWidget(&theScene, "PAGE_HOME");
 			assert(PAGE_HOME);
 			ituLayerGoto(PAGE_HOME);
@@ -635,7 +636,7 @@ bool monitor_timer(ITUWidget* widget, char* param)
 		{
 			ituWidgetSetVisible(MON_ICON_STATE_CARD_1,false);
 			ituWidgetSetVisible(MON_ICON_STATE_CARD_2,false);
-			ituWidgetSetVisible(MON_ICON_STATE_CARD_3,true);
+			ituWidgetSetVisible(MON_ICON_STATE_CARD_3,false);
 		}
 		else if(storageCurrType == STORAGE_SD)
 			user_sd_card_check();
@@ -744,17 +745,29 @@ bool monitor_rec_end(ITUWidget* widget, char* param)
 
 bool monitor_dis_set(ITUWidget* widget, char* param)
 {
+	if(cur_page == page_monitor)
+	{
 	ituTrackBarSetValue(MON_TR_BAR_BRI,theConfig.brightness);
 	ituProgressBarSetValue(MON_PR_BAR_BRI,theConfig.brightness);
 	ituTrackBarSetValue(MON_TR_BAR_CON,theConfig.contrast);
 	ituProgressBarSetValue(MON_PR_BAR_CON,theConfig.contrast);
 	ituTrackBarSetValue(MON_TR_BAR_HUE,theConfig.hue);
 	ituProgressBarSetValue(MON_PR_BAR_HUE,theConfig.hue);
+	}
+	else
+	{
+		ituTrackBarSetValue(MON_TR_BAR_BRI,theConfig.brightness_c);
+		ituProgressBarSetValue(MON_PR_BAR_BRI,theConfig.brightness_c);
+		ituTrackBarSetValue(MON_TR_BAR_CON,theConfig.contrast_c);
+		ituProgressBarSetValue(MON_PR_BAR_CON,theConfig.contrast_c);
+		ituTrackBarSetValue(MON_TR_BAR_HUE,theConfig.hue_c);
+		ituProgressBarSetValue(MON_PR_BAR_HUE,theConfig.hue_c);
+	}
 	return true;
 }
 bool monitor_snap(ITUWidget* widget, char* param)
 {
-	if(rec_start_time  == 0 && (!auto_rec_once) && (!mon_rec_ing))
+	if(rec_start_time  == 0 && (!auto_rec_once) && (!mon_rec_ing) && !sd_card_check)
 	{
 		mon_rec_ing = true;
 		user_snap(1);
@@ -765,7 +778,7 @@ bool monitor_snap(ITUWidget* widget, char* param)
 bool monitor_rec_start(ITUWidget* widget, char* param)
 {
     struct statvfs info;
-	if(storageCurrType == STORAGE_SD && (!auto_rec_once)&& (!mon_rec_ing))
+	if(storageCurrType == STORAGE_SD && (!auto_rec_once)&& (!mon_rec_ing) && !sd_card_check)
 	{		
 		if (statvfs("E:/", &info) == 0)
 		{
@@ -1045,9 +1058,18 @@ bool monitor_dis_reset(ITUWidget* widget, char* param)
 {
 	if(!sure_PR2000_lock())
 		return;
+	if(cur_page == page_monitor)
+	{
 	theConfig.brightness = 50;
 	theConfig.contrast = 50;
 	theConfig.hue = 50;
+	}
+	else
+	{
+		theConfig.brightness_c = 50;
+		theConfig.contrast_c = 50;
+		theConfig.hue_c = 50;
+	}
 	ConfigSave();
 	ituTrackBarSetValue(MON_TR_BAR_BRI,50);
 	ituProgressBarSetValue(MON_PR_BAR_BRI,50);
@@ -1056,11 +1078,11 @@ bool monitor_dis_reset(ITUWidget* widget, char* param)
 	ituTrackBarSetValue(MON_TR_BAR_HUE,50);
 	ituProgressBarSetValue(MON_PR_BAR_HUE,50);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_BRGT,0X80);
+	pr2000_i2c_write(0xb8,PR2000_BRGT,0X80-20);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_CONT,0X80);
+	pr2000_i2c_write(0xb8,PR2000_CONT,0X80+20);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_HUE,0X80);
+	pr2000_i2c_write(0xb8,PR2000_HUE,0X80+40);
 	return true;
 }
 
@@ -1097,8 +1119,11 @@ bool monitor_dis_ch_bri(ITUWidget* widget, char* param)
 		return;
 	//printf("-------------->%d\n",monitor_menu_2_TrackBar_1->value);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_BRGT,MON_TR_BAR_BRI->value*200/100+28);
+	pr2000_i2c_write(0xb8,PR2000_BRGT,MON_TR_BAR_BRI->value+58);
+	if(cur_page == page_monitor)
 	theConfig.brightness = MON_TR_BAR_BRI->value;
+	else
+		theConfig.brightness_c = MON_TR_BAR_BRI->value;
 	ConfigSave();
 	return true;
 }
@@ -1109,8 +1134,11 @@ bool monitor_dis_ch_con(ITUWidget* widget, char* param)
 		return;
 	//printf("-------------->%d\n",monitor_menu_2_TrackBar_2->value);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_CONT,MON_TR_BAR_CON->value*200/100+28);
+	pr2000_i2c_write(0xb8,PR2000_CONT,MON_TR_BAR_CON->value+98);
+	if(cur_page == page_monitor)
 	theConfig.contrast = MON_TR_BAR_CON->value;
+	else 
+		theConfig.contrast_c = MON_TR_BAR_CON->value;
 	ConfigSave();
 	return true;
 }
@@ -1121,8 +1149,11 @@ bool monitor_dis_ch_hue(ITUWidget* widget, char* param)
 		return;
 	//printf("-------------->%d\n",monitor_menu_2_TrackBar_3->value);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_HUE,MON_TR_BAR_HUE->value*200/100+28);
+	pr2000_i2c_write(0xb8,PR2000_HUE,MON_TR_BAR_HUE->value+118);
+	if(cur_page == page_monitor)
 	theConfig.hue = MON_TR_BAR_HUE->value;
+	else
+		theConfig.hue_c= MON_TR_BAR_HUE->value;
 	ConfigSave();
 	return true;
 }
@@ -1135,6 +1166,8 @@ bool monitor_dis_dajust(ITUWidget* widget, char* param)
 	{
 	case '1':
 	case '2':
+		if(cur_page == page_monitor)
+		{
 		if(param[0] == '1')
 			theConfig.brightness--;
 		else
@@ -1146,10 +1179,28 @@ bool monitor_dis_dajust(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(MON_TR_BAR_BRI,theConfig.brightness);
 		ituProgressBarSetValue(MON_PR_BAR_BRI,theConfig.brightness);
 		pr2000_i2c_write(0xb8,0xff,0x01);
-		pr2000_i2c_write(0xb8,PR2000_BRGT,theConfig.brightness*200/100+28);
+			pr2000_i2c_write(0xb8,PR2000_BRGT,theConfig.brightness+58);
+		}
+		else
+		{
+			if(param[0] == '1')
+				theConfig.brightness_c--;
+			else
+				theConfig.brightness_c++;
+			if(theConfig.brightness_c < 0)
+				theConfig.brightness_c = 0;
+			else if(theConfig.brightness_c > 100)
+				theConfig.brightness_c = 100;
+			ituTrackBarSetValue(MON_TR_BAR_BRI,theConfig.brightness_c);
+			ituProgressBarSetValue(MON_PR_BAR_BRI,theConfig.brightness_c);
+			pr2000_i2c_write(0xb8,0xff,0x01);
+			pr2000_i2c_write(0xb8,PR2000_BRGT,theConfig.brightness_c+58);
+		}	
 		break;
 	case '3':
 	case '4':
+		if(cur_page == page_monitor)
+		{
 		if(param[0] == '3')
 			theConfig.contrast--;
 		else
@@ -1161,10 +1212,28 @@ bool monitor_dis_dajust(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(MON_TR_BAR_CON,theConfig.contrast);
 		ituProgressBarSetValue(MON_PR_BAR_CON,theConfig.contrast);
 		pr2000_i2c_write(0xb8,0xff,0x01);
-		pr2000_i2c_write(0xb8,PR2000_CONT,theConfig.contrast*200/100+28);
+			pr2000_i2c_write(0xb8,PR2000_CONT,theConfig.contrast+98);
+		}
+		else
+		{
+			if(param[0] == '3')
+				theConfig.contrast_c--;
+			else
+				theConfig.contrast_c++;
+			if(theConfig.contrast_c < 0)
+				theConfig.contrast_c = 0;
+			else if(theConfig.contrast_c > 100)
+				theConfig.contrast = 100;
+			ituTrackBarSetValue(MON_TR_BAR_CON,theConfig.contrast_c);
+			ituProgressBarSetValue(MON_PR_BAR_CON,theConfig.contrast_c);
+			pr2000_i2c_write(0xb8,0xff,0x01);
+			pr2000_i2c_write(0xb8,PR2000_CONT,theConfig.contrast_c+98);
+		}
 		break;
 	case '5':
 	case '6':
+		if(cur_page == page_monitor)
+		{
 		if(param[0] == '5')
 			theConfig.hue--;
 		else
@@ -1176,7 +1245,23 @@ bool monitor_dis_dajust(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(MON_TR_BAR_HUE,theConfig.hue);
 		ituProgressBarSetValue(MON_PR_BAR_HUE,theConfig.hue);
 		pr2000_i2c_write(0xb8,0xff,0x01);
-		pr2000_i2c_write(0xb8,PR2000_HUE,theConfig.hue*200/100+28);
+			pr2000_i2c_write(0xb8,PR2000_HUE,theConfig.hue+118);
+		}
+		else
+		{
+			if(param[0] == '5')
+				theConfig.hue_c--;
+			else
+				theConfig.hue_c++;
+			if(theConfig.hue_c < 0)
+				theConfig.hue_c = 0;
+			else if(theConfig.hue_c > 100)
+				theConfig.hue_c = 100;
+			ituTrackBarSetValue(MON_TR_BAR_HUE,theConfig.hue_c);
+			ituProgressBarSetValue(MON_PR_BAR_HUE,theConfig.hue_c);
+			pr2000_i2c_write(0xb8,0xff,0x01);
+			pr2000_i2c_write(0xb8,PR2000_HUE,theConfig.hue_c+118);
+		}
 		break;
 	}
 	ConfigSave();

@@ -170,8 +170,13 @@ bool home_init(ITUWidget* widget, char* param)
 #endif
 	update_home_time();
 	home_time_tick = SDL_GetTicks();
-	standby_mode_start();
-	no_touch_reinit();
+	if(theConfig.lcdout)
+	{
+		standby_mode_start();
+		no_touch_reinit();
+	}
+	else
+		no_touch_start();
 	backlight_on();
 	return false;
 }
@@ -334,6 +339,8 @@ bool home_go(ITUWidget* widget, char* param)
 		no_touch_start();
 		break;
 	case '4':
+		if(sd_card_check)
+			return true;
 		cur_page  = page_media;
 		event_home_go = page_media;
 		no_touch_start();

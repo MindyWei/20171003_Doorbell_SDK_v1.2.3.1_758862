@@ -126,6 +126,9 @@ typedef struct
 	int brightness;
 	int contrast;
 	int hue;
+	int brightness_c;
+	int contrast_c;
+	int hue_c;
 	int lcdout;
 	int lcdouttime;
 	int infoframe;

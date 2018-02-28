@@ -255,8 +255,10 @@ int SceneRun(void)
 #endif
 					if((cur_page == page_setting) || (cur_page == page_inter) || (cur_page == page_date) ||(cur_page == page_media))
 						no_touch_start();
-					if(cur_page == page_home)
+					if(cur_page == page_home && theConfig.lcdout)
 						standby_mode_start();
+					else if(cur_page == page_home && !theConfig.lcdout)
+						no_touch_start();
 					/*
 					if(cur_page == page_monitor || cur_page == page_cctv)
 					{

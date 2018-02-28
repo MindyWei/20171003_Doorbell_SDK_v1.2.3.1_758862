@@ -1023,9 +1023,18 @@ void AHD_register_write_720P_74Mhz()
 	pr2000_i2c_write(  0xb8, 0x1d, 0x45);
 	pr2000_i2c_write(  0xb8, 0x1e, 0x4c);
 	pr2000_i2c_write(  0xb8, 0x1f, 0x00);
-	pr2000_i2c_write(  0xb8, 0x20, theConfig.contrast*200/100+28);
-	pr2000_i2c_write(  0xb8, 0x21, theConfig.brightness*200/100+28);
-	pr2000_i2c_write(  0xb8, 0x22, theConfig.hue*200/100+28);
+	if(cur_page == page_monitor || cur_page == page_setting)
+	{
+		pr2000_i2c_write(  0xb8, 0x20, theConfig.contrast+98);
+		pr2000_i2c_write(  0xb8, 0x21, theConfig.brightness+58);
+		pr2000_i2c_write(  0xb8, 0x22, theConfig.hue+118);
+	}
+	else
+	{
+		pr2000_i2c_write(  0xb8, 0x20, theConfig.contrast_c+98);
+		pr2000_i2c_write(  0xb8, 0x21, theConfig.brightness_c+58);
+		pr2000_i2c_write(  0xb8, 0x22, theConfig.hue_c+118);
+	}
 	pr2000_i2c_write(  0xb8, 0x23, 0x80);
 	pr2000_i2c_write(  0xb8, 0x24, 0x80);
 	pr2000_i2c_write(  0xb8, 0x25, 0x80);
@@ -1254,9 +1263,18 @@ void AHD_register_write_720P_NTSC_74Mhz()
 	pr2000_i2c_write(  0xb8, 0x1d, 0x45);
 	pr2000_i2c_write(  0xb8, 0x1e, 0x40);
 	pr2000_i2c_write(  0xb8, 0x1f, 0x00);
+	if(cur_page == page_monitor || cur_page == page_setting)
+	{
 	pr2000_i2c_write(  0xb8, 0x20, theConfig.contrast*200/100+28);
 	pr2000_i2c_write(  0xb8, 0x21, theConfig.brightness*200/100+28);
 	pr2000_i2c_write(  0xb8, 0x22, theConfig.hue*200/100+28);
+	}
+	else
+	{
+		pr2000_i2c_write(  0xb8, 0x20, theConfig.contrast_c*200/100+28);
+		pr2000_i2c_write(  0xb8, 0x21, theConfig.brightness_c*200/100+28);
+		pr2000_i2c_write(  0xb8, 0x22, theConfig.hue_c*200/100+28);
+	}
 	pr2000_i2c_write(  0xb8, 0x23, 0x80);
 	pr2000_i2c_write(  0xb8, 0x24, 0x80);
 	pr2000_i2c_write(  0xb8, 0x25, 0x80);

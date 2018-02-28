@@ -758,8 +758,9 @@ static void *Jpeg_Enc(void)
 	while(b_RECORDING || b_SNAPSHOT)
 	{
 		jpegStream = NULL;
-		if(input_mode != PR2000_INPUT_YPBPR)
+		if(input_mode != PR2000_INPUT_YPBPR && b_SNAPSHOT == false)
 		{
+			printf("------------------------>CVBS....1\n");
 			DetYUVInputPkt *ptYUVPkt = NULL;
 			if(_packetQueueGet(&gDet_YUVInputQueue, (void**) &ptYUVPkt, 0) > 0)
 			{
@@ -843,13 +844,24 @@ static void *Jpeg_Enc(void)
 				_detYuvInputPktRelease(ptYUVPkt);
 				if(b_SNAPSHOT)
 				{
-					ImageMemoRecEnd();
+					printf("b_SNAPSHOT............stop...................\n");
+					CapSave();
 					b_SNAPSHOT = false;
-					show_snap_rec_icon = icon_clear;
+					snap_stop = true;
+					photo_icon_start();
+					AudioResumeKeySound();						//»Ö¸´°´¼üÒô
+					if(b_MOTION_RECING)
+					{
+						b_MOTION_RECING = false;
+						montion_snap_start();
+					}
 				}
 			}
 			else
+			{
+				printf("------------------------>CVBS....2\n");
 				usleep(5000);
+			}
 		}
 		else
 		{
@@ -1470,7 +1482,7 @@ void SettingISPAnd_FilpLCD(
 			InPkt->ua       = outdata.DisplayAddrU;
 			InPkt->va       = outdata.DisplayAddrV;
 
-			if(input_mode != PR2000_INPUT_YPBPR)
+			if(input_mode != PR2000_INPUT_YPBPR && b_SNAPSHOT == false)
 				_packetQueuePut(&gYUVInputQueue, InPkt);
 			else
 				_packetQueuePut(&gDet_YUVInputQueue, InPkt);

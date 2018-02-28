@@ -13,7 +13,7 @@ static char language_str[10][10] 	= {"English"};
 
 static char id_str[4][10] 		= {"No. 1","No. 2","No. 3","No. 4"};
 static char open_str[2][10] 		= {"Standard","Fast"};
-static char ver_str[10] 			= "Ver 4.8";
+static char ver_str[10] 			= "Ver 5.0";
 
 static char ring_str[6][25] 		= {"A:/sounds/sound1.mp3",
                                        "A:/sounds/sound2.mp3",
@@ -985,7 +985,7 @@ void set_ohter_init()
 	ituCheckBoxSetChecked(ID_CHBOX_4,false);
 
 	ituCheckBoxSetChecked(OPEN_CHBOX_1,false);
-	ituCheckBoxSetChecked(OPEN_CHBOX_1,false);
+	ituCheckBoxSetChecked(OPEN_CHBOX_2,false);
 
 	if(theConfig.id == 0)
 		ituCheckBoxSetChecked(ID_CHBOX_1,true);
@@ -1495,7 +1495,7 @@ bool set_init(ITUWidget* widget, char* param)
 	set_main_bg_1_show(widget,param);
 	wash_time = 0;
 
-#if 1 //20180205, my.wei add for test
+#if 0 //20180205, my.wei add for test
 	{
 		char* path[6] = {"A:/","B:/","C:/","D:/","E:/","F:/"};
 		int i = 0;
@@ -1736,6 +1736,7 @@ bool set_pop_up_confirm(ITUWidget* widget, char* param)
 		set_volume_init();
 		set_standby_init();
 		set_ohter_init();
+		user_set_languaue();
 		/*
 		struct timeval tv;
 		tv.tv_sec = CFG_RTC_DEFAULT_TIMESTAMP;
@@ -1782,6 +1783,7 @@ bool set_modify(ITUWidget* widget, char* param)
 			theConfig.interphone = 0;
 		set_main_init();
 		once_key_ring = 2;
+		key_sound_reinit();
 		user_amp_on();
 		//ring_volume_set(3);
 		AudioStop();
@@ -1794,6 +1796,7 @@ bool set_modify(ITUWidget* widget, char* param)
 			theConfig.door1 = 0;
 		set_main_init();
 		once_key_ring = 2;
+		key_sound_reinit();
 		user_amp_on();
 		//ring_volume_set(3);
 		AudioStop();
@@ -1811,6 +1814,7 @@ bool set_modify(ITUWidget* widget, char* param)
 		AudioStop();
 		AudioSetVolume(ALC5616_VOL);
 		AudioPlay(ring_str[theConfig.door2], NULL);
+		user_amp_on();
 		break;
 	case '7':
 		theConfig.lcdout = 1- theConfig.lcdout;
@@ -1922,11 +1926,11 @@ bool set_dis_reset(ITUWidget* widget, char* param)
 	ituTrackBarSetValue(DIS_TR_BAR_HUE,50);
 	ituProgressBarSetValue(DIS_PR_BAR_HUE,50);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_BRGT,0X80);
+	pr2000_i2c_write(0xb8,PR2000_BRGT,0X80-20);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_CONT,0X80);
+	pr2000_i2c_write(0xb8,PR2000_CONT,0X80+20);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_HUE,0X80);
+	pr2000_i2c_write(0xb8,PR2000_HUE,0X80+40);
 	return true;
 }
 
@@ -1949,7 +1953,7 @@ bool set_dis_dajust(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(DIS_TR_BAR_BRI,theConfig.brightness);
 		ituProgressBarSetValue(DIS_PR_BAR_BRI,theConfig.brightness);
 		pr2000_i2c_write(0xb8,0xff,0x01);
-		pr2000_i2c_write(0xb8,PR2000_BRGT,theConfig.brightness*200/100+28);
+		pr2000_i2c_write(0xb8,PR2000_BRGT,theConfig.brightness+58);
 		break;
 	case '3':
 	case '4':
@@ -1964,7 +1968,7 @@ bool set_dis_dajust(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(DIS_TR_BAR_CON,theConfig.contrast);
 		ituProgressBarSetValue(DIS_PR_BAR_CON,theConfig.contrast);
 		pr2000_i2c_write(0xb8,0xff,0x01);
-		pr2000_i2c_write(0xb8,PR2000_CONT,theConfig.contrast*200/100+28);
+		pr2000_i2c_write(0xb8,PR2000_CONT,theConfig.contrast+98);
 		break;
 	case '5':
 	case '6':
@@ -1979,7 +1983,7 @@ bool set_dis_dajust(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(DIS_TR_BAR_HUE,theConfig.hue);
 		ituProgressBarSetValue(DIS_PR_BAR_HUE,theConfig.hue);
 		pr2000_i2c_write(0xb8,0xff,0x01);
-		pr2000_i2c_write(0xb8,PR2000_HUE,theConfig.hue*200/100+28);
+		pr2000_i2c_write(0xb8,PR2000_HUE,theConfig.hue+118);
 		break;
 	}
 	ConfigSave();
@@ -2004,7 +2008,7 @@ bool set_dis_ch_bri(ITUWidget* widget, char* param)
 		return;
 	//printf("-------------->%d\n",monitor_menu_2_TrackBar_1->value);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_BRGT,DIS_TR_BAR_BRI->value*200/100+28);
+	pr2000_i2c_write(0xb8,PR2000_BRGT,DIS_TR_BAR_BRI->value+58);
 	theConfig.brightness = DIS_TR_BAR_BRI->value;
 	ConfigSave();
 	return true;
@@ -2016,7 +2020,7 @@ bool set_dis_ch_con(ITUWidget* widget, char* param)
 		return;
 	//printf("-------------->%d\n",monitor_menu_2_TrackBar_2->value);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_CONT,DIS_TR_BAR_CON->value*200/100+28);
+	pr2000_i2c_write(0xb8,PR2000_CONT,DIS_TR_BAR_CON->value+98);
 	theConfig.contrast = DIS_TR_BAR_CON->value;
 	ConfigSave();
 	return true;
@@ -2028,7 +2032,7 @@ bool set_dis_ch_hue(ITUWidget* widget, char* param)
 		return;
 	//printf("-------------->%d\n",monitor_menu_2_TrackBar_3->value);
 	pr2000_i2c_write(0xb8,0xff,0x01);
-	pr2000_i2c_write(0xb8,PR2000_HUE,DIS_TR_BAR_HUE->value*200/100+28);
+	pr2000_i2c_write(0xb8,PR2000_HUE,DIS_TR_BAR_HUE->value+118);
 	theConfig.hue = DIS_TR_BAR_HUE->value;
 	ConfigSave();
 	return true;
@@ -2053,6 +2057,7 @@ bool set_vol_adjust(ITUWidget* widget, char* param)
 		ituTextSetString(VOL_TEXT_1,val_str);
 		ring_volume_set(theConfig.ringvol);
 		AudioSetVolume(ALC5616_VOL);
+		key_sound_reinit();
 		user_amp_on();
 		if(theConfig.ringvol == 0)
 			AudioStop();
@@ -2070,6 +2075,7 @@ bool set_vol_adjust(ITUWidget* widget, char* param)
 		ituTextSetString(VOL_TEXT_1,val_str);
 		ring_volume_set(theConfig.ringvol);
 		AudioSetVolume(ALC5616_VOL);
+		key_sound_reinit();
 		user_amp_on();
 		AudioPlay(ring_str[theConfig.door1], NULL);
 		break;
@@ -2107,6 +2113,7 @@ bool set_vol_adjust(ITUWidget* widget, char* param)
 		ituTextSetString(VOL_TEXT_3,val_str);
 		ring_volume_set(theConfig.Iringvol);
 		AudioSetVolume(ALC5616_VOL);
+		key_sound_reinit();
 		user_amp_on();
 		if(theConfig.Iringvol == 0)
 			AudioStop();
@@ -2124,6 +2131,7 @@ bool set_vol_adjust(ITUWidget* widget, char* param)
 		ituTextSetString(VOL_TEXT_3,val_str);
 		ring_volume_set(theConfig.Iringvol);
 		AudioSetVolume(ALC5616_VOL);
+		key_sound_reinit();
 		user_amp_on();
 		AudioPlay(ring_str[theConfig.door1], NULL);
 		break;

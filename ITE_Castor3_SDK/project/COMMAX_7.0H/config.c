@@ -52,6 +52,9 @@ void Config_Reinit(void)
 	theConfig.brightness = 50;
 	theConfig.contrast = 50;
 	theConfig.hue = 50;
+	theConfig.brightness_c = 50;
+	theConfig.contrast_c = 50;
+	theConfig.hue_c = 50;
 	theConfig.lcdout = 1;
 	theConfig.lcdouttime = 0;
 	theConfig.infoframe = 0;
@@ -116,6 +119,9 @@ void ConfigInit(void)
 	theConfig.brightness = iniparser_getint(cfgIni, "display:brightness", 50);
 	theConfig.contrast = iniparser_getint(cfgIni, "display:contrast", 50);
 	theConfig.hue = iniparser_getint(cfgIni, "display:hue", 50);
+	theConfig.brightness_c = iniparser_getint(cfgIni, "display:brightness_c", 50);
+	theConfig.contrast_c = iniparser_getint(cfgIni, "display:contrast_c", 50);
+	theConfig.hue_c = iniparser_getint(cfgIni, "display:hue_c", 50);
 	theConfig.lcdout = iniparser_getint(cfgIni, "display:lcdout", 1);
 	theConfig.lcdouttime = iniparser_getint(cfgIni, "display:lcdouttime", 0);
 	theConfig.infoframe = iniparser_getint(cfgIni, "display:infoframe", 0);
@@ -183,6 +189,9 @@ static void ConfigSavePublic(void)
 	user_iniparser_set_int(cfgIni, "display:brightness", theConfig.brightness);
 	user_iniparser_set_int(cfgIni, "display:contrast", theConfig.contrast);
 	user_iniparser_set_int(cfgIni, "display:hue", theConfig.hue);
+	user_iniparser_set_int(cfgIni, "display:brightness_c", theConfig.brightness_c);
+	user_iniparser_set_int(cfgIni, "display:contrast_c", theConfig.contrast_c);
+	user_iniparser_set_int(cfgIni, "display:hue_c", theConfig.hue_c);
 	user_iniparser_set_int(cfgIni, "display:lcdout", theConfig.lcdout);
 	user_iniparser_set_int(cfgIni, "display:lcdouttime", theConfig.lcdouttime);
 	user_iniparser_set_int(cfgIni, "display:infoframe", theConfig.infoframe);
