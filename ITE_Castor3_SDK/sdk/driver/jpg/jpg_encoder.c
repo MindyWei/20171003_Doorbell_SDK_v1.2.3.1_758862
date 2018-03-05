@@ -292,6 +292,7 @@ _JPG_Enc_Get_CodedData(
             break;
         }
 
+				jpg_sleep(3);
         // complete or bs_full
         bsBufValidSize = JPG_GetBitStreamValidSizeReg();
        	if( (int)bsBufValidSize > sysRamRemainSize )

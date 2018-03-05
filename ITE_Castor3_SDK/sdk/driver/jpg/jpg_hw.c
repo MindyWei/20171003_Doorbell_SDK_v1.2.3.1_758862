@@ -286,7 +286,7 @@ JPG_DecPowerDown(
         {
             JPG_RegReset();
             jpg_sleep(500);
-            Jpg_Ext_Link_Ctrl(JEL_CTRL_ISP_HW_RESET, 0, 0);
+            //Jpg_Ext_Link_Ctrl(JEL_CTRL_ISP_HW_RESET, 0, 0);
             jpg_msg_ex(JPG_MSG_TYPE_ERR, "time out !!");
             goto end;
         }
@@ -303,7 +303,7 @@ JPG_DecPowerDown(
             // 1 sec timeOut
             JPG_RegReset();
             jpg_sleep(500);
-            Jpg_Ext_Link_Ctrl(JEL_CTRL_ISP_HW_RESET, 0, 0);
+            //Jpg_Ext_Link_Ctrl(JEL_CTRL_ISP_HW_RESET, 0, 0);
             jpg_msg_ex(JPG_MSG_TYPE_ERR, "time out (status[0xB00]= 0x%x)!!", hwStatus);
             break;
         }

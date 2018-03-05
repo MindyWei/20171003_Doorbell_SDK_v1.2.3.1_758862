@@ -9,7 +9,7 @@
 //                  Constant Definition
 //=============================================================================
 #define DEF_BS_BUF_LENGTH         (256 << 10)
-#define DEF_BS_RING_BUF_LENGTH    (64 << 10)
+#define DEF_BS_RING_BUF_LENGTH    (256 << 10)
 #define DEF_ENC_SYS_BS_BUF_LENGTH (256 << 10)
 #define DEF_LINE_BUF_LENGTH       (952 << 10)
 
