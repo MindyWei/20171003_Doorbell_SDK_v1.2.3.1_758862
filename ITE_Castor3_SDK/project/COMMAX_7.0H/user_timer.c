@@ -151,7 +151,7 @@ void black_wind_start()
     struct itimerspec value;
 	
     value.it_value.tv_sec   = 0;
-    value.it_value.tv_nsec  = 800*1000*1000;
+    value.it_value.tv_nsec  = 1000*1000*1000;
     value.it_interval.tv_sec = value.it_interval.tv_nsec = 0;
     timer_settime(black_wind_TimerId, 0, &value, NULL);
 	//printf("---------->black_wind_start\n");
@@ -643,7 +643,7 @@ void key_sound_start()
 void key_sound_end(timer_t timerid, int arg)
 {
 	printf("---------->key_sound_end<--------------\n");
-	if(!cur_talk_ing && !get_interphone_talk_start())
+	if(!cur_talk_ing && !get_interphone_talk_start() && !user_get_videoPlayerIsPlaying())
 		user_amp_off();
 }
 void key_sound_reinit()

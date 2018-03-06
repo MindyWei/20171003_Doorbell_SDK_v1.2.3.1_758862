@@ -84,6 +84,10 @@ static long video_sec_time = 0;
 static int video_cur_page = 0;
 static int video_cur_index = 0;
 
+bool user_get_videoPlayerIsPlaying()
+{
+	return videoPlayerIsPlaying;
+}
 
 void media_itu_init()
 {
@@ -422,8 +426,8 @@ bool media_init(ITUWidget* widget, char* param)
 		imagePlayerData = NULL;
 		imagePlayerDataSize = 0;
 	}
-	ituWidgetDisable(VIDEO_BTN_SLIDER);
-	ituWidgetDisable(VIDEO_BTN_FULL_SLIDER);
+	//ituWidgetDisable(VIDEO_BTN_SLIDER);
+	//ituWidgetDisable(VIDEO_BTN_FULL_SLIDER);
 	media_itu_init();
 	//image_memo_init();
 	//usleep(300*1000);
@@ -1068,6 +1072,30 @@ bool video_btn_jump(ITUWidget* widget, char* param)
 		time_buf[3] = (temp_sec_time%60)/10+'0';
 		time_buf[4] = (temp_sec_time%60)%10+'0';
 		ituTextSetString(VIDEO_TEXT_FILE_TIME, time_buf);
+		ituTrackBarSetValue(VIDEO_TR_FULL_BAR,VIDEO_TR_BAR->value);
+		ituProgressBarSetValue(VIDEO_PR_FULL_BAR,VIDEO_TR_BAR->value);
+	}
+	return true;
+}
+bool video_btn_jump_full(ITUWidget* widget, char* param)
+{
+	printf("video_btn_jump.......................222222\n");
+	int s = 0;
+	long temp_sec_time = 0;
+	char time_buf[10] = "\0";
+	if(videoPlayerIsPlaying)
+	{
+		s = VIDEO_TR_FULL_BAR->value * video_total_time /952;
+		mtal_pb_seekto(s);
+		temp_sec_time = video_total_time - s;
+		time_buf[0] = '0';
+		time_buf[1] = temp_sec_time/60+'0';
+		time_buf[2] = ':';
+		time_buf[3] = (temp_sec_time%60)/10+'0';
+		time_buf[4] = (temp_sec_time%60)%10+'0';
+		ituTextSetString(VIDEO_TEXT_FILE_TIME, time_buf);
+		ituTrackBarSetValue(VIDEO_TR_BAR,VIDEO_TR_FULL_BAR->value);
+		ituProgressBarSetValue(VIDEO_PR_BAR,VIDEO_TR_FULL_BAR->value);
 	}
 	return true;
 }
@@ -1132,6 +1160,8 @@ bool media_close_full(ITUWidget* widget, char* param)
 		ituWidgetSetVisible(VIDEO_BTN_PLAY, true);
 		ituWidgetSetVisible(VIDEO_BTN_STOP, false);
 	}
+	ituWidgetSetVisible(VIDEO_BG_BAR, true);
+	ituWidgetSetVisible(VIDEO_BG_FULL_BAR, false);
 	
 	return true;
 }

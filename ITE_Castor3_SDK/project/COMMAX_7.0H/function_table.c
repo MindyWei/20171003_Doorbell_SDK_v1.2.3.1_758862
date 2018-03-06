@@ -1,6 +1,5 @@
 #include "ite/itu.h"
 
-extern bool enter_home(ITUWidget* widget, char* param);
 extern bool home_init(ITUWidget* widget, char* param);
 extern bool home_timer(ITUWidget* widget, char* param);
 extern bool home_leave(ITUWidget* widget, char* param);
@@ -40,6 +39,7 @@ extern bool media_timer(ITUWidget* widget, char* param);
 extern bool media_leave(ITUWidget* widget, char* param);
 extern bool delete_video(ITUWidget* widget, char* param);
 extern bool video_bar_jump(ITUWidget* widget, char* param);
+extern bool video_btn_jump_full(ITUWidget* widget, char* param);
 extern bool video_btn_jump(ITUWidget* widget, char* param);
 extern bool stop_video(ITUWidget* widget, char* param);
 extern bool play_video(ITUWidget* widget, char* param);
@@ -105,11 +105,11 @@ extern bool set_enter_lang(ITUWidget* widget, char* param);
 extern bool set_enter_clear_mode(ITUWidget* widget, char* param);
 extern bool set_enter_display(ITUWidget* widget, char* param);
 extern bool set_to_time_set(ITUWidget* widget, char* param);
+extern bool set_format(ITUWidget* widget, char* param);
 extern bool set_main_bg_1_hide(ITUWidget* widget, char* param);
 
 ITUActionFunction actionFunctions[] =
 {
-    "enter_home", enter_home,
     "home_init", home_init,
     "home_timer", home_timer,
     "home_leave", home_leave,
@@ -149,6 +149,7 @@ ITUActionFunction actionFunctions[] =
     "media_leave", media_leave,
     "delete_video", delete_video,
     "video_bar_jump", video_bar_jump,
+    "video_btn_jump_full", video_btn_jump_full,
     "video_btn_jump", video_btn_jump,
     "stop_video", stop_video,
     "play_video", play_video,
@@ -214,6 +215,7 @@ ITUActionFunction actionFunctions[] =
     "set_enter_clear_mode", set_enter_clear_mode,
     "set_enter_display", set_enter_display,
     "set_to_time_set", set_to_time_set,
+    "set_format", set_format,
     "set_main_bg_1_hide", set_main_bg_1_hide,
     NULL, NULL
 };

@@ -13,7 +13,7 @@ static char language_str[10][10] 	= {"English"};
 
 static char id_str[4][10] 		= {"No. 1","No. 2","No. 3","No. 4"};
 static char open_str[2][10] 		= {"Standard","Fast"};
-static char ver_str[10] 			= "Ver 5.0";
+static char ver_str[10] 			= "Ver 5.3";
 
 static char ring_str[6][25] 		= {"A:/sounds/sound1.mp3",
                                        "A:/sounds/sound2.mp3",
@@ -1579,6 +1579,13 @@ bool set_leave(ITUWidget* widget, char* param)
 	return true;
 }
 
+bool set_format(ITUWidget* widget, char* param)
+{
+	if(StorageGetCurrType() == STORAGE_SD)
+		return true;
+	else
+		return false;
+}
 void time_wheel_update()
 {
 	struct timeval tv;
@@ -1681,6 +1688,7 @@ bool set_pop_up_confirm(ITUWidget* widget, char* param)
 		//AudioPlayKeySound();
 		//if(storageCurrType == STORAGE_SD)
 		{
+			printf("format_confirm..............1...............\n");
 			user_format_init();
 			usleep(100*1000);
 			no_touch_reinit();
@@ -1691,6 +1699,7 @@ bool set_pop_up_confirm(ITUWidget* widget, char* param)
 			ituWidgetSetVisible(FORMAT_BTN_NO, false);
 			ituWidgetSetVisible(FORMAT_TEXT_TITEL_ING, true);
 			ituWidgetSetVisible(FORMAT_SPRITE, true);
+			printf("format_confirm...............2..............\n");
 		}
 		//user_format_sd();
 		break;
@@ -1753,6 +1762,7 @@ bool set_pop_up_confirm(ITUWidget* widget, char* param)
 		set_main_init();
 		break;
 	}
+	if(param[0] != '5')
 	ConfigSave();
 	return true;
 }

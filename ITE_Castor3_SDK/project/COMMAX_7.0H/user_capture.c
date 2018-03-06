@@ -1359,6 +1359,7 @@ void SettingISPAnd_FilpLCD(
 	ITE_CAP_VIDEO_INFO outdata     = {0};
 	unsigned char *YUVRawData;
 	int YUVRawData_Size = 0;
+	struct statvfs info;
 
 	ithCaptureGetNewFrame(&outdata);
 #if Motion_Detection
@@ -1396,9 +1397,18 @@ void SettingISPAnd_FilpLCD(
 						b_MOTION_RECING = true;
 						if(StorageGetCurrType() == STORAGE_SD)
 						{
+							if (statvfs("E:/", &info) == 0)
+							{
+								uint64_t avail = info.f_bfree * info.f_bsize /1024 /1024;
+								if(avail < 200)
+									user_snap(1);
+								else
+								{
 							if(theConfig.mdsave)
 								led_blink_1s_start();
 							user_snap(theConfig.mdsave+1);
+								}
+							}
 						}
 						else
 							user_snap(1);
@@ -1406,7 +1416,9 @@ void SettingISPAnd_FilpLCD(
 				}
 			}
 			else
-				printf("motion check buffer invalid!\n");
+			{
+				//printf("motion check buffer invalid!\n");
+			}
 		}
 		cnt = 0;
 	}
@@ -1423,7 +1435,7 @@ void SettingISPAnd_FilpLCD(
 
 	if(b_RECORDING_START)
 	{
-		if(cur_page == page_cctv)
+		if(cur_page == page_cctv || cur_signal > 2)
 			SUPPORT_REC_AUDIO_S = false;
 		AudioPauseKeySound();		//¹Ø±Õ°´¼üÒô
 		//REC_FIRST_FRAME = true;
