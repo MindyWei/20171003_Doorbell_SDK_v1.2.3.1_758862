@@ -336,7 +336,9 @@ void _user_pr2000_init()
 					if(Camera_Type == 4)
 					{
 						PR2000_Input_Mode(PR2000_INPUT_CVBS_NTSC);
-						PAL_register_write();
+						//PAL_register_write();
+						NTSC_register_write();
+						//NTSC_register_write_27Mhz();
 					}
 
 					if(Camera_Type == 5)

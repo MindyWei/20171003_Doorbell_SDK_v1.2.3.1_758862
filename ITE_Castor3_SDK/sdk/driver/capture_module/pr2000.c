@@ -149,7 +149,8 @@ static REGPAIR  YPrPb_INPUT [] =
 static CAP_TIMINFO_TABLE PR2000_TABLE [] =
 {
     //Index, HActive, VActive,  Rate,            FrameRate,                 Hpor,   Vpor,  HStar,     HEnd,   VStar1,   VEnd1,  VStar2,   VEnd2,
-    {0,     720,    487,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22 - 7,   261 - 7,   285 - 7,   524 - 7   }, //480i60     // Benson
+    //{0,     720,    487,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22 - 7,   261 - 7,   285 - 7,   524 - 7   }, //480i60     // Benson
+    {0,     720,    480,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22,   261,   285,   524   }, //480i60     // Benson
     {1,     720,    576,        2500,   CAP_FRAMERATE_25HZ,               0,      0, 264 + 18,   1703 + 18,     23 - 4,   310 - 4,   336 - 4,   623 - 4   }, //576i50
     {2,     1280,   720,        2500,   CAP_FRAMERATE_25HZ,               0,      0, 264 + 18,   1703 + 18,     23 - 4,   310 - 4,   336 - 4,   623 - 4   }, //720p50
 };      
@@ -525,7 +526,7 @@ void PR2000GetProperty(CAP_GET_PROPERTY * pGetProperty)
 	    pGetProperty->Rate = 2500;//PR2000_InFrameRate;
 	    pGetProperty->GetModuleIsInterlace = 0;
     }
-    else if(input_mode == PR2000_INPUT_CVBS_PAL || input_mode == PR2000_INPUT_CVBS_NTSC)
+    else if(input_mode == PR2000_INPUT_CVBS_PAL)// || input_mode == PR2000_INPUT_CVBS_NTSC)
     {   
         pGetProperty->GetHeight = 576;//PR2000_InHeight;
 	    pGetProperty->GetWidth  = 720;//PR2000_InWidth;
@@ -534,7 +535,7 @@ void PR2000GetProperty(CAP_GET_PROPERTY * pGetProperty)
     }
     else if(input_mode == PR2000_INPUT_CVBS_NTSC)
     {   
-        pGetProperty->GetHeight = 487;//PR2000_InHeight;
+        pGetProperty->GetHeight = 480;//487;//PR2000_InHeight;
 	    pGetProperty->GetWidth  = 720;//PR2000_InWidth;
 	    pGetProperty->Rate = 2997;//PR2000_InFrameRate;
 	    pGetProperty->GetModuleIsInterlace = 1;
