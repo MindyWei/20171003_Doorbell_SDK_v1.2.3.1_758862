@@ -297,7 +297,7 @@ static bool sysCheckDiskSpace(int max_file_size, char* dest_path) //20180205, my
     {
         if (statvfs(dest_path, &info) == 0)
         {
-            uint64_t avail = info.f_bfree * info.f_bsize;
+            uint64_t avail = (uint64_t)info.f_bfree * info.f_bsize;
 
             if (avail > max_file_size) //the free size that needs much more bigger than nor cache size.
         	{
