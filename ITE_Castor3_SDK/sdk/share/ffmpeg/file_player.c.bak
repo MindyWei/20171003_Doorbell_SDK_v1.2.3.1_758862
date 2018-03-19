@@ -924,7 +924,10 @@ void render_frame(AVCodecContext *avctx, AVFrame *picture)
             prop.pitch_y  = picture->linesize[0]; //width; //2048
             prop.pitch_uv = picture->linesize[1]; //width/2; //2048
             prop.bidx     = bidx;
-            prop.format   = MMP_ISP_IN_YUV420;
+            if(avctx->codec_id == CODEC_ID_MJPEG)
+                prop.format   = MMP_ISP_IN_YUV422;
+            else
+                prop.format   = MMP_ISP_IN_YUV420;
 
     #ifdef CFG_BUILD_ITV
             itv_update_dbuf_anchor(&prop);
@@ -1065,7 +1068,9 @@ static void flush_audio_hw(PlayerInstance *is)
     if(nAudioEngine == ITE_WAV_DECODE)
     {
         iteAudioStopQuick();
+#if (CFG_CHIP_FAMILY == 9850)
         i2s_enable_fading(1);//fading in
+#endif
         usleep(1000);
     iteAudioOpenEngine(nAudioEngine);
         WavHeaderReload(is->audioctx);    
@@ -1073,7 +1078,9 @@ static void flush_audio_hw(PlayerInstance *is)
     else
     {
         iteAudioStop();
+#if (CFG_CHIP_FAMILY == 9850)
         i2s_enable_fading(1);//fading in
+#endif
     }
 }
 
@@ -2084,13 +2091,6 @@ seekto:
             }
             else
             {
-                if (is->audio_stream >= 0)
-                {
-                    packet_queue_flush(&is->audioq);
-                    //packet_queue_put(&is->audioq, &flush_pkt);
-                    //avcodec_flush_buffers(is->audio_st->codec);
-                    flush_audio_hw(is);
-                }
                 if (is->video_stream >= 0)
                 {
                     packet_queue_flush(&is->videoq);
@@ -2100,6 +2100,13 @@ seekto:
                 if (is->subtitle_stream >= 0)
                 {
                     avcodec_flush_buffers(is->subtitle_st->codec);
+                }
+                if (is->audio_stream >= 0)
+                {
+                    packet_queue_flush(&is->audioq);
+                    //packet_queue_put(&is->audioq, &flush_pkt);
+                    //avcodec_flush_buffers(is->audio_st->codec);
+                    flush_audio_hw(is);
                 }
             }
 #ifdef AV_SYNC_STC
@@ -2970,7 +2977,9 @@ static int ithMediaPlayer_stop(void)
 #ifdef CFG_BUILD_ITV
     itv_flush_dbuf();
 #endif
+#if (CFG_CHIP_FAMILY == 9850)
     i2s_enable_fading(0);//close fading in
+#endif
     pthread_mutex_unlock(&player_mutex);
     return 0;
 }

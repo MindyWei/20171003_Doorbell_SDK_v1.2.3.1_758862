@@ -40,8 +40,7 @@ static bool     record_stop_over = true;
 static bool     avi_start_flag = false;
 static bool     snap_stop = false;
 static bool     audio_init = false;
-static bool     audio_stop = false;
-static char filename[50];
+static char 	filename[50];
 
 bool get_avi_start_flag()
 {
@@ -72,7 +71,7 @@ static ISP_DEVICE      gIspDev;
 #define REC_FILE_NAME   "e:/rec.avi"
 #define REC_FILE_WIDTH  720//800
 #define REC_FILE_HEIGHT 576//480
-int rec_file_range[3][2] = {{720,576},{720,488},{1280,720}};
+int rec_file_range[3][3] = {{720,576,25},{720,488,30},{1280,720,30}};
 #define REC_FILE_FPS    25
 #define FRAME_TO_ENCODE 2250
 #define FRAME_TO_ENCODE_MD 250
@@ -594,7 +593,7 @@ static void *sw_yuv(void)
 			_sw_yuvInputPktRelease(SW_YUVPkt);
 		}
 		else
-			usleep(3000);
+			usleep(15000);
 	}
 
 	usleep(100*1000);
@@ -760,7 +759,7 @@ static void *Jpeg_Enc(void)
 		jpegStream = NULL;
 		if(input_mode != PR2000_INPUT_YPBPR && b_SNAPSHOT == false)
 		{
-			printf("------------------------>CVBS....1\n");
+			//printf("------------------------>CVBS....1\n");
 			DetYUVInputPkt *ptYUVPkt = NULL;
 			if(_packetQueueGet(&gDet_YUVInputQueue, (void**) &ptYUVPkt, 0) > 0)
 			{
@@ -859,8 +858,8 @@ static void *Jpeg_Enc(void)
 			}
 			else
 			{
-				printf("------------------------>CVBS....2\n");
-				usleep(5000);
+				//printf("------------------------>CVBS....2\n");
+				usleep(15000);
 			}
 		}
 		else
@@ -996,6 +995,7 @@ static void initAD(void)
 	spec_adI.from_MIC_IN                = 1;
 	i2s_init_ADC(&spec_adI);
 	i2s_pause_ADC(1);
+	I2S_AD32_SET_RP(I2S_AD32_GET_WP());
 	audio_init = true;
 }
 
@@ -1005,95 +1005,62 @@ static void deinitAD(void)
 }
 
 #if 1//(SUPPORT_REC_AUDIO)
-static void *GetAudioRawDataFromADC(void *arg)
+static int GetAudioRawDataFromADC(uint8_t* audio_data)
 {
-	if(audio_init == false)
+	int bsize = 0;
+	int sizecount = 0;
+	uint32_t AD_r = I2S_AD32_GET_RP();//9850
+	uint32_t AD_w = I2S_AD32_GET_WP();//9850
+
+	if (AD_r <= AD_w)
 	{
-		initAD();
-		i2s_ADC_set_direct_volstep(80);
-	}
-	i2s_pause_ADC(0);
+		bsize = AD_w - AD_r;
+		if (sizecount + bsize > 1280)
+			bsize = 1280 - sizecount;
 
-	while(b_RECORDING)
-	{
-		int bsize = 0;
-		int sizecount = 0;
-		uint8_t* audio_data = NULL;
-		audio_data = (uint8_t*)malloc(16000);
-
-		usleep(980*1000);
-
-		while(sizecount < 16000)
+		if (bsize)
 		{
-			uint32_t AD_r = I2S_AD32_GET_RP();//9850
-			uint32_t AD_w = I2S_AD32_GET_WP();//9850
+			ithInvalidateDCacheRange(adc_buf + AD_r, bsize);
+			memcpy(audio_data + sizecount, adc_buf + AD_r, bsize);
+			AD_r += bsize;
+			I2S_AD32_SET_RP(AD_r);
+			sizecount += bsize;
+		}
+	}
+	else
+	{
+		// AD_r > AD_w
+		bsize = (ADC_BUFFER_SIZE - AD_r) + AD_w;
+		if (sizecount + bsize > 1280)
+			bsize = 1280 - sizecount;
 
-			if (AD_r <= AD_w)
+		if (bsize)
+		{
+			//printf("AD_r %u, AD_w %u bsize %u \n", AD_r, AD_w, bsize );
+			uint32_t szsec0, szsec1;
+			szsec0 = ADC_BUFFER_SIZE - AD_r;
+			if(bsize < szsec0)
+				szsec0 = bsize;
+			szsec1 = bsize - szsec0;
+
+			ithInvalidateDCacheRange(adc_buf + AD_r, szsec0);
+			memcpy(audio_data + sizecount, adc_buf + AD_r, szsec0);
+			if(szsec1)
 			{
-				bsize = AD_w - AD_r;
-				if (sizecount + bsize > 16000)
-					bsize = 16000 - sizecount;
-
-				if (bsize)
-				{
-					ithInvalidateDCacheRange(adc_buf + AD_r, bsize);
-					memcpy(audio_data + sizecount, adc_buf + AD_r, bsize);
-					AD_r += bsize;
-					I2S_AD32_SET_RP(AD_r);
-					sizecount += bsize;
-				}
+				ithInvalidateDCacheRange(adc_buf, szsec1);
+				memcpy(audio_data + sizecount + szsec0, adc_buf, szsec1);
 			}
+
+			if(szsec1)
+				AD_r = szsec1;
 			else
-			{
-				// AD_r > AD_w
-				bsize = (ADC_BUFFER_SIZE - AD_r) + AD_w;
-				if (sizecount + bsize > 16000)
-					bsize = 16000 - sizecount;
+				AD_r += szsec0;
+			I2S_AD32_SET_RP(AD_r);
 
-				if (bsize)
-				{
-					//printf("AD_r %u, AD_w %u bsize %u \n", AD_r, AD_w, bsize );
-					uint32_t szsec0, szsec1;
-					szsec0 = ADC_BUFFER_SIZE - AD_r;
-					if(bsize < szsec0)
-						szsec0 = bsize;
-					szsec1 = bsize - szsec0;
-
-					ithInvalidateDCacheRange(adc_buf + AD_r, szsec0);
-					memcpy(audio_data + sizecount, adc_buf + AD_r, szsec0);
-					if(szsec1)
-					{
-						ithInvalidateDCacheRange(adc_buf, szsec1);
-						memcpy(audio_data + sizecount + szsec0, adc_buf, szsec1);
-					}
-
-					if(szsec1)
-						AD_r = szsec1;
-					else
-						AD_r += szsec0;
-					I2S_AD32_SET_RP(AD_r);
-
-					sizecount += bsize;
-				}
-			}
-			usleep(10000);
+			sizecount += bsize;
 		}
-
-		//put into _packetqueue
-		AudioInputPkt *audioPkt = (AudioInputPkt*) malloc(sizeof(AudioInputPkt));
-		if (audioPkt)
-		{
-			audioPkt->pInputBuffer = audio_data;
-			audioPkt->bufferSize = sizecount;
-			_packetQueuePut(&gAudioInputQueue, audioPkt);
-		}
-		//usleep(600*1000);
 	}
-	printf("GetAudioRawDataFromADC--------------------over\n");
-	i2s_pause_ADC(1);
-	audio_stop = true;
-	pthread_exit(NULL);
-
+	return sizecount;
 }
 #endif
 
@@ -1105,16 +1072,15 @@ static void *PackageMjpegToAVI(void *arg)
 	int enc_count = 0;
 	bool md_avi = false;
 
-	AudioInputPkt *ptAudioPkt = NULL;
 	struct ite_avi_audio_t auds;
 	auds.bits = 16;
 	auds.channels = 1;
 	auds.samples_per_second = 8000;
 	
 	if(SUPPORT_REC_AUDIO_S)
-		avi = ite_avi_open(filename, rec_file_range[input_mode][0],  rec_file_range[input_mode][1], "MJPG", REC_FILE_FPS, &auds);
+		avi = ite_avi_open(filename, rec_file_range[input_mode][0],  rec_file_range[input_mode][1], "MJPG", rec_file_range[input_mode][2], &auds);
 	else
-		avi = ite_avi_open(filename, rec_file_range[input_mode][0],  rec_file_range[input_mode][1], "MJPG", REC_FILE_FPS, NULL);
+		avi = ite_avi_open(filename, rec_file_range[input_mode][0],  rec_file_range[input_mode][1], "MJPG", rec_file_range[input_mode][2], NULL);
 
 	//if(!avi)
 	{
@@ -1133,28 +1099,22 @@ static void *PackageMjpegToAVI(void *arg)
 		{
 			if(_packetQueueGet(&gJpegInputQueue, (void**) &ptJpegPkt, 0) > 0)
 			{
+				//printf("------------------------>VIDEO[%d]\n", gJpegInputQueue.numPackets);
 				ite_avi_add_frame(avi, ptJpegPkt->pInputBuffer, ptJpegPkt->bufferSize);
 				_jpegInputPktRelease(ptJpegPkt);
 
 				if(SUPPORT_REC_AUDIO_S)
 				{
-					if(enc_count && (enc_count+1)%REC_FILE_FPS == 0)
+
+					uint8_t* audio_data = NULL;
+					int audio_size = 0;
+					audio_data = (uint8_t*)malloc(1280);
+					audio_size= GetAudioRawDataFromADC(audio_data);
+					if(audio_size)
 					{
-						while(1)
-						{
-							if (_packetQueueGet(&gAudioInputQueue, (void**) &ptAudioPkt, 0) > 0)
-							{
-								ite_avi_add_audio(avi, ptAudioPkt->pInputBuffer, ptAudioPkt->bufferSize);
-								_audioInputPktRelease(ptAudioPkt);
-								break;
-							}
-							else
-							{
-							//	printf("wait 1 ms\n");
-								usleep(1000);
-							}
-						}
+						ite_avi_add_audio(avi, audio_data, audio_size);
 					}
+					free(audio_data);
 				}
 				enc_count++;
 				if(md_avi)
@@ -1324,25 +1284,14 @@ void avi_end()
 			jpeg_enc_tid = 0;
 			printf("pthread_join(jpeg_enc_tid, NULL)\r\n");
 		}
-		if(SUPPORT_REC_AUDIO_S)
-		{
-			if(audio_tid)
-			{
-				while(audio_stop == false)
-					usleep(1000);
-				_packetQueueEnd(&gAudioInputQueue);
-				pthread_join(audio_tid, NULL);
-				audio_tid = 0;
-				audio_stop = false;
-				printf("pthread_join(audio_tid, NULL)\r\n");
-			}
-		}
+	
 		if(!get_auto_start_ing())
 			clear_mon_rec_ing();
 		
 		SUPPORT_REC_AUDIO_S = true;
 		avi_start_flag = false;
 		record_stop_over = true;
+		i2s_pause_ADC(1);
 		deinitAD();
 		audio_init = false;
 	}
@@ -1460,8 +1409,12 @@ void SettingISPAnd_FilpLCD(
 
 		if(SUPPORT_REC_AUDIO_S)
 		{
-			_packetQueueInit(&gAudioInputQueue, _audioInputPktRelease, 50);
-			pthread_create(&audio_tid, NULL, GetAudioRawDataFromADC, NULL);
+			if(audio_init == false)
+			{
+				initAD();
+				i2s_ADC_set_direct_volstep(80);
+			}
+			i2s_pause_ADC(0);
 		}
 	}
 
@@ -1541,7 +1494,7 @@ void *signal_control(void *arg)
 	while(1)
 	{
 		if(Capture_state)
-			usleep(10);
+			usleep(1000);
 		else
 			usleep(20*1000);
 			

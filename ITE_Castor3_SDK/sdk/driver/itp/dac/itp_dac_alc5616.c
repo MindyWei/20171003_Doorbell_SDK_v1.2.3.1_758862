@@ -174,10 +174,11 @@ static void init_alc5616_common(void)
 		pthread_mutex_unlock(&ALC5616_MUTEX);
 		return;
 	}
-	_alc5616_cold_start = 0;
+	
 
 #if 1
 	/* start programming ALC5616 */
+    if(_alc5616_cold_start)
 	{
         unsigned short data16;
         
@@ -297,9 +298,20 @@ static void init_alc5616_common(void)
             alc5616_write_reg(0x53, 0xF000);/* Mute OUTVOLL/R to LOUTMIX */
             alc5616_write_reg(0x66, 0x0000);/* OUTVOLL/R power down */
         }
-    }    
+    }else{
+        {   //set volume level
+            unsigned short adj = curr_out1_volume;
+            adj = (adj << 8)|adj;
+            alc5616_write_reg(0x19, adj);/* DAC Digital Volume ctrl -11.25 dB */
+            //set mic level
+            alc5616_write_reg(0x1C, 0x722F);/* ADC digital Volume 25.125dB */
+            alc5616_writeRegMask(0x1C, curr_input_pga_volume << 8, 0x7F << 8);
+        }
+        
+    }
 #endif
 #endif
+    _alc5616_cold_start = 0;
     pthread_mutex_unlock(&ALC5616_MUTEX);
 }
 
@@ -370,7 +382,8 @@ void itp_codec_standby(void)
 	itp_codec_rec_deinit();
 #endif
 	itp_codec_playback_deinit();	
-	alc5616_write_reg(0x0, 0x0);	
+	alc5616_write_reg(0x0, 0x0);
+    _alc5616_cold_start = 1;
 	pthread_mutex_unlock(&ALC5616_MUTEX);
 }
 
@@ -411,12 +424,12 @@ void itp_codec_playback_deinit(void)
 	DEBUG_PRINT("ALC5616# %s\n", __func__);
 
 	_alc5616_DA_running = 0; /* put before deinit_alc5616_common() */
-    if(_alc5616_spkout){
-        alc5616_write_reg(0x53, 0xF000);/* Mute OUTVOLL/R to LOUTMIX */
-        alc5616_write_reg(0x66, 0x0000);/* OUTVOLL/R power down */
-        alc5616_write_reg(0x4F, 0x0279);/* Disable DAC L/R to Speaker Mixer*/
-        alc5616_write_reg(0x52, 0x0279);/* Disable DAC L/R to Speaker Mixer*/ 
-    }
+//    if(_alc5616_spkout){
+//        alc5616_write_reg(0x53, 0xF000);/* Mute OUTVOLL/R to LOUTMIX */
+//        alc5616_write_reg(0x66, 0x0000);/* OUTVOLL/R power down */
+//        alc5616_write_reg(0x4F, 0x0279);/* Disable DAC L/R to Speaker Mixer*/
+//        alc5616_write_reg(0x52, 0x0279);/* Disable DAC L/R to Speaker Mixer*/ 
+//    }
 	deinit_alc5616_common();
 }
 

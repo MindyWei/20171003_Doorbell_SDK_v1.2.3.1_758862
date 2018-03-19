@@ -74,6 +74,7 @@ int LastMediaPlayerVoice = 0;
 bool videoPlayerIsFileEOF = true;
 bool videoPlayerIsPlaying = false;
 bool videoPlayerIsPause = false;
+bool videoPlayerIsSeek = false;
 int videoPlayerPercentage = 0;
 bool MgrReloadSBCRunning = true;
 static int VideoPlayerNumber;
@@ -499,7 +500,7 @@ bool media_timer(ITUWidget* widget, char* param)
 		imagePlayerLoaded = false;
 	}
 
-	if (videoPlayerIsPlaying)
+	if (videoPlayerIsPlaying && !videoPlayerIsSeek)
 	{
 		video_play_update_time();
 	}
@@ -813,6 +814,7 @@ bool play_video(ITUWidget* widget, char* param)
 	videoPlayerIsPlaying = true;
 	videoPlayerIsFileEOF = false;
 	videoPlayerIsPause = false;
+    videoPlayerIsSeek = false;
 	return true;
 }
 
@@ -823,6 +825,7 @@ bool stop_video(ITUWidget* widget, char* param)
 	mtal_pb_pause();
 	videoPlayerIsPause = true;
 	videoPlayerIsPlaying = false;
+    videoPlayerIsSeek = false;
 	return true;
 }
 
@@ -849,6 +852,7 @@ bool prev_video(ITUWidget* widget, char* param)
 	videoPlayerIsPlaying = false;
 	videoPlayerIsFileEOF = true;
 	videoPlayerIsPause = true;
+    videoPlayerIsSeek = false;
 	file_name = VideoMemoStartPlay(VideoPlayerNumber);
 	if(file_name)
 	{
@@ -900,6 +904,7 @@ bool next_video(ITUWidget* widget, char* param)
 	videoPlayerIsPlaying = false;
 	videoPlayerIsFileEOF = true;
 	videoPlayerIsPause = true;
+    videoPlayerIsSeek = false;
 	file_name = VideoMemoStartPlay(VideoPlayerNumber);
 	if(file_name)
 	{
@@ -938,6 +943,7 @@ bool video_delete_pop(ITUWidget* widget, char* param)
 		mtal_pb_pause();
 		videoPlayerIsPause = true;
 		videoPlayerIsPlaying = false;
+        videoPlayerIsSeek = false;
 	}
 	return true;
 }
@@ -958,6 +964,7 @@ bool delete_video(ITUWidget* widget, char* param)
 		videoPlayerIsPlaying = false;
 		videoPlayerIsFileEOF = true;
 		videoPlayerIsPause = false;
+        videoPlayerIsSeek = false;
 	}
 	VideoMemoDeleteEntry(VideoPlayerNumber);
 	ituListBoxReload((ITUListBox*)VIDEO_L_SLISTBOX_0);
@@ -1044,11 +1051,15 @@ bool delete_video(ITUWidget* widget, char* param)
 
 bool video_jump(ITUWidget* widget, char* param)
 {
+    printf("%s %d\n",__FUNCTION__,__LINE__);
+    videoPlayerIsSeek = true;
 	return true;
 }
 
 bool video_bar_jump(ITUWidget* widget, char* param)
 {
+    printf("%s %d\n",__FUNCTION__,__LINE__);
+    videoPlayerIsSeek = true;
 	//printf("video_bar_jump.......................111111\n");
 	return true;
 }
@@ -1079,13 +1090,14 @@ bool video_btn_jump(ITUWidget* widget, char* param)
 }
 bool video_btn_jump_full(ITUWidget* widget, char* param)
 {
-	printf("video_btn_jump.......................222222\n");
+	printf("video_btn_jump_full.......................222222\n");
 	int s = 0;
 	long temp_sec_time = 0;
 	char time_buf[10] = "\0";
-	if(videoPlayerIsPlaying)
+	if(videoPlayerIsPlaying && videoPlayerIsSeek)
 	{
 		s = VIDEO_TR_FULL_BAR->value * video_total_time /952;
+        video_prev_time = s;
 		mtal_pb_seekto(s);
 		temp_sec_time = video_total_time - s;
 		time_buf[0] = '0';
@@ -1097,6 +1109,7 @@ bool video_btn_jump_full(ITUWidget* widget, char* param)
 		ituTrackBarSetValue(VIDEO_TR_BAR,VIDEO_TR_FULL_BAR->value);
 		ituProgressBarSetValue(VIDEO_PR_BAR,VIDEO_TR_FULL_BAR->value);
 	}
+    videoPlayerIsSeek = false;
 	return true;
 }
 
@@ -1148,6 +1161,7 @@ bool video_back_list(ITUWidget* widget, char* param)
 
 bool media_close_full(ITUWidget* widget, char* param)
 {
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	ituWidgetSetVisible(VIDEO_BG_NO_FULL_, true);
 	ituWidgetSetVisible(VIDEO_BG_NO_FULL_, true);
 	if(videoPlayerIsPlaying)
@@ -1167,6 +1181,7 @@ bool media_close_full(ITUWidget* widget, char* param)
 }
 void media_full()
 {
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	if(videoPlayerIsPlaying)
 		ituWidgetSetVisible(VIDEO_BTN_STOP, false);
 			

@@ -128,17 +128,18 @@ void user_gpio_init()					//GPIO 初始化
 	ithGpioSetOut(DVDD_COUNT);	
 	ithGpioSet(DVDD_COUNT);	
 	ithGpioEnable(DVDD_COUNT);	
-	
+	*/	
+	//add for spi run debug
 	ithGpioSetMode(AVDD_COUNT, ITH_GPIO_MODE0);
 	ithGpioSetOut(AVDD_COUNT);	
 	ithGpioSet(AVDD_COUNT);	
 	ithGpioEnable(AVDD_COUNT);	
-	
 	ithGpioSetMode(BL_EN_PWM, ITH_GPIO_MODE0);
 	ithGpioSetOut(BL_EN_PWM);
 	ithGpioSet(BL_EN_PWM);	
-	ithGpioEnable(BL_EN_PWM);	
-*/
+	ithGpioEnable(BL_EN_PWM);
+	//add for spi run debug
+
 	ithGpioSetMode(DOOR_RING, ITH_GPIO_MODE0);
 	ithGpioSetOut(DOOR_RING);
 	ithGpioSet(DOOR_RING);	
@@ -1837,9 +1838,9 @@ void user_video_time_check()
 {
 	pthread_t det_p;			//线程ID
 	pthread_attr_t det_pat;
-	pthread_attr_init(&det_p);
+	pthread_attr_init(&det_pat);
 	pthread_attr_setdetachstate(&det_pat, PTHREAD_CREATE_DETACHED);
-	pthread_create(&det_p,NULL, _user_video_time_check, NULL);
+	pthread_create(&det_p, &det_pat, _user_video_time_check, NULL);
 }
 
 void user_vdp_power_on()
@@ -1874,9 +1875,9 @@ void user_sd_card_check()
 		return;
 	pthread_t det_p;			//线程ID
 	pthread_attr_t det_pat;
-	pthread_attr_init(&det_p);
+	pthread_attr_init(&det_pat);
 	pthread_attr_setdetachstate(&det_pat, PTHREAD_CREATE_DETACHED);
-	pthread_create(&det_p,NULL, _user_sd_card_check, NULL);
+	pthread_create(&det_p, &det_pat, _user_sd_card_check, NULL);
 }
 
 #define VOICEMEMO_PATH "C:/"

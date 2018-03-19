@@ -890,7 +890,7 @@ int AUD_CheckProcessor()
     
     nTemp1 = ithReadRegH(0x16B4);
     nTemp2 = ithReadRegH(0x16B6);
-    printf("AUD_CheckProcessor %d %d 0x%x 0x%x \n", nTemp, nCount, nTemp1, nTemp2);
+    //printf("AUD_CheckProcessor %d %d 0x%x 0x%x \n", nTemp, nCount, nTemp1, nTemp2);
 }
 
 int32_t
@@ -1070,8 +1070,7 @@ AUD_LoadEngine(
             codec_start_addr  = (CODEC_BASE + CODEC_START_ADDR);
             __header          = (struct _codec_header *)(CODEC_BASE + CODEC_START_ADDR);
             codec_end_addr    = CODEC_BASE + CODEC_START_ADDR + RISC1_IMAGE_SIZE;
-	    printf("codec_start_addr: 0x%X, __header: 0x%X, codec_end_addr: 0x%X\n",
-	           codec_start_addr, __header, codec_end_addr);
+            //printf("codec_start_addr: 0x%X, __header: 0x%X, codec_end_addr: 0x%X\n",codec_start_addr, __header, codec_end_addr);
             //printf("__codec_ex_header->magic 0x%08x, expect value = 0x%08x  %d\n", TOINT(__codec_ex_header->magic), (CODEC_MAGIC),TOINT(__codec_ex_header->magic) != (CODEC_MAGIC) );
             //printf("__header->end_addr  0x%08x codec_end_addr 0x%08x RISC1_SIZE %d CODEC_START_ADDR 0x%x\n",TOINT((int)__header->end_addr),codec_end_addr,RISC1_SIZE,CODEC_START_ADDR);
             //printf(" CODEC_BASE 0x%x CODEC_START_ADDR 0x%x __header 0x%x 0x%x  0x%x,0x%x\n",CODEC_BASE,CODEC_START_ADDR,__header,codec_start_addr,codec_start_addr-CODEC_BASE,codec_end_addr-CODEC_BASE);
@@ -1093,7 +1092,7 @@ AUD_LoadEngine(
         }
 
         //LOG_DEBUG "Load audio plugin complete.\n" LOG_END
-        printf("[Audio Driver] load codec complete\n");
+        //printf("[Audio Driver] load codec complete\n");
     #endif
     #if defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
         //printf("[Audio Driver] load_addr 0x%08x end_addr 0x%08x stream 0x%08x \n",TOINT((int)__header->load_addr),TOINT((int)__header->end_addr),TOINT((int)__header->pStream));
@@ -1292,21 +1291,22 @@ AUD_LoadEngine(
 
     switch (audio_type)
     {
+        printf("[Audio Driver] %s %d audio_type = %d\n",__FUNCTION__,__LINE__,audio_type);
     case ITE_MP3_DECODE:
 #if HAVE_MP3
     #if defined(ENABLE_AUDIO_PROCESSOR) && defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
-        printf("[Audio Driver] mp3/wav audio plugin Audio_Plugin_Message_Buflen %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, Audio_Plugin_Message_Buf);
+        //printf("[Audio Driver] mp3/wav audio plugin Audio_Plugin_Message_Buflen %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, Audio_Plugin_Message_Buf);
         //__header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen, &AUD_freqAddress, &AUD_curPlayPos ,&Audio_Plugin_Message_Buf,&Audio_Plugin_Message_Buflen);
         Audio_Decode_Bufptr  = TOINT(gAudioStream->codecStreamBuf) + CODEC_BASE;
         Audio_Decode_Buflen  = TOINT(gAudioStream->codecStreamLength);
         Audio_Decode_Bufptr1 = TOINT(gAudioStream->codecStreamBuf1) + CODEC_BASE;
         Audio_Decode_Buflen1 = TOINT(gAudioStream->codecStreamLength1);
-        printf("[Audio Driver] Audio_Decode_Buf 0x%08x buf1 0x%08x Audio_Decode_Buflen %d len1 %d 0x%08x %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Bufptr1, Audio_Decode_Buflen, Audio_Decode_Buflen1, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength, gAudioStream->codecAudioPluginBuf, gAudioStream->codecAudioPluginLength);
+        //printf("[Audio Driver] Audio_Decode_Buf 0x%08x buf1 0x%08x Audio_Decode_Buflen %d len1 %d 0x%08x %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Bufptr1, Audio_Decode_Buflen, Audio_Decode_Buflen1, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength, gAudioStream->codecAudioPluginBuf, gAudioStream->codecAudioPluginLength);
     #else
         __header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen, &AUD_freqAddress, &AUD_curPlayPos);
     #endif
         Audio_Decode_Buflen1 = Audio_Decode_Buflen2 = Audio_Decode_Buflen;
-        printf("[Audio Driver] Audio_Decode_Bufptr1 0x%x \n", Audio_Decode_Bufptr1);
+        //printf("[Audio Driver] Audio_Decode_Bufptr1 0x%x \n", Audio_Decode_Bufptr1);
 #endif
         AUD_SKIP             = !HAVE_MP3;
         break;
@@ -1314,11 +1314,11 @@ AUD_LoadEngine(
     case ITE_WMA_DECODE:
 #if HAVE_WMA
     #if defined(ENABLE_AUDIO_PROCESSOR) && defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
-        printf("[Audio Driver] wma  audio plugin buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
+        //printf("[Audio Driver] wma  audio plugin buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
         //__header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen, &AUD_freqAddress ,&Audio_Plugin_Message_Buf,&Audio_Plugin_Message_Buflen);
         Audio_Decode_Bufptr = TOINT(gAudioStream->codecStreamBuf) + CODEC_BASE;
         Audio_Decode_Buflen = TOINT(gAudioStream->codecStreamLength);
-        printf("[Audio Driver] stream buffer 0x%08x length %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
+        //printf("[Audio Driver] stream buffer 0x%08x length %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
     #else
         __header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen, &AUD_freqAddress);
     #endif
@@ -1329,12 +1329,12 @@ AUD_LoadEngine(
     case ITE_AAC_DECODE:
 #if HAVE_AAC
     #if defined(ENABLE_AUDIO_PROCESSOR) && defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
-        printf("[Audio Driver] aac audio plugin message buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, Audio_Plugin_Message_Buflen, Audio_Plugin_Message_Buf);
+        //printf("[Audio Driver] aac audio plugin message buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, Audio_Plugin_Message_Buflen, Audio_Plugin_Message_Buf);
         //__header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen,&Audio_Plugin_Message_Buf,&Audio_Plugin_Message_Buflen);
         Audio_Decode_Bufptr = TOINT(gAudioStream->codecStreamBuf) + CODEC_BASE;
         Audio_Decode_Buflen = TOINT(gAudioStream->codecStreamLength);
-        printf("[Audio Driver] stream buffer 0x%08x length %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
-        ithPrintf("[Audio Driver] stream buffer 0x%08x length %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
+        //printf("[Audio Driver] stream buffer 0x%08x length %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
+        //ithPrintf("[Audio Driver] stream buffer 0x%08x length %d  0x%08x %d \n", Audio_Decode_Bufptr, Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
     #else
         __header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen);
     #endif
@@ -1345,11 +1345,11 @@ AUD_LoadEngine(
     case ITE_AC3_DECODE:
 #if HAVE_AC3
     #if defined(ENABLE_AUDIO_PROCESSOR) && defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
-        printf("[Audio Driver] ac3 audio plugin buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
+        //printf("[Audio Driver] ac3 audio plugin buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
         //__header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen,&Audio_Plugin_Message_Buf,&Audio_Plugin_Message_Buflen);
         Audio_Decode_Bufptr = TOINT(gAudioStream->codecStreamBuf) + CODEC_BASE;
         Audio_Decode_Buflen = TOINT(gAudioStream->codecStreamLength);
-        printf("[Audio Driver] stream buffer 0x%08x 0x%x length %d  0x%08x %d \n", Audio_Decode_Bufptr, TOINT(gAudioStream->codecStreamBuf), Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
+        //printf("[Audio Driver] stream buffer 0x%08x 0x%x length %d  0x%08x %d \n", Audio_Decode_Bufptr, TOINT(gAudioStream->codecStreamBuf), Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
     #else
         __header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen);
     #endif
@@ -1369,11 +1369,11 @@ AUD_LoadEngine(
     case ITE_AMR_CODEC:
 #if HAVE_AMR
     #if defined(ENABLE_AUDIO_PROCESSOR) && defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
-        printf("[Audio Driver] Amr audio plugin buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
+        //printf("[Audio Driver] Amr audio plugin buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
         //__header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen,&Audio_Encode_Bufptr, &Audio_Encode_Buflen,&Audio_Plugin_Message_Buf,&Audio_Plugin_Message_Buflen);
         Audio_Decode_Bufptr = TOINT(gAudioStream->codecStreamBuf) + CODEC_BASE;
         Audio_Decode_Buflen = TOINT(gAudioStream->codecStreamLength);
-        printf("[Audio Driver] stream buffer 0x%08x 0x%x length %d  0x%08x %d \n", Audio_Decode_Bufptr, TOINT(gAudioStream->codecStreamBuf), Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
+        //printf("[Audio Driver] stream buffer 0x%08x 0x%x length %d  0x%08x %d \n", Audio_Decode_Bufptr, TOINT(gAudioStream->codecStreamBuf), Audio_Decode_Buflen, gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength);
     #else
         __header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen,
                              &Audio_Encode_Bufptr, &Audio_Encode_Buflen);
@@ -1401,10 +1401,10 @@ AUD_LoadEngine(
     case ITE_WAV_DECODE:
 #if HAVE_WAV
     #if defined(ENABLE_AUDIO_PROCESSOR) && defined(AUDIO_PLUGIN_MESSAGE_QUEUE)
-        printf("[Audio Driver] wav audio plugin message buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
+        //printf("[Audio Driver] wav audio plugin message buffer-length %d 0x%x 0x%x\n", Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buflen, &Audio_Plugin_Message_Buf);
         Audio_Decode_Bufptr = TOINT(gAudioStream->codecStreamBuf) + CODEC_BASE;
         Audio_Decode_Buflen = TOINT(gAudioStream->codecStreamLength);
-        printf("[Audio Driver] 0x%08x %d  0x%08x %d 0x%08x 0x%08x\n", gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength, Audio_Decode_Bufptr, Audio_Decode_Buflen, TOINT(gAudioStream->codecStreamBuf), CODEC_BASE);
+        //printf("[Audio Driver] 0x%08x %d  0x%08x %d 0x%08x 0x%08x\n", gAudioStream->codecStreamBuf, gAudioStream->codecStreamLength, Audio_Decode_Bufptr, Audio_Decode_Buflen, TOINT(gAudioStream->codecStreamBuf), CODEC_BASE);
     #else
         __header->codec_info(&Audio_Decode_Bufptr, &Audio_Decode_Buflen, &Audio_Encode_Bufptr, &Audio_Encode_Buflen, &AUD_freqAddress);
     #endif
@@ -1921,7 +1921,7 @@ iteAudioReadStream(
         readableQueueLen = residualLength;
 
     //ithInvalidateDCache();
-    ithInvalidateDCacheRange(Audio_Encode_Bufptr, Audio_Encode_Buflen);
+    ithInvalidateDCacheRange((void*)Audio_Encode_Bufptr, Audio_Encode_Buflen);
     if (readableQueueLen != 0)
     {
         bottomLen = Audio_Encode_Buflen - Audio_Encode_Rdptr;
@@ -2412,7 +2412,7 @@ audioReadCodec(ITE_AUDIO_ENGINE audio_type)
     int           i;
 
 #if defined(DRIVER_CODEC) && !defined(CFG_COMPRESS_AUDIO_PLUGIN)
-    unsigned char *pImgBuf = NULL;
+    const unsigned char *pImgBuf = NULL;
 
     for (i = 0; g_codec_image[i].id != ITE_RESERVED; ++i)
     {
@@ -2974,7 +2974,7 @@ iteAudioGetAttrib(
         break;
 
     case ITE_AUDIO_I2S_PTR:
-        *((uint32_t *)(value)) = AUD_pI2Sptr;
+        *((uint32_t *)(value)) = (uint32_t)AUD_pI2Sptr;
         break;
 
     case ITE_AUDIO_I2S_INIT:
@@ -3403,6 +3403,7 @@ iteAudioStop(
     ithWriteRegH(MMIO_PTS_WRIDX, 0);
     ithWriteRegH(MMIO_PTS_HI, 0);
     ithWriteRegH(MMIO_PTS_LO, 0);
+    AUD_SKIP = 1;    
     do
     {
         regData = ithReadRegH(DrvAudioCtrl);
@@ -3417,6 +3418,7 @@ iteAudioStop(
 #ifndef CFG_RISC_TS_DEMUX_PLUGIN
             i2s_deinit_DAC();
 #endif
+            ithWriteRegMaskH(DrvAudioCtrl, 0, DrvDecode_PAUSE);
             return 0;
         }
         usleep(1000);
@@ -3424,6 +3426,7 @@ iteAudioStop(
         if (timeout == 0)
         {
             ithWriteRegMaskH(DrvAudioCtrl, (0 << 6), DrvDecode_STOP);
+            ithWriteRegMaskH(DrvAudioCtrl, 0, DrvDecode_PAUSE);
 #ifndef CFG_RISC_TS_DEMUX_PLUGIN
             i2s_deinit_DAC();
 #endif
@@ -3475,6 +3478,7 @@ iteAudioStopQuick(
         if (timeout == 0)
         {
             ithWriteRegMaskH(DrvAudioCtrl, (0 << 6), DrvDecode_STOP);
+            ithWriteRegMaskH(DrvAudioCtrl, 0, DrvDecode_PAUSE);            
             printf("[Audio Driver] Stop ,Can not correctly set end of stream, reset engine\n");
             return AUDIO_ERROR_ENGINE_UNKNOW_ENGINE_TYPE;
         }
@@ -4081,7 +4085,7 @@ iteAudioSetSuspendEngine(
     uint16_t volume_status)
 {
     int32_t  nResult;
-    uint8_t  *pAddress;
+    uint8_t  *pAddress = 0;
     uint32_t length;
     uint16_t value;
     uint32_t i;
@@ -4447,7 +4451,7 @@ iteAecCommand(
     // get reply data
     reply  = ithReadRegH(AEC_COMMAND_REPLY);
     //ithInvalidateDCache();
-    ithInvalidateDCacheRange(Audio_Parameter_Cmdptr, 16);
+    ithInvalidateDCacheRange((void*)Audio_Parameter_Cmdptr, 16);
     result = pParameter[4];
     if (value)
         *value = pParameter[5];
@@ -4461,7 +4465,7 @@ iteAecCommand(
         size = param3;
         det  = (unsigned char *)param2;
         src  = (unsigned char *)Audio_Echocc_Bufptr;		
-		ithInvalidateDCacheRange(Audio_Echocc_Bufptr, size);
+		ithInvalidateDCacheRange((void*)Audio_Echocc_Bufptr, size);
 #if (CFG_CHIP_FAMILY == 9070 || CFG_CHIP_FAMILY == 9850)
         for (i = 0; i < size; i += 2)
         {

@@ -24,10 +24,12 @@
    It's for workaround the reset I2S engine issue.
    and it will take 1~500 ms as the price.        
 ********************************************************/
-//#define ENABLE_FORCE_RESET_RW_POINTER
 
 //#define I2S_DEBUG_SET_CLOCK
-#define I2S_DEBUG_DEINIT_DAC_COST
+//#define I2S_DEBUG_DEINIT_DAC_COST
+
+//#define DEBUG_PRINT printf
+#define DEBUG_PRINT(...)
 
 #define DA_PTR_SIZE_WIDTH   32
 #define AD_PTR_SIZE_WIDTH   32 /* 16:9070; 32:9910 32:9850*/
@@ -77,11 +79,6 @@ u32 i2s_is_DAstarvation(void);
 static void _i2s_power_on(void);
 static void _i2s_power_off(void);
 static void _i2s_reset(void);
-
-#ifdef	ENABLE_FORCE_RESET_RW_POINTER
-static void _i2s_reset_AD_RWptr(void);
-static void _i2s_reset_DA_RWptr(void);
-#endif
 
 static void _i2s_aws_sync(void);
 static void _i2s_set_clock(u32 demanded_sample_rate);
@@ -157,28 +154,6 @@ u32 I2S_DA32_GET_WP(void)
 
 void I2S_DA32_SET_WP(u32 data32)
 {
-	/* check if enable the "last write pointer" function. */
-	if( reg_read16(I2S_REG_OUTPUT_CTL2)&0x4 )
-	{		
-		u32 WPtr=I2S_DA32_GET_WP();
-		
-		if( WPtr&0x7 )	printf("I2S# waring, WP is not 8B alignment.\n");
-		else
-		{
-			u32 cnt=0;
-			/* if enable, then wait the RW=WP, */
-			while( I2S_DA32_GET_RP() != WPtr )
-			{
-				if(cnt++>1000)	break;
-				usleep(1000);
-			}
-			if(cnt++>1000)	printf("I2S# waring, wait for RP=WP timeout.\n");
-		}		
-
-		/* Disable this function,and then set WP */
-		ithWriteRegMaskH(I2S_REG_OUTPUT_CTL2, 0, 1<<2);
-	}
-	
 	/* must be low then hi for hw design */
 	reg_write16(I2S_REG_OBUF_WP_LO, data32 & 0xFFFF);
 	reg_write16(I2S_REG_OBUF_WP_HI, data32 >> 16);
@@ -210,10 +185,10 @@ void I2S_DA32_WAIT_RP_EQUAL_WP(void)
 			/* if enable, then wait the RW=WP, */
 			while( I2S_DA32_GET_RP() != WPtr )
 			{
-				if(cnt++>1000)	break;
+				if(cnt++>5000)	break;
 				usleep(1000);
 			}
-			if(cnt++>1000)	printf("I2S# waring, wait for RP=WP timeout.\n");
+			if(cnt++>5000)	printf("I2S# waring, wait for RP=WP timeout.\n");
 		}		
 
 		/* Disable this function,and then set WP */
@@ -277,7 +252,7 @@ static void _i2s_power_on(void)
 	u16 data16;
 
 	if(_i2s_DA_running || _i2s_AD_running) {
-		printf("I2S# power on already, DA:%d, AD:%d\n", _i2s_DA_running, _i2s_AD_running);
+		DEBUG_PRINT("I2S# power on already, DA:%d, AD:%d\n", _i2s_DA_running, _i2s_AD_running);
 		return;
 	}
 
@@ -309,7 +284,7 @@ static void _i2s_power_on(void)
 		} while(((data16 >> 1) & 0x1) != 1);
 	}
 
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 }
 
 static void _i2s_power_off(void)
@@ -318,7 +293,7 @@ static void _i2s_power_off(void)
 	u16 data16;
 
 	if(_i2s_DA_running || _i2s_AD_running) {
-		printf("I2S# module still running, skip power-off, DA:%d, AD:%d\n", _i2s_DA_running, _i2s_AD_running);
+		DEBUG_PRINT("I2S# module still running, skip power-off, DA:%d, AD:%d\n", _i2s_DA_running, _i2s_AD_running);
 		return;
 	}
 
@@ -345,148 +320,24 @@ static void _i2s_power_off(void)
 	}
 #endif
 
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 }
 
 /*
  These 2 functions are for workaround the reset I2S engine issue.
  and it will take 1~500 ms as the price.
 */
-#ifdef	ENABLE_FORCE_RESET_RW_POINTER
-static void _i2s_reset_AD_RWptr(void)
-{
-	u32	buf_size = 0;
-	u32	buf_base = 0;
-	u32	cnt = 0;
-	u16	AD_r = 0;
-	u16	AD_w = 0;
-	
-	/* buffer length */
-//	buf_size = (u32)reg_read16(I2S_REG_IBUF_LEN) + 1;	 /* NOTE: add one for hardware design */
-	buf_size = (((u32)reg_read16(I2S_REG_IBUF_LEN_HI)<<16)&0xFFFF0000) | ((u32)reg_read16(I2S_REG_IBUF_LEN_LO))&0x0000FFFF;	
-	buf_size +=1;
-	
-	if(buf_size<512)
-	{
-		printf("I2S#  WARNING: AD reset: buf_size(%x)<512 !!\n",buf_size);
-		return;
-	}
-	
-	/* buffer base */
-	buf_base = (((u32)reg_read16(I2S_REG_IBUF_1_HI)<<16)&0xFFFF0000) | ((u32)reg_read16(I2S_REG_IBUF_1_LO))&0x0000FFFF;
-
-	if(!buf_base)
-	{
-		printf("I2S#  WARNING: AD reset: buf_base=0!!\n");
-		return;
-	}
-	
-	/* get DA RP & WP */
-	AD_r = I2S_AD32_GET_RP();
-	AD_w = I2S_AD32_GET_WP();
-	
-	/* AD_w=0 || AD_r=0, then skip reset flow */
-	if(!AD_w && !AD_r)
-	{
-		printf("I2S#  WARNING: AD_w(%x) or AD_r(%x) is 0!!\n",AD_w,AD_r);
-		return;
-	}
-	
-	/* set buf as 0 (No Necessary)*/
-	//memset((void*)(buf_base+AD_r), 0, (buf_size-AD_r) );
-	
-	/* set RP=0 */ 
-	if( (buf_size-AD_w) > 128 )	I2S_AD32_SET_RP(buf_size-64);
-	
-	I2S_AD32_SET_RP(0);
-	
-	while(1)
-	{
-		if(I2S_AD32_GET_WP()==0)	break;
-		
-		if(cnt++ > 500)
-		{	
-			printf("I2S# ERROR: can NOT reset AD R/W pointer,RP=%x,WP=%x,cnt=%d\n",I2S_AD32_GET_RP(),I2S_AD32_GET_WP(),cnt);
-			while(1);
-		}
-		usleep(10000);
-	}
-	
-	printf("I2S# reset AD R/W pointer success!![%x,%x],takes %d ms]\n",I2S_AD32_GET_RP(),I2S_AD32_GET_WP(),cnt*10);
-}
-
-static void _i2s_reset_DA_RWptr(void)
-{
-	u32	buf_size = 0;
-	u32	buf_base = 0;
-	u32	cnt = 0;
-	u32	DA_r = 0;
-	u32	DA_w = 0;
-	
-	/* buffer length */
-	buf_size = (((u32)reg_read16(I2S_REG_OBUF_LEN_HI)<<16)&0xFFFF0000) | ((u32)reg_read16(I2S_REG_OBUF_LEN_LO))&0x0000FFFF;	
-	buf_size +=1;
-	
-	/* buffer base */
-	buf_base = (((u32)reg_read16(I2S_REG_OBUF_1_HI)<<16)&0xFFFF0000) | ((u32)reg_read16(I2S_REG_OBUF_1_LO))&0x0000FFFF;
-	
-	if( (buf_size<512) || !buf_base )
-	{
-		printf("I2S# WARNING: buf_size(%x) or buf_base(%x) is 0!!\n",buf_size,buf_base);
-		return;
-	}
-	
-	printf("I2S# do reset DA ptr, buf=%x,size=%x\n",buf_base,buf_size);
-	
-	/* get DA RP & WP */
-	DA_r = I2S_DA32_GET_RP();
-	DA_w = I2S_DA32_GET_WP();
-	
-	/* DA_w=0 || DA_r=0, then skip reset flow */
-	if(!DA_w && !DA_r)
-	{
-		printf("I2S# WARNING: DA_w(%x) or DA_r(%x) is 0!!\n",DA_w,DA_r);
-		return;
-	}
-	
-	printf("I2S# do reset DA ptr, DA_r=%x,DA_w=%x\n",DA_r,DA_w);	
-	
-	/* set buf as 0*/
-	memset((void*)(buf_base+DA_r), 0, (buf_size-DA_r) );	
-	
-	/* set WP=0 */ 
-	if( (buf_size-DA_r) > 128 )	I2S_DA32_SET_WP(buf_size-64);
-	//printf("	** DA_r=%x, DA_w=%x**\n",I2S_DA32_GET_RP(),I2S_DA32_GET_WP());
-	I2S_DA32_SET_WP(0);
-	//printf("	*2 DA_r=%x, DA_w=%x**\n",I2S_DA32_GET_RP(),I2S_DA32_GET_WP());
-	
-	while(1)
-	{
-		if(I2S_DA32_GET_RP()==0)	break;
-		//printf("	** DA_r=%x **\n",I2S_DA32_GET_RP());
-		
-		if(cnt++ > 500)
-		{	
-			printf("I2S ERROR: can NOT reset DA R/W pointer,RP=%x,WP=%x,cnt=%d\n",I2S_DA32_GET_RP(),I2S_DA32_GET_WP(),cnt);
-			while(1);
-		}
-		usleep(1000);
-	}
-	
-	printf("I2S# reset DA R/W pointer success!![%x,%x],takes %d ms]\n",I2S_DA32_GET_RP(),I2S_DA32_GET_WP(),cnt*10);
-}
-#endif
 
 static void _i2s_reset(void)
 {
 	u16 data16;
 
 	if(_i2s_DA_running) {
-		printf("I2S# DAC is running, skip reset I2S !\n");
+		DEBUG_PRINT("I2S# DAC is running, skip reset I2S !\n");
 		return;
 	}
 	if(_i2s_AD_running) {
-		printf("I2S# ADC is running, skip reset I2S !\n");
+		DEBUG_PRINT("I2S# ADC is running, skip reset I2S !\n");
 		return;
 	}
 
@@ -503,54 +354,6 @@ static void _i2s_reset(void)
 	reg_write16(MMP_AUDIO_CLOCK_REG_3E, data16);
 
 	i2s_delay_us(100); /* FIXME: dummy loop */;
-
-//	while(reg_read16(I2S_PCM_RDPTR) != 0); /* FIXME: why ? */
-//	while(I2S_AD16_GET_WP() != 0);         /* FIXME: why ? */
-
-	{
-		u32 cWP,cRP;
-		u32 ori_size;
-		u32 bufSize;	
-		u32 bufBase;
-		u8 *oBuf=NULL;
-		
-		/* reduce the buffer for faster around */
-		cRP = I2S_DA32_GET_RP();
-		cWP = I2S_DA32_GET_WP();
-		
-		if(cRP || cWP)
-		{
-			bufSize = (cWP + 32 )&(~0x1F);
-			
-			ori_size = reg_read16(I2S_REG_OBUF_LEN_HI);
-			ori_size = (ori_size<<16) | reg_read16(I2S_REG_OBUF_LEN_LO);
-			
-			reg_write16(I2S_REG_OBUF_LEN_LO, (bufSize-1)&0xFFFF);
-			reg_write16(I2S_REG_OBUF_LEN_HI, (bufSize-1)>>16);
-			
-			//printf("	getObufLen1:[%04x,%04x]cWP=%x,bufsz=%x\n",reg_read16(I2S_REG_OBUF_LEN_HI),reg_read16(I2S_REG_OBUF_LEN_LO),cWP,bufSize);				
-			 	
-			bufBase = reg_read16(I2S_REG_OBUF_1_HI);
-			bufBase = (bufBase<<16) | reg_read16(I2S_REG_OBUF_1_LO);
-			oBuf = (u8*)bufBase;
-			
-			memset((u8*)&oBuf[cWP], 0, bufSize-cWP);
-			/* TODO: set other OutBuffer as 0(NOT only buffer1) */    
-        	
-			I2S_DA32_SET_WP(0);
-			I2S_AD32_SET_RP(0);
-	    	
-			while(I2S_DA32_GET_RP() || I2S_AD32_GET_WP());
-	    	
-			/* restore buffer size*/
-			reg_write16(I2S_REG_OBUF_LEN_LO, (ori_size)&0xFFFF);
-			reg_write16(I2S_REG_OBUF_LEN_HI, (ori_size)>>16);
-			
-			//printf("	getObufLen2:[%04x,%04x]\n",reg_read16(I2S_REG_OBUF_LEN_HI),reg_read16(I2S_REG_OBUF_LEN_LO),cWP,ori_size);	
-		}
-	}
-
-	printf("I2S# %s\n", __func__);
 }
 
 static void _i2s_aws_sync(void)
@@ -588,15 +391,16 @@ static void _i2s_set_clock(u32 demanded_sample_rate)
 	int i;
 
 	if(_i2s_DA_running) {
-		printf("I2S# DAC is running, skip set clock !\n");
+		DEBUG_PRINT("I2S# DAC is running, skip set clock !\n");
 		return;
 	}
 	if(_i2s_AD_running) {
-		printf("I2S# ADC is running, skip set clock !\n");
+		DEBUG_PRINT("I2S# ADC is running, skip set clock !\n");
 		return;
 	}
-
+#ifdef I2S_DEBUG_SET_CLOCK
 	printf("I2S# %s, demanded_sample_rate: %u\n", __func__, demanded_sample_rate);
+#endif
 
 	#ifdef	ENABLE_192KHZ_SAMPLE_RATE
 	if     ((demanded_sample_rate > 182400) && (demanded_sample_rate < 210600)) { target_sample_rate = 192000; }
@@ -880,7 +684,7 @@ static void _i2s_set_clock(u32 demanded_sample_rate)
 static void _i2s_enable_fading(u32 fading_step, u32 fading_duration)
 {
 	u16 data16;
-//	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
     reg_write16(I2S_REG_FADE_OUT_EN, 0x1);
 	data16 = reg_read16(I2S_REG_FADE_OUT_SET);
 	data16 |= ((fading_step & 0xF) << 8);
@@ -892,7 +696,7 @@ static void _i2s_enable_fading(u32 fading_step, u32 fading_duration)
 static void _i2s_disable_fading(void)
 {
     u16 data16;
-//	printf("I2S# %s\n", __func__);
+    DEBUG_PRINT("I2S# %s\n", __func__);
 	data16 = reg_read16(I2S_REG_FADE_OUT_EN);
 	data16 &= ~(1 << 0);    
 	reg_write16(I2S_REG_FADE_OUT_EN, 0x0);
@@ -900,7 +704,7 @@ static void _i2s_disable_fading(void)
 
 static void _i2s_use_GPIO_MODE3(void) /* GPIO settings for CFG3 */
 {
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 
 	ithGpioSetMode(10, ITH_GPIO_MODE2); /* ZCLK     (CODEC-BCLK)   */
 	ithGpioSetMode( 7, ITH_GPIO_MODE2); /* AMCLK    (CODEC-MCLK)   */
@@ -909,23 +713,11 @@ static void _i2s_use_GPIO_MODE3(void) /* GPIO settings for CFG3 */
 
 	if(_g_UseOutputPin)		ithGpioSetMode(5, ITH_GPIO_MODE2); /* DATA-OUT (CODEC-DACDAT) */
 
-	/* 9850-EVB with WM8778, no AMCLK (CODEC-MCLK) signal found at GPIO-PIN-7 */
-	/* so, we enhance the GPIO-11 driving */
-	{
-		u32 data32;
-
-		data32 = ithReadRegA(0xDE000000 | 0x130); /* 0x8130 */
-
-		data32 &= ~(3 << 14);
-		data32 |= (0 << 14); /* 0:OK, 3:OK, but '0' is better */
-
-		ithWriteRegA(0xDE000000 | 0x130, data32); /* [15:14] GPIO-7 Driving Setting */
-	}
 }
 
 static void _i2s_use_GPIO_MODE2(void) /* GPIO settings for CFG2 */
 {
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 
 	ithGpioSetMode(10, ITH_GPIO_MODE2); /* ZCLK     (CODEC-BCLK)   */
 	ithGpioSetMode(11, ITH_GPIO_MODE2); /* AMCLK    (CODEC-MCLK)   */
@@ -933,24 +725,11 @@ static void _i2s_use_GPIO_MODE2(void) /* GPIO settings for CFG2 */
 	ithGpioSetMode(12, ITH_GPIO_MODE2); /* DATA-IN  (CODEC-ADCDAT) */
 
 	if(_g_UseOutputPin)		ithGpioSetMode(13, ITH_GPIO_MODE2); /* DATA-OUT (CODEC-DACDAT) */
-
-	/* 9850-EVB with WM8778, no AMCLK (CODEC-MCLK) signal found at GPIO-PIN-11 */
-	/* so, we enhance the GPIO-11 driving */
-	{
-		u32 data32;
-
-		data32 = ithReadRegA(0xDE000000 | 0x130); /* 0x8130 */
-
-		data32 &= ~(3 << 22);
-		data32 |= (0 << 22); /* 0:OK, 3:OK, but '0' is better */
-
-		ithWriteRegA(0xDE000000 | 0x130, data32); /* [23:22] GPIO-11 Driving Setting */
-	}
 }
 
 static void _i2s_use_GPIO_MODE1(void) /* GPIO settings for CFG2 */
 {
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 
 	ithGpioSetMode(35, ITH_GPIO_MODE1); /* ZCLK     (CODEC-BCLK)   */
 	ithGpioSetMode(32, ITH_GPIO_MODE1); /* AMCLK    (CODEC-MCLK)   */
@@ -959,18 +738,6 @@ static void _i2s_use_GPIO_MODE1(void) /* GPIO settings for CFG2 */
 
 	if(_g_UseOutputPin)		ithGpioSetMode(34, ITH_GPIO_MODE1); /* DATA-OUT (CODEC-DACDAT) */
 
-	/* 9850-EVB with WM8778, no AMCLK (CODEC-MCLK) signal found at GPIO-PIN-32 */
-	/* so, we enhance the GPIO-32 driving */
-	{
-		u32 data32;
-
-		data32 = ithReadRegA(0xDE000000 | 0x138); /* 0x8138 */
-
-		data32 &= ~(3 << 0);
-		data32 |= (0 << 0); /* 0:OK, 3:OK, but '0' is better */
-
-		ithWriteRegA(0xDE000000 | 0x138, data32); /* [15:14] GPIO-7 Driving Setting */
-	}
 }
 
 /* ************************************************************************** */
@@ -986,14 +753,14 @@ void i2s_CODEC_standby(void)
 
 void i2s_volume_up(void)
 {
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 
 	itp_codec_playback_amp_volume_up();
 }
 
 void i2s_volume_down(void)
 {
-	printf("I2S# %s\n", __func__);
+	DEBUG_PRINT("I2S# %s\n", __func__);
 
 	itp_codec_playback_amp_volume_down();
 }
@@ -1022,7 +789,7 @@ void i2s_enable_fading(int yesno){
     if(yesno){
 //		_i2s_enable_fading(0xF, 0x01); /* fast response */
 //		_i2s_enable_fading(0x7, 0x7F); /* moderato */      
-        _i2s_enable_fading(0x1, 0xFF); /* slow response */
+        _i2s_enable_fading(0x1, 0x7F); 
         reg_write16(I2S_REG_DIG_OUT_VOL, 0xFF00);    
     }else{
         _i2s_disable_fading();
@@ -1070,18 +837,14 @@ void i2s_deinit_ADC(void)
 {
 	u16 data16;
 
-	if(0 == _i2s_AD_running) {
-		printf("I2S# ADC is 'NOT' running, skip deinit ADC !\n");
+	if(!_i2s_AD_running) {
+		DEBUG_PRINT("I2S# ADC is 'NOT' running, skip deinit ADC !\n");
 		return;
 	}
 
 	printf("I2S# %s +\n", __func__);
 
     pthread_mutex_lock(&I2S_MUTEX);
-
-    #ifdef	ENABLE_FORCE_RESET_RW_POINTER
-	if(_i2s_DA_running)	_i2s_reset_AD_RWptr();
-	#endif
 
 	/* disable hardware I2S */
 	{
@@ -1114,24 +877,24 @@ void i2s_deinit_DAC(void)
 	static struct timeval tv_pollE;
 #endif
 
-    _i2s_disable_fading();
+    //_i2s_disable_fading();
 	pthread_mutex_lock(&I2S_MUTEX);
 
-	if(0 == _i2s_DA_running) {
-		printf("I2S# DAC is 'NOT' running, skip deinit DAC !\n");
+	if(!_i2s_DA_running) {
+		DEBUG_PRINT("I2S# DAC is 'NOT' running, skip deinit DAC !\n");
 		pthread_mutex_unlock(&I2S_MUTEX);
 		return;
 	}
+
+#ifdef I2S_DEBUG_DEINIT_DAC_COST
+	gettimeofday(&tv_pollS, NULL); //-*-
+#endif
 
 	printf("I2S# %s +\n", __func__);
 
 	/* FIXME: SPDIF */
 	#ifdef I2S_USE_SPDIF
 	if(_g_UseSpdif)	_deinit_spdif();
-	#endif
-
-	#ifdef	ENABLE_FORCE_RESET_RW_POINTER
-	if(_i2s_AD_running)	_i2s_reset_DA_RWptr();
 	#endif
 
 	itp_codec_playback_deinit();
@@ -1144,10 +907,6 @@ void i2s_deinit_DAC(void)
 	do {
 		data16 = reg_read16(I2S_REG_OUTPUT_CTL2);
 	} while(data16 & 0x3);
-
-#ifdef I2S_DEBUG_DEINIT_DAC_COST
-	gettimeofday(&tv_pollS, NULL); //-*-
-#endif
 
 	do
 	{
@@ -1163,17 +922,17 @@ void i2s_deinit_DAC(void)
 		i2s_memcnt = (out_status_2 >> 0) & 0x7F;
 	} while(/*!i2s_idle*/ !pipe_idle || (i2s_memcnt != 0));
 
-#ifdef I2S_DEBUG_DEINIT_DAC_COST
-	gettimeofday(&tv_pollE, NULL); //-*-
-	printf("I2S# DEINIT_DAC_COST: %ld (ms)\n", TV_CAL_DIFF_MS(tv_pollE, tv_pollS));
-#endif
-
 	_i2s_DA_running = 0; /* put before _i2s_reset() */
 	_i2s_reset();
 
 	_i2s_power_off();
 
 	printf("I2S# %s -\n", __func__);
+    
+#ifdef I2S_DEBUG_DEINIT_DAC_COST
+	gettimeofday(&tv_pollE, NULL); //-*-
+	printf("I2S# DEINIT_DAC_COST: %ld (ms)\n", TV_CAL_DIFF_MS(tv_pollE, tv_pollS));
+#endif    
 	pthread_mutex_unlock(&I2S_MUTEX);
 }
 
@@ -1184,16 +943,24 @@ void i2s_init_DAC(STRC_I2S_SPEC *i2s_spec)
 	u16 data16;
 //	u32 data32;
 	u8 resolution_type;
+#ifdef I2S_DEBUG_DEINIT_DAC_COST
+	static struct timeval tv_pollS;
+	static struct timeval tv_pollE;
+#endif    
 
 	pthread_mutex_lock(&I2S_MUTEX);
 
 	if(_i2s_DA_running) {
-		printf("I2S# DAC is running, skip re-init !\n");
+		DEBUG_PRINT("I2S# DAC is running, skip re-init !\n");
 		pthread_mutex_unlock(&I2S_MUTEX);
 		return;
 	}
-
-//	printf("I2S# %s +\n", __func__);
+    printf("I2S# %s +\n", __func__);
+#ifdef I2S_DEBUG_DEINIT_DAC_COST
+	gettimeofday(&tv_pollS, NULL); //-*-
+#endif    
+    
+    if(itp_codec_get_DA_running()) itp_codec_playback_deinit();
 
 	if(_g_UseSpdif)	
 	{
@@ -1349,6 +1116,11 @@ void i2s_init_DAC(STRC_I2S_SPEC *i2s_spec)
 
     
 	printf("I2S# %s -\n", __func__);
+    
+#ifdef I2S_DEBUG_DEINIT_DAC_COST
+	gettimeofday(&tv_pollE, NULL); //-*-
+	printf("I2S# INIT_DAC_COST: %ld (ms)\n", TV_CAL_DIFF_MS(tv_pollE, tv_pollS));
+#endif        
 	pthread_mutex_unlock(&I2S_MUTEX);
 }
 
@@ -1359,7 +1131,7 @@ void i2s_init_ADC(STRC_I2S_SPEC *i2s_spec)
 	u8 resolution_type;
 
 	if(_i2s_AD_running) {
-		printf("I2S# ADC is running, skip re-init ADC !\n");
+		DEBUG_PRINT("I2S# ADC is running, skip re-init ADC !\n");
 		return;
 	}
 
@@ -1477,7 +1249,7 @@ int  i2s_get_DA_running(void)
 
 void i2s_mute_DAC(int mute)
 {
-	//printf("I2S# %s(%d)\n", __func__, mute);
+	DEBUG_PRINT("I2S# %s(%d)\n", __func__, mute);
 	if(mute)
 	{
 		itp_codec_playback_mute();
@@ -1557,7 +1329,7 @@ void i2s_ADC_get_volstep_range(unsigned *max, unsigned *normal, unsigned *min)
 
 void i2s_mute_ADC(int mute)
 {
-	printf("I2S# %s(%d)\n", __func__, mute);
+	DEBUG_PRINT("I2S# %s(%d)\n", __func__, mute);
 
 	if(mute) { itp_codec_rec_mute(); }
 	else     { itp_codec_rec_unmute(); }
@@ -1565,7 +1337,7 @@ void i2s_mute_ADC(int mute)
 
 void i2s_set_linein_bypass(int bypass)
 {
-	printf("I2S# %s(%d)\n", __func__, bypass);
+	DEBUG_PRINT("I2S# %s(%d)\n", __func__, bypass);
 	itp_codec_playback_linein_bypass(bypass);
 }
 

@@ -13,7 +13,10 @@
 #define IIC_PORT IIC_PORT_0
 #else
 #define IIC_PORT IIC_PORT_1
-#endif  
+#endif
+
+//#define DEBUG_PRINT printf
+#define DEBUG_PRINT(...)
 
 /* ************************************************************************** */
 /* wrapper */
@@ -65,10 +68,10 @@ static void I2C_common_write_word(unsigned char RegAddr, unsigned short d)
 	else
     	tmp = (d&0x00FF) << 8 | (d&0xFF00)  >> 8;
     
-    ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: internal HDMI IIC */
+    //ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: internal HDMI IIC */
     for(retry=0; retry<50; retry++)
     {
-        if(0 == (flag = mmpIicSendData(IIC_PORT, IIC_MASTER_MODE, ALC5616_I2CADR, RegAddr, &tmp, 2)))
+        if(0 == (flag = mmpIicSendData(IIC_PORT, IIC_MASTER_MODE, ALC5616_I2CADR, RegAddr, (uint8_t*)&tmp, 2)))
         {
         	success = 1;
 #ifdef ALC5616_DEBUG_I2C_COMMON_WRITE
@@ -81,21 +84,20 @@ static void I2C_common_write_word(unsigned char RegAddr, unsigned short d)
     	printf("ALC5616# IIC Write Fail!\n");
     	while(1) { usleep(500000); }
     }
-    ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: external APB IIC */
+    //ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: external APB IIC */
 }
 
 static unsigned short I2C_common_read_word(unsigned char RegAddr)
 {
-    
     int success = 0;
     int flag;
     int retry = 0;
     unsigned short d, tmp = 0;
     
-    ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: internal HDMI IIC */
+    //ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: internal HDMI IIC */
     for(retry=0; retry<50; retry++)
     {
-        if(0 == (flag = mmpIicReceiveData(IIC_PORT, IIC_MASTER_MODE, ALC5616_I2CADR, &RegAddr, 1, &d, 2)))
+        if(0 == (flag = mmpIicReceiveData(IIC_PORT, IIC_MASTER_MODE, ALC5616_I2CADR, &RegAddr, 1, (uint8_t*)&d, 2)))
         {
             success = 1;
 #ifdef ALC5616_DEBUG_I2C_COMMON_WRITE
@@ -108,7 +110,7 @@ static unsigned short I2C_common_read_word(unsigned char RegAddr)
         printf("ALC5616# IIC Write Fail!\n");
         while(1) { usleep(500000); }
     }
-    ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: external APB IIC */
+    //ithWriteRegMaskA(ITH_GPIO_BASE | 0xD0, (0 << 28), (0x3 << 28)); /* IIC: external APB IIC */
 
 	if (CFG_CHIP_FAMILY == 9910)
 		tmp = d;
@@ -120,7 +122,6 @@ static unsigned short I2C_common_read_word(unsigned char RegAddr)
 
 static void alc5616_write_reg(unsigned char reg_addr, unsigned short value)
 {
-
 #ifdef ALC5616_DEBUG_PROGRAM_REGVALUE
 	printf("ALC5616# write reg[0x%02x] = 0x%04x\n", reg_addr, value);
 #endif
@@ -139,7 +140,6 @@ static inline void alc5616_writeRegMask(uint16_t addr, uint16_t data, uint16_t m
 
 static void Dump_Register(void)
 {
-
 	unsigned short tempRegisterValue;
 	unsigned char addr; 
 
@@ -154,24 +154,23 @@ static void Dump_Register(void)
 		    break;
 		}    
 	}
-
 }
 
 static void init_alc5616_common(void)
 {
     pthread_mutex_lock(&ALC5616_MUTEX);
 
-	printf("ALC5616# %s\n", __func__);
+	DEBUG_PRINT("ALC5616# %s\n", __func__);
 
 	if(_alc5616_DA_running)
 	{
-		printf("ALC5616# DAC is running, skip re-init process !\n");
+		DEBUG_PRINT("ALC5616# DAC is running, skip re-init process !\n");
 		pthread_mutex_unlock(&ALC5616_MUTEX);
 		return;
 	}
 	if(_alc5616_AD_running)
 	{
-		printf("ALC5616# ADC is running, skip re-init process !\n");
+		DEBUG_PRINT("ALC5616# ADC is running, skip re-init process !\n");
 		pthread_mutex_unlock(&ALC5616_MUTEX);
 		return;
 	}
@@ -239,6 +238,11 @@ static void init_alc5616_common(void)
             alc5616_write_reg(0x3C, 0x1FFF);/* BST2 to RECMIXL */
         }
         
+        if(_alc5616_linein){
+            alc5616_writeRegMask(0x3C, (0<<5),(1<<5));//input L line-in to ADC
+            alc5616_writeRegMask(0x3E, (0<<5),(1<<5));//input R line-in to ADC
+        }
+        
         //if(_alc5616_linein)        
         //{
         //    alc5616_writeRegMask(0x14, (0<<10)|(0<<11)|(0<<2)|(0<<3), (1<<10)|(1<<11)|(1<<2)|(1<<3));       
@@ -256,7 +260,6 @@ static void init_alc5616_common(void)
         alc5616_write_reg(0x02, 0x2727); /* unmute HPOL/HPOVOLL & Gain -46.5dB:0x2727 0dB:0x0808 +12dB:0x0000*/
         alc5616_write_reg(0x45, 0x0000); /* unmute HPOLMIX*/
         alc5616_write_reg(0x29, 0x8080); /* stero ADC to DAC digital Mixer ctrl*/
-
 
         alc5616_write_reg(0xFA, 0x0011); /*General ctrl*/
         alc5616_write_reg(0x8F, 0x3100); /*Hp Amp ctrl2*/
@@ -276,7 +279,13 @@ static void init_alc5616_common(void)
             alc5616_write_reg(0x4F, 0x0279);/* Disable DAC L/R to Speaker Mixer*/
             alc5616_write_reg(0x52, 0x0279);/* Disable DAC L/R to Speaker Mixer*/
         }
-        usleep(50000);/* Delay (50 ms) to allow HP amps to settle */
+        
+        if(_alc5616_lineout){
+            alc5616_writeRegMask(0x4F, (0<<4),(1<<4));//L line-out to outmixer
+            alc5616_writeRegMask(0x52, (0<<4),(1<<4));//R line-out to outmixer        
+        }       
+        
+        usleep(10000);/* Delay (10 ms) to allow HP amps to settle */
 
         if(_alc5616_spkout)
         {
@@ -287,7 +296,6 @@ static void init_alc5616_common(void)
         {
             alc5616_write_reg(0x53, 0xF000);/* Mute OUTVOLL/R to LOUTMIX */
             alc5616_write_reg(0x66, 0x0000);/* OUTVOLL/R power down */
-            
         }
     }    
 #endif
@@ -298,17 +306,17 @@ static void init_alc5616_common(void)
 static void deinit_alc5616_common(void)
 {
 	pthread_mutex_lock(&ALC5616_MUTEX);
-	printf("ALC5616# %s\n", __func__);
+	DEBUG_PRINT("ALC5616# %s\n", __func__);
 
 	if(_alc5616_DA_running)
 	{
-		printf("ALC5616# DAC is running, skip deinit !\n");
+		DEBUG_PRINT("ALC5616# DAC is running, skip deinit !\n");
 		pthread_mutex_unlock(&ALC5616_MUTEX);
 		return;
 	}
 	if(_alc5616_AD_running)
 	{
-		printf("ALC5616# ADC is running, skip deinit !\n");
+		DEBUG_PRINT("ALC5616# ADC is running, skip deinit !\n");
 		pthread_mutex_unlock(&ALC5616_MUTEX);
 		return;
 	}
@@ -322,24 +330,24 @@ static void deinit_alc5616_common(void)
 	/* just decrease output volume */
 	{
 		unsigned short data16;
-		unsigned short tmp, adj = curr_out1_volume;
-		if(adj != MIN_OUT1_VOLUME) {
-			do
-			{
-				adj--;
+		unsigned short tmp, adj = MIN_OUT1_VOLUME;
+		//if(adj != MIN_OUT1_VOLUME) {
+			//do
+			//{
+			//	adj--;
 				tmp = (adj << 8)|adj;
                 alc5616_write_reg(0x19, tmp);                				
 				i2s_delay_us(1000); /* FIXME: dummy loop */
-			} while(adj != MIN_OUT1_VOLUME);
-		}
+			//} while(adj != MIN_OUT1_VOLUME);
+		//}
 	}
 
 	pthread_mutex_unlock(&ALC5616_MUTEX);
 	return;
 }
+
 void itp_codec_wake_up(void)
 {
-
 	pthread_mutex_lock(&ALC5616_MUTEX);
 	printf("ALC5616# %s\n", __func__);
 	
@@ -353,6 +361,7 @@ void itp_codec_wake_up(void)
         itp_codec_playback_mute();
 	pthread_mutex_unlock(&ALC5616_MUTEX);
 }
+
 void itp_codec_standby(void)
 {
 	pthread_mutex_lock(&ALC5616_MUTEX);
@@ -368,7 +377,7 @@ void itp_codec_standby(void)
 /* DAC */
 void itp_codec_playback_init(unsigned output)
 {
-	printf("ALC5616# %s\n", __func__);
+	DEBUG_PRINT("ALC5616# %s\n", __func__);
 
 	switch(output)
 	{
@@ -399,7 +408,7 @@ void itp_codec_playback_init(unsigned output)
 
 void itp_codec_playback_deinit(void)
 {
-	printf("ALC5616# %s\n", __func__);
+	DEBUG_PRINT("ALC5616# %s\n", __func__);
 
 	_alc5616_DA_running = 0; /* put before deinit_alc5616_common() */
     if(_alc5616_spkout){
@@ -451,7 +460,6 @@ void itp_codec_playback_set_direct_vol(unsigned target_vol)
 
 	pthread_mutex_lock(&ALC5616_MUTEX);
 
-	
 	if(target_vol > MAX_OUT1_VOLUME)
 	{
 		 printf("ERROR# invalid target volume step: 0x%08x\n", target_vol);
@@ -525,12 +533,10 @@ void itp_codec_playback_get_vol_range(unsigned *max, unsigned *regular_0db, unsi
 
 void itp_codec_playback_mute(void)
 {
-	
 	pthread_mutex_lock(&ALC5616_MUTEX);
 
-    //printf("%s (%d)\n", __FUNCTION__, __LINE__);
+    DEBUG_PRINT("%s (%d)\n", __FUNCTION__, __LINE__);
     		
-
 	//i2s_delay_us(25000); /* FIXME: dummy loop */
     	
     /* DON'T turn off power in any case */
@@ -555,7 +561,6 @@ void itp_codec_playback_mute(void)
 
 void itp_codec_playback_unmute(void)
 {
-
     if(curr_out1_volume == MIN_OUT1_VOLUME) 
     {// vol = min (mute volume) 
         itp_codec_playback_mute();
@@ -566,7 +571,7 @@ void itp_codec_playback_unmute(void)
     //unsigned short data16;
     //unsigned short adj, tmp = 0x00;
 
-    //printf("%s (%d)\n", __FUNCTION__, __LINE__);
+    DEBUG_PRINT("%s (%d)\n", __FUNCTION__, __LINE__);
 
 	//if     (curr_out1_volume > MAX_OUT1_VOLUME) { curr_out1_volume = MAX_OUT1_VOLUME; }
 	//else if(curr_out1_volume < MIN_OUT1_VOLUME) { curr_out1_volume = MIN_OUT1_VOLUME; }
@@ -602,37 +607,31 @@ void itp_codec_playback_linein_bypass(unsigned bypass)
 	
 //	pthread_mutex_lock(&ALC5616_MUTEX);
 
-
 //	pthread_mutex_unlock(&ALC5616_MUTEX);
 }
-
 
 /* ADC */
 void itp_codec_rec_init(unsigned input_source)
 {
-	printf("ALC5616# %s\n", __func__);
+	DEBUG_PRINT("ALC5616# %s\n", __func__);
 	
 	switch(input_source)
 	{
 		case 1: /* LineIN only */
-		{
 			_alc5616_micin  = 0;
 			_alc5616_linein = 1;
 			break;
-		}
+
 		case 2: /* MICIN only */
-		{
 			_alc5616_micin  = 1;
 			_alc5616_linein = 0;
 			break;
-		}
+
 		case 0: /* both LineIN & MICIN */
 		default:
-		{
 			_alc5616_micin  = 1;
 			_alc5616_linein = 1;
 			break;
-		}
 	}
 
 	init_alc5616_common();
@@ -641,7 +640,7 @@ void itp_codec_rec_init(unsigned input_source)
 
 void itp_codec_rec_deinit(void)
 {
-	printf("ALC5616# %s\n", __func__);
+	DEBUG_PRINT("ALC5616# %s\n", __func__);
 
 	_alc5616_AD_running = 0; /* put before deinit_alc5616_common() */
 	deinit_alc5616_common();
@@ -671,7 +670,6 @@ void itp_codec_rec_set_direct_vol(unsigned target_vol)
 		//if(direction == 1) { curr_input_pga_volume++; }
 		//else               { curr_input_pga_volume--; }
 
-		
 		if(_alc5616_AD_running)
 		{		   
 		   alc5616_writeRegMask(0x1C, curr_input_pga_volume << 8, 0x7F << 8);
@@ -788,3 +786,6 @@ void itp_codec_set_i2s_sample_rate(int samplerate)
 	pthread_mutex_unlock(&ALC5616_MUTEX);
 }
 
+int itp_codec_get_DA_running(void){
+    return _alc5616_DA_running;
+}

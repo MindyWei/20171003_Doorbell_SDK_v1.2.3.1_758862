@@ -170,6 +170,7 @@ typedef struct PlayerInstance {
     bool            get_first_I_frame;
     bool            audio_is_sync;
     bool            first_pkt_is_audio;
+    bool            audio_seek_req;
 #endif
 
     // Used in test player
@@ -1274,7 +1275,7 @@ static int audio_thread(void *arg)
 #ifdef AV_SYNC_STC
             double  ref_clock, diff, audio_pts, audio_threshold;
             int64_t stc_time;
-            if (!is->get_first_I_frame && !is->first_pkt_is_audio)
+            if (!is->get_first_I_frame && !is->first_pkt_is_audio && !is->audio_seek_req)
             {
                 is->audio_is_sync = true;
                 audio_pts         = (double)pkt.pts * av_q2d(is->audio_st->time_base);
@@ -1299,15 +1300,24 @@ static int audio_thread(void *arg)
                 ref_clock = (double)stc_time / 90000;
                 audio_pts = (double)pkt.pts * av_q2d(is->audio_st->time_base);
                 diff      = audio_pts - ref_clock;
-                if (diff < 0)
+                if (fabs(diff) > 1)
                 {
                     av_free_packet(&pkt);
+                    if(fabs(diff)>1) is->seek_req = 1;
                     continue;
                 }
-                else if (diff > 0)
+                else if (fabs(diff) < 1)
                 {
-                    usleep(diff * 1000000);
+                    //usleep(diff * 1000000);
                     is->audio_is_sync = true;
+                    is->audio_seek_req = true;
+                    is->first_pkt_is_audio = true;
+                    packet_queue_flush(&is->audioq);
+                    flush_audio_hw(is);
+                    #ifdef CFG_BUILD_ITV
+                    fc_sync_settime(&is->stc, audio_pts * 90000);//force sync 
+                    #endif
+                    continue;
                 }
                 else
                     is->audio_is_sync = true;
@@ -1322,7 +1332,7 @@ static int audio_thread(void *arg)
             audio_pts = (double)pkt.pts * av_q2d(is->audio_st->time_base);
             diff      = audio_pts - ref_clock;
             //printf("ref_clock = %f, audio_pts = %f, diff = %f\n", ref_clock, audio_pts, diff);
-            if(diff > 0)
+            if(diff > 0 && diff < 1)
             {
                 usleep(diff * 1000000);
             }
@@ -1954,6 +1964,7 @@ void *read_thread(void *arg)
     is->exclock         = 0;
     is->frame_count     = 0;
     is->total_duration  = 0;
+    is->audio_seek_req  = false;
 
     memset(st_index, -1, sizeof(st_index));
 
@@ -2093,10 +2104,7 @@ seekto:
             {
                 if (is->audio_stream >= 0)
                 {
-                    packet_queue_flush(&is->audioq);
-                    //packet_queue_put(&is->audioq, &flush_pkt);
-                    //avcodec_flush_buffers(is->audio_st->codec);
-                    flush_audio_hw(is);
+                    is->audio_seek_req     = true;
                 }
                 if (is->video_stream >= 0)
                 {
@@ -2107,6 +2115,8 @@ seekto:
                 if (is->subtitle_stream >= 0)
                 {
                     avcodec_flush_buffers(is->subtitle_st->codec);
+                    //packet_queue_put(&is->audioq, &flush_pkt);
+                    //avcodec_flush_buffers(is->audio_st->codec);
                 }
             }
 #ifdef AV_SYNC_STC
