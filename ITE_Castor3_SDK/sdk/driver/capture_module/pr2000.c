@@ -56,7 +56,7 @@ static uint16_t gtPR2000CurMode  = 0xFF;
 static uint16_t gtPR2000PreMode  = 0xFF;
 static uint16_t gtPR2000CurDev   = 0xFF;
 static MMP_BOOL gtPR2000InitDone = MMP_FALSE;
-PR2000_INPUT_MODE input_mode = PR2000_INPUT_YPBPR;
+PR2000_INPUT_MODE input_mode = PR2000_INPUT_YPBPR_PAL;
 
 /* 32-Lead LFCSP , page 108*/
 static REGPAIR  CVBS_INPUT[]      =
@@ -150,7 +150,7 @@ static CAP_TIMINFO_TABLE PR2000_TABLE [] =
 {
     //Index, HActive, VActive,  Rate,            FrameRate,                 Hpor,   Vpor,  HStar,     HEnd,   VStar1,   VEnd1,  VStar2,   VEnd2,
     //{0,     720,    487,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22 - 7,   261 - 7,   285 - 7,   524 - 7   }, //480i60     // Benson
-    {0,     720,    480,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22,   261,   285,   524   }, //480i60     // Benson
+    {0,     720,    480,        2997,   CAP_FRAMERATE_29_97HZ,            0,      0, 238 + 32,   1677 + 32,     22 - 7,   261 - 7,   285 - 7,   524 - 7   }, //480i60     // Benson
     {1,     720,    576,        2500,   CAP_FRAMERATE_25HZ,               0,      0, 264 + 18,   1703 + 18,     23 - 4,   310 - 4,   336 - 4,   623 - 4   }, //576i50
     {2,     1280,   720,        2500,   CAP_FRAMERATE_25HZ,               0,      0, 264 + 18,   1703 + 18,     23 - 4,   310 - 4,   336 - 4,   623 - 4   }, //720p50
 };      
@@ -342,7 +342,7 @@ PR2000_INPUT_STANDARD Get_Auto_Detection_Result_1()
 
 uint16_t _PR2000_InputSelection()
 {
-	return PR2000_INPUT_YPBPR;
+	return PR2000_INPUT_YPBPR_PAL;
 #if 0//def AUTO_DETECT_INPUT
 	uint16_t Value;
 
@@ -519,7 +519,7 @@ void PR2000GetProperty(CAP_GET_PROPERTY * pGetProperty)
 
 	//Get_Auto_Detection_Result();
 	pGetProperty->GetTopFieldPolarity = MMP_TRUE;
-    if(input_mode == PR2000_INPUT_YPBPR)
+    if(input_mode == PR2000_INPUT_YPBPR_PAL || input_mode == PR2000_INPUT_YPBPR_NTSC)
     {
 	    pGetProperty->GetHeight = 720;//PR2000_InHeight;
 	    pGetProperty->GetWidth  = 1280;//PR2000_InWidth;
@@ -567,7 +567,7 @@ void PR2000PowerDown(unsigned char enable)
 void PR2000ForCaptureDriverSetting(CAP_CONTEXT *Capctxt )
 {
     /* Input Format default Setting */
-    if(input_mode == PR2000_INPUT_YPBPR)
+    if(input_mode == PR2000_INPUT_YPBPR_PAL || input_mode == PR2000_INPUT_YPBPR_NTSC)
         Capctxt->Interleave   = Progressive;
     else
 	    Capctxt->Interleave   = Interleaving;
