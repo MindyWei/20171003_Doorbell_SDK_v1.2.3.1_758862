@@ -20,24 +20,24 @@
 *.pch
 
 # Libraries
-*.lib
-*.a
+# *.lib
+# *.a
 *.la
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
+# *.dll
 *.so
 *.so.*
 *.dylib
 
 # Executables
-*.exe
+# *.exe
 *.out
 *.app
 *.i*86
 *.x86_64
-*.hex
+# *.hex
 
 # Debug files
 *.dSYM/
@@ -47,7 +47,7 @@
 
 # Kernel Module Compile Results
 *.mod*
-*.cmd
+#*.cmd
 .tmp_versions/
 modules.order
 Module.symvers
